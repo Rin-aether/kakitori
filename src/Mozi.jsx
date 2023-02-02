@@ -218,7 +218,7 @@ const Mozi = () => {
   const buttonRef = useRef(null);
   const wrapRef = useRef(null);
 
-  const [result, setResult] = useState(["例", "赤坂", "青"]);
+  const [result, setResult] = useState(["例", "夢夢", "青"]);
 
   useEffect(() => {
     let canvasParent = wrapRef.current;
