@@ -1,0 +1,65 @@
+@use "../scss/base/variables" as vari;
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
+
+.mozi-wrap {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 255, 255, 0.4);
+}
+
+.mozi-canvas-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  transform: translateX(-50%) translateY(-3%);
+  width: 80%;
+  height: 30%;
+  background-color: #fff;
+  border: 2px solid;
+
+  canvas {
+    cursor: crosshair;
+  }
+}
+
+.result-wrap {
+  position: absolute;
+  width: 85%;
+  height: 150px;
+  left: 50%;
+  bottom: 28%;
+  transform: translateX(-50%) translateY(-28%);
+  margin-bottom: 10px;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+$button-size: 24vw;
+$button-size-pc: 7vw;
+.result {
+  width: $button-size;
+  height: $button-size;
+  color: #fff;
+  border-radius: 50%;
+  border: 2px solid;
+  background-color: blue;
+  overflow: hidden;
+  p {
+    // font-size: $button-size - 10vw;
+    text-align: center;
+    line-height: $button-size;
+    font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+    font-weight: bold;
+  }
+  @media screen and (min-width: 900px) {
+    //PC
+    width: $button-size-pc;
+    height: $button-size-pc;
+    p {
+      // font-size: 5vw;
+      line-height: $button-size-pc;
+    }
+  }
+}

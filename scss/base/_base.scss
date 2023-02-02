@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Line-bold";
+  src: url("../../WOFF2/LINESeedJP_OTF_Bd.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Line-Exbold";
+  src: url("../../WOFF2/LINESeedJP_OTF_Eb.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Line-normal";
+  src: url("../../WOFF2/LINESeedJP_OTF_Rg.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Line-thin";
+  src: url("../../WOFF2/LINESeedJP_OTF_Th.woff2") format("woff2");
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Line-Exbold", sans-serif;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+.App {
+  background: #fff;
+  box-shadow: 0 0 30px 3px rgba(110, 90, 70, 0.7);
+  width: 100vw;
+  max-width: 500px;
+  margin: auto;
+  height: 100vh;
+  position: relative;
+}
