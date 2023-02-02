@@ -218,7 +218,7 @@ const Mozi = () => {
   const buttonRef = useRef(null);
   const wrapRef = useRef(null);
 
-  const [result, setResult] = useState(["例", "赤", "青"]);
+  const [result, setResult] = useState(["例", "赤坂", "青"]);
 
   useEffect(() => {
     var canvas = new handwriting.Canvas(
@@ -245,7 +245,11 @@ const Mozi = () => {
       <div className="mozi-wrap">
         <h1 id="h1"></h1>
         <div className="result-wrap">
-          <div className="result" onClick={test2} style={{fontSize: `${6.6 / result[0].length}rem`}}>
+          <div
+            className="result"
+            onClick={test2}
+            style={{ fontSize: `${6.6 / result[0].length}rem` }}
+          >
             <p>{result[0]}</p>
           </div>
           <div className="result" onClick={test2}>
