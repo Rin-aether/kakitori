@@ -1,18 +1,18 @@
 @font-face {
   font-family: "Line-bold";
-  src: url("../../WOFF2/LINESeedJP_OTF_Bd.woff2") format("woff2");
+  src: url("/WOFF2/LINESeedJP_OTF_Bd.woff2") format("woff2");
 }
 @font-face {
   font-family: "Line-Exbold";
-  src: url("../../WOFF2/LINESeedJP_OTF_Eb.woff2") format("woff2");
+  src: url("/WOFF2/LINESeedJP_OTF_Eb.woff2") format("woff2");
 }
 @font-face {
   font-family: "Line-normal";
-  src: url("../../WOFF2/LINESeedJP_OTF_Rg.woff2") format("woff2");
+  src: url("/WOFF2/LINESeedJP_OTF_Rg.woff2") format("woff2");
 }
 @font-face {
   font-family: "Line-thin";
-  src: url("../../WOFF2/LINESeedJP_OTF_Th.woff2") format("woff2");
+  src: url("/WOFF2/LINESeedJP_OTF_Th.woff2") format("woff2");
 }
 
 html {
@@ -37,6 +37,6 @@ img {
   width: 100vw;
   max-width: 500px;
   margin: auto;
-  height: 100vh;
+  height: 100svh;
   position: relative;
 }
