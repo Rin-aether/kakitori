@@ -221,15 +221,15 @@ const Mozi = () => {
   const [result, setResult] = useState(["例", "夢夢", "青"]);
 
   useEffect(() => {
+    let canvasParent = wrapRef.current;
+    canvas.cxt.canvas.width = canvasParent.clientWidth; //縦と横
+    canvas.cxt.canvas.height = canvasParent.clientHeight;
+
     var canvas = new handwriting.Canvas(
       canvasRef.current,
       3,
       buttonRef.current
     );
-
-    let canvasParent = wrapRef.current;
-    canvas.cxt.canvas.width = canvasParent.clientWidth; //縦と横
-    canvas.cxt.canvas.height = canvasParent.clientHeight;
 
     canvas.setCallBack(function (data, err) {
       setResult(data);
