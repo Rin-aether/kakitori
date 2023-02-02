@@ -3,26 +3,32 @@ $main-color-light: #eee;
 
 //ボタンのborder,shadow定義
 @mixin btn-Inline($inColor: #e1e1e1, $shadowColor: #555577) {
-    box-shadow: 0 2px $shadowColor, inset 0 0 0 5px $inColor;
-  }
-  
-  @mixin btn-Gradation($firstColor, $secondColor) {
-    background: linear-gradient(135deg, $firstColor 10%, $secondColor 100%);
-  }
-  
-  
-  @mixin transition {
-    transition: all 0.15s;
-  }
-  @mixin push {
-    transition: all 0.15s;
-    transform: scale(0.95);
-  }
-  @mixin center-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1ch;
-  }
+  box-shadow: 0 2px $shadowColor, inset 0 0 0 5px $inColor;
+}
 
+@mixin btn-Gradation($firstColor, $secondColor) {
+  background: linear-gradient(135deg, $firstColor 10%, $secondColor 100%);
+}
+
+@mixin transition {
+  transition: all 0.15s;
+}
+@mixin push {
+  transition: all 0.15s;
+  transform: scale(0.95);
+}
+@mixin center-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1ch;
+}
+
+@mixin center-center2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1ch;
+}
