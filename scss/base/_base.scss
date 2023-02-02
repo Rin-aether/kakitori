@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: "Line-thin";
-  src: url("/WOFF2/LINESeedJP_OTF_Th.woff2") format("woff2");
+  src: url("../../WOFF2/LINESeedJP_OTF_Th.woff2") format("woff2");
 }
 
 html {
@@ -37,6 +37,6 @@ img {
   width: 100vw;
   max-width: 500px;
   margin: auto;
-  height: 100svh;
+  height: 100vh;
   position: relative;
 }
