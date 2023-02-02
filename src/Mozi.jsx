@@ -147,7 +147,7 @@ const Mozi = () => {
     };
 
     handwriting.Canvas.prototype.erase = function () {
-      this.cxt.clearRect(0, 0, this.width, this.height);
+      this.cxt.clearRect(0, 0, this.cxt.canvas.width, this.cxt.canvas.height);
       this.step = [];
       this.trace = [];
       this.ok_search = false;
@@ -221,15 +221,15 @@ const Mozi = () => {
   const [result, setResult] = useState(["例", "夢夢", "青"]);
 
   useEffect(() => {
-    let canvasParent = wrapRef.current;
-    canvas.cxt.canvas.width = canvasParent.clientWidth; //縦と横
-    canvas.cxt.canvas.height = canvasParent.clientHeight;
-
     var canvas = new handwriting.Canvas(
       canvasRef.current,
       3,
       buttonRef.current
     );
+
+    let canvasParent = wrapRef.current;
+    canvas.cxt.canvas.width = canvasParent.clientWidth; //縦と横
+    canvas.cxt.canvas.height = canvasParent.clientHeight;
 
     canvas.setCallBack(function (data, err) {
       setResult(data);
