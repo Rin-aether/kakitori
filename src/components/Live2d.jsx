@@ -71,7 +71,6 @@
 // export default Live2d;
 import { useState, useEffect, useRef } from "react";
 import "../../scss/live2d.scss";
-import "../../public/live2dcubismcore.js";
 
 const Live2d = () => {
   //appをindex.jsで使いたいのでスコープを外しています。
