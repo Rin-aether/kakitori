@@ -10,7 +10,7 @@ function App() {
     <>
       <div className="App">
       <Live2d />
-        <Mozi />
+        {/* <Mozi /> */}
       </div>
     
     </>
