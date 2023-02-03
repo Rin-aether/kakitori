@@ -9,8 +9,9 @@ function App() {
   return (
     <>
       <div className="App">
-        {/* <Mozi /> */}
+       
         <Live2d />
+        <Mozi />
       </div>
      
     </>
