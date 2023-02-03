@@ -9,11 +9,10 @@ function App() {
   return (
     <>
       <div className="App">
-       
-        <Live2d />
+      <Live2d />
         <Mozi />
       </div>
-     
+    
     </>
   );
 }
