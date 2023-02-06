@@ -34,6 +34,14 @@ const Mozi = () => {
   return (
     <>
       <div className="mozi-wrap">
+      <div className="rutika">
+        <img src="/images/rutika.png" alt="" />
+      </div>
+        <div className="q-wrap">
+          <h1>
+            千差<span>バンベツ</span>
+          </h1>
+        </div>
         <h1 id="h1"></h1>
         <div className="result-wrap">
           <div
