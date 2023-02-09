@@ -34,9 +34,9 @@ const Mozi = () => {
   return (
     <>
       <div className="mozi-wrap">
-      <div className="rutika">
-        <img src="/images/rutika.png" alt="" />
-      </div>
+        <div className="rutika">
+          <img src="/images/rutika.png" alt="" />
+        </div>
         <div className="q-wrap">
           <h1>
             千差<span>バンベツ</span>
@@ -51,10 +51,18 @@ const Mozi = () => {
           >
             <p>{result[0]}</p>
           </div>
-          <div className="result" onClick={test2}>
+          <div
+            className="result"
+            onClick={test2}
+            style={{ fontSize: `${6.7 / result[0].length}rem` }}
+          >
             <p>{result[1]}</p>
           </div>
-          <div className="result" onClick={test2}>
+          <div
+            className="result"
+            onClick={test2}
+            style={{ fontSize: `${6.7 / result[0].length}rem` }}
+          >
             <p>{result[2]}</p>
           </div>
         </div>
