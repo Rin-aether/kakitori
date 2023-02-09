@@ -38,5 +38,9 @@ img {
   height: 100vh;
   height: 100dvh;
   position: relative;
-  background-image: url(../../public/images/sougen.png);
+  background-image: url(/images/sougen.png);
+}
+
+::-webkit-full-page-media, :future, :root .class_name{
+  height: 98vh;
 }
