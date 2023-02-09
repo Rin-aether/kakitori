@@ -9,7 +9,7 @@ const Mozi = () => {
   const buttonRef = useRef(null);
   const wrapRef = useRef(null);
 
-  const [result, setResult] = useState(["例", "夢夢", "と"]);
+  const [result, setResult] = useState(["例", "夢", "と"]);
 
   useEffect(() => {
     var canvas = new handwriting.Canvas(

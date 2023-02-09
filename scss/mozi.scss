@@ -1,5 +1,4 @@
 @use "../scss/base/variables" as vari;
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
 
 .rutika {
   width: 100%;
@@ -12,26 +11,34 @@
   left: 50%;
   top: 40%;
   transform: translateX(-50%) translateY(-40%);
-  width: 90%;
-  // background-color: aqua;
+  width: 98%;
   margin: 0 auto;
   text-align: center;
+  -webkit-text-stroke: 2.5px #fff;
   h1 {
-    font-size: 4.8rem;
+    font-size: 4.2rem;
     color: #333333;
     letter-spacing: 0.15rem;
   }
   span {
-    font-size: 5.8rem;
-    color: #ff0000;
+    font-size: 6.2rem;
+    color: #ff3939;
     margin-left: 5px;
+  }
+  @media screen and (min-width: 900px) {
+    //PC
+    h1 {
+      font-size: 5.5rem;
+    }
+    span {
+      font-size: 7.5rem;
+    }
   }
 }
 
 .mozi-wrap {
   width: 100%;
   height: 100%;
-  // background-color: rgba(52, 241, 241, 0.4);
 }
 
 .mozi-canvas-wrap {
@@ -51,13 +58,11 @@
 
 .result-wrap {
   position: absolute;
-  width: 85%;
-  height: 150px;
+  width: 90%;
   left: 50%;
-  bottom: 25%;
-  transform: translateX(-50%) translateY(-25%);
+  bottom: 30%;
+  transform: translateX(-50%) translateY(-30%);
   margin-bottom: 10px;
-  // background-color: aquamarine;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -68,17 +73,39 @@ $button-size-pc: 7vw;
 .result {
   width: $button-size;
   height: $button-size;
-  color: #fff;
+  background-image: radial-gradient(rgba(255, 83, 83, 1) 60%, transparent 100%);
+  box-shadow: 0 0 20px #fff;
   border-radius: 50%;
-  border: 2px solid;
-  background-color: blue;
-  overflow: hidden;
+  position: relative;
+  display: flex; /* 上下左右中央揃えに */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border: 1.8px solid rgba(255, 255, 255,0.95);
+    border-radius: 50%;
+    box-sizing: border-box;
+    pointer-events: none;
+    animation: pulsate 2s linear infinite;
+  }
+  &::after{
+    animation-delay: 1s;
+  }
   p {
     // font-size: $button-size - 10vw;
-    text-align: center;
-    line-height: $button-size;
-    font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
-    font-weight: bold;
+    color: #fff;
+    font-family: "M PLUS Rounded 1c", sans-serif;
   }
   @media screen and (min-width: 900px) {
     //PC
@@ -86,7 +113,19 @@ $button-size-pc: 7vw;
     height: $button-size-pc;
     p {
       // font-size: 5vw;
-      line-height: $button-size-pc;
+      line-height: calc($button-size-pc - 0.5vw);
     }
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
   }
 }
