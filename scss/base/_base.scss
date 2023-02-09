@@ -35,15 +35,8 @@ img {
   width: 100vw;
   max-width: 500px;
   margin: auto;
-  height: 100vh;
+  height: 98vh;
+  height: 100svh;
   position: relative;
   background-image: url(/images/sougen.png);
-}
-
-::-webkit-full-page-media, :future, :root .App{
-  height: 93vh;
-}
-
-.App{
-  height: 100dvh;
 }
