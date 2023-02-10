@@ -3,14 +3,15 @@ import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 
 const Mozi = () => {
-  MoziFunction();
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
   const wrapRef = useRef(null);
 
   const [result, setResult] = useState(["例", "夢", "と"]);
-
+  MoziFunction(function () {
+    setResult(["", "", ""]);
+  });
   useEffect(() => {
     var canvas = new handwriting.Canvas(
       canvasRef.current,
@@ -31,9 +32,18 @@ const Mozi = () => {
     console.log("test2");
   };
 
+  const [a, b, c] = result;
+
   return (
     <>
       <div className="mozi-wrap">
+        {/* <div className="num-wrap">
+          {[1,2,3,4,5,6,7,8,9,10].map((v, i) => {
+
+            
+            return <div className="num">{i + 1}</div>;
+          })}
+        </div> */}
         <div className="rutika">
           <img src="/images/rutika.png" alt="" />
         </div>
@@ -45,21 +55,21 @@ const Mozi = () => {
         <h1 id="h1"></h1>
         <div className="result-wrap">
           <div
-            className="result"
+            className={a && b && c ? "result add" : "result"}
             onClick={test2}
             style={{ fontSize: `${6.7 / result[0].length}rem` }}
           >
             <p>{result[0]}</p>
           </div>
           <div
-            className="result"
+            className={a && b && c ? "result add" : "result"}
             onClick={test2}
             style={{ fontSize: `${6.7 / result[0].length}rem` }}
           >
             <p>{result[1]}</p>
           </div>
           <div
-            className="result"
+            className={a && b && c ? "result add" : "result"}
             onClick={test2}
             style={{ fontSize: `${6.7 / result[0].length}rem` }}
           >

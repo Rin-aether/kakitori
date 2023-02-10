@@ -1,4 +1,4 @@
-@use "../scss/base/variables" as vari;
+@use "../scss/base/variables";
 
 .rutika {
   width: 100%;
@@ -14,7 +14,7 @@
   width: 98%;
   margin: 0 auto;
   text-align: center;
-  -webkit-text-stroke: 2.5px #fff;
+  -webkit-text-stroke: 2.2px #fff;
   h1 {
     font-size: 4.2rem;
     color: #333333;
@@ -22,7 +22,7 @@
   }
   span {
     font-size: 6.2rem;
-    color: #ff3939;
+    color: #ff5353;
     margin-left: 5px;
   }
   @media screen and (min-width: 900px) {
@@ -48,9 +48,8 @@
   transform: translateX(-50%) translateY(-8px);
   width: 93%;
   height: 30%;
-  background-color: #fff;
-  border: 2px solid;
-
+  background-color: #fff4e9;
+  border: 10px #cd8c4c ridge;
   canvas {
     cursor: crosshair;
   }
@@ -73,14 +72,29 @@ $button-size-pc: 7vw;
 .result {
   width: $button-size;
   height: $button-size;
-  background-image: radial-gradient(rgba(255, 83, 83, 1) 60%, transparent 100%);
+  background-image: radial-gradient(#ff5353 60%, transparent 100%);
   box-shadow: 0 0 20px #fff;
   border-radius: 50%;
   position: relative;
-  display: flex; /* 上下左右中央揃えに */
-  align-items: center;
-  justify-content: center;
+  @include variables.center-center;
   cursor: pointer;
+  p {
+    // font-size: $button-size - 10vw;
+    color: #fff;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+  }
+  @media screen and (min-width: 900px) {
+    //PC
+    width: $button-size-pc;
+    height: $button-size-pc;
+    p {
+      // font-size: 5vw;
+      line-height: calc($button-size-pc - 0.5vw);
+    }
+  }
+}
+
+.add{
   &::before,
   &::after {
     content: "";
@@ -102,20 +116,6 @@ $button-size-pc: 7vw;
   &::after{
     animation-delay: 1s;
   }
-  p {
-    // font-size: $button-size - 10vw;
-    color: #fff;
-    font-family: "M PLUS Rounded 1c", sans-serif;
-  }
-  @media screen and (min-width: 900px) {
-    //PC
-    width: $button-size-pc;
-    height: $button-size-pc;
-    p {
-      // font-size: 5vw;
-      line-height: calc($button-size-pc - 0.5vw);
-    }
-  }
 }
 
 @keyframes pulsate {
@@ -128,4 +128,15 @@ $button-size-pc: 7vw;
     transform: scale(1.4);
     opacity: 0;
   }
+}
+
+.num-wrap{
+  width: 98%;
+  height: 100px;
+  background-color: #cd8c4c;
+}
+.num{
+  width: 100px;
+  height: 100px;
+  background-color: #ff5353;
 }

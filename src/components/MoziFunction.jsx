@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const MoziFunction = () => {
+const MoziFunction = (reset) => {
   (function (window, document) {
     var root = (typeof self === "object" && self.self === self && self) || this;
 
@@ -149,7 +149,7 @@ const MoziFunction = () => {
       this.step = [];
       this.trace = [];
       this.ok_search = false;
-      setResult(["", "", ""]);
+      reset();
     };
     ///////////////////////////////////////////////////////////////////////
 
@@ -211,7 +211,6 @@ const MoziFunction = () => {
         });
     };
   })(window, document);
-  
 };
 
 export default MoziFunction;
