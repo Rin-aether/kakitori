@@ -9,6 +9,7 @@ const Mozi = () => {
   const wrapRef = useRef(null);
 
   const [result, setResult] = useState(["例", "夢", "と"]);
+  const [quizNow, setQuizNow] = useState(5);
   
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -43,7 +44,7 @@ const Mozi = () => {
       <div className="mozi-wrap">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
-            return <div className="num" key={v}>{i + 1}</div>;
+            return <div className={i < quizNow -1  ? "num num-add" : "num"} key={v}>{i + 1}</div>;
           })}
         </div>
         <div className="rutika">

@@ -5,7 +5,7 @@
   img {
     position: absolute;
     width: 100%;
-    bottom: 150px;
+    bottom: 100px;
   }
 }
 .num-wrap {
@@ -23,11 +23,16 @@
 }
 .num {
   width: calc(100% / 10);
-  font-size: 1.75rem;
-  padding: 2px 0;
+  font-size: 1.5rem;
+  padding: 1px 0;
   color: rgba(255, 255, 255, 0.8);
   border-right: 3px solid rgba(128, 128, 128, 0.8);
   background: rgba(192, 192, 192, 0.8);
+}
+.num-add {
+  color: rgb(255, 170, 0);
+  background: rgba(255, 255, 69, 0.9);
+  border-right: 3px solid rgba(255, 170, 0, 0.8);
 }
 .num:last-child {
   border-right: none;
@@ -36,19 +41,19 @@
 .q-wrap {
   position: absolute;
   left: 50%;
-  top: 40%;
-  transform: translateX(-50%) translateY(-40%);
+  bottom: 42%;
+  transform: translateX(-50%) translateY(-42%);
   width: 98%;
   margin: 0 auto;
   text-align: center;
   -webkit-text-stroke: 2.2px #fff;
   h1 {
-    font-size: 4.2rem;
+    font-size: 4rem;
     color: #333333;
     letter-spacing: 0.15rem;
   }
   span {
-    font-size: 6.2rem;
+    font-size: 6rem;
     color: #ff5353;
     margin-left: 5px;
   }
@@ -71,12 +76,12 @@
 .mozi-canvas-wrap {
   position: absolute;
   left: 50%;
-  bottom: 6px;
-  transform: translateX(-50%) translateY(-6px);
+  bottom: 1%;
+  transform: translateX(-50%) translateY(-1%);
   width: 93%;
-  height: 30%;
-  background-color: #fff4e9;
-  border: 10px #cd8c4c ridge;
+  height: 29%;
+  background-color: rgba(255, 244, 233, 0.9);
+  border: 11px rgb(205, 140, 76, 1) ridge;
   canvas {
     cursor: crosshair;
   }
@@ -86,8 +91,8 @@
   width: 48px;
   height: 48px;
   position: absolute;
-  left: 8px;
-  bottom: 8px;
+  left: 1.2%;
+  bottom: 1.2%;
   border: none;
   appearance: none;
   cursor: pointer;
@@ -108,8 +113,8 @@
   position: absolute;
   width: 90%;
   left: 50%;
-  bottom: 30%;
-  transform: translateX(-50%) translateY(-30%);
+  bottom: 28%;
+  transform: translateX(-50%) translateY(-28%);
   margin-bottom: 10px;
   display: flex;
   justify-content: space-around;
@@ -128,7 +133,7 @@ $button-size-pc: 7vw;
   @include variables.center-center;
   cursor: pointer;
   opacity: 0;
-	pointer-events: none;
+  pointer-events: none;
   &:active {
     @include variables.push;
   }
@@ -173,9 +178,15 @@ $button-size-pc: 7vw;
     animation-delay: 1s;
   }
 }
-@keyframes scale-up{
-  0% {opacity: 0; transform: scale(0.4);}
-  100% {opacity: 1; transform: scale(1);}
+@keyframes scale-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes pulsate {
@@ -190,6 +201,6 @@ $button-size-pc: 7vw;
   }
 }
 
-.display-none{
+.display-none {
   display: none;
 }
