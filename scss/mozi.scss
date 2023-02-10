@@ -8,30 +8,29 @@
     bottom: 150px;
   }
 }
-.num-wrap{
+.num-wrap {
   width: 97%;
-	height: auto;
+  height: auto;
   position: absolute;
   top: 3px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-	text-align: center;
-	border: 2px solid rgba(128,128,128,.8);
-	box-shadow: 0 0 4px 2px #fff;
-	border-radius: 4px;
+  text-align: center;
+  border: 2.5px solid rgba(128, 128, 128, 0.8);
+  box-shadow: 0 0 4px 2px #fff;
+  border-radius: 4px;
 }
-.num{
+.num {
   width: calc(100% / 10);
-  font-size: 1.7rem;
-	padding: 2px 0;
-	font-weight: bold;
-	color:rgba(255,255,255,.8);
-	border-right: 3px solid rgba(128,128,128,.8);
-	background: rgba(192,192,192,.8);
+  font-size: 1.75rem;
+  padding: 2px 0;
+  color: rgba(255, 255, 255, 0.8);
+  border-right: 3px solid rgba(128, 128, 128, 0.8);
+  background: rgba(192, 192, 192, 0.8);
 }
-.num:last-child{
-	border-right: none;
+.num:last-child {
+  border-right: none;
 }
 
 .q-wrap {
@@ -82,6 +81,28 @@
     cursor: crosshair;
   }
 }
+.erase-btn {
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
+  border-radius: 5px;
+  @include variables.center-center;
+  box-shadow: 0 0 10px #fff;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  &:active {
+    @include variables.push;
+  }
+  img {
+    width: 95%;
+  }
+}
 
 .result-wrap {
   position: absolute;
@@ -106,6 +127,11 @@ $button-size-pc: 7vw;
   position: relative;
   @include variables.center-center;
   cursor: pointer;
+  opacity: 0;
+	pointer-events: none;
+  &:active {
+    @include variables.push;
+  }
   p {
     // font-size: $button-size - 10vw;
     color: #fff;
@@ -122,7 +148,9 @@ $button-size-pc: 7vw;
   }
 }
 
-.add{
+.add {
+  animation: scale-up 0.5s 0s 1 forwards;
+  pointer-events: auto;
   &::before,
   &::after {
     content: "";
@@ -135,15 +163,19 @@ $button-size-pc: 7vw;
     margin: auto;
     width: 100%;
     height: 100%;
-    border: 1.9px solid rgba(255, 255, 255,0.95);
+    border: 1.9px solid rgba(255, 255, 255, 0.95);
     border-radius: 50%;
     box-sizing: border-box;
     pointer-events: none;
     animation: pulsate 2s linear infinite;
   }
-  &::after{
+  &::after {
     animation-delay: 1s;
   }
+}
+@keyframes scale-up{
+  0% {opacity: 0; transform: scale(0.4);}
+  100% {opacity: 1; transform: scale(1);}
 }
 
 @keyframes pulsate {
@@ -158,6 +190,6 @@ $button-size-pc: 7vw;
   }
 }
 
-.erase-btn{
+.display-none{
   display: none;
 }

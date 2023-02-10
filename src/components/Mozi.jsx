@@ -9,9 +9,11 @@ const Mozi = () => {
   const wrapRef = useRef(null);
 
   const [result, setResult] = useState(["例", "夢", "と"]);
+  
   MoziFunction(function () {
     setResult(["", "", ""]);
   });
+
   useEffect(() => {
     var canvas = new handwriting.Canvas(
       canvasRef.current,
@@ -27,21 +29,21 @@ const Mozi = () => {
       setResult(data);
     });
   }, [canvasRef]);
+  const [a, b, c] = result;
 
-  const test2 = () => {
-    console.log("test2");
+
+  const test2 = (event) => {
+    console.log(event.target.textContent);
   };
 
-  const [a, b, c] = result;
+
 
   return (
     <>
       <div className="mozi-wrap">
         <div className="num-wrap">
-          {[1,2,3,4,5,6,7,8,9,10].map((v, i) => {
-
-            
-            return <div className="num">{i + 1}</div>;
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
+            return <div className="num" key={v}>{i + 1}</div>;
           })}
         </div>
         <div className="rutika">
@@ -83,8 +85,8 @@ const Mozi = () => {
           </div>
           <br />
 
-          <button className="erase-btn" ref={buttonRef}>
-            クリア
+          <button className={a && b && c ? "erase-btn" : "display-none"} ref={buttonRef}>
+           <img src="/images/kesi.png" alt="" />
           </button>
         </div>
       </div>
