@@ -9,13 +9,11 @@ function App() {
 
   return (
     <>
-     <Keikoku/>
-     
       <div className="App">
         {/* <Live2d /> */}
-
         <Mozi />
       </div>
+      <Keikoku />
     </>
   );
 }
