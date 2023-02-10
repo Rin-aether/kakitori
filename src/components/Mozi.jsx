@@ -37,13 +37,13 @@ const Mozi = () => {
   return (
     <>
       <div className="mozi-wrap">
-        {/* <div className="num-wrap">
+        <div className="num-wrap">
           {[1,2,3,4,5,6,7,8,9,10].map((v, i) => {
 
             
             return <div className="num">{i + 1}</div>;
           })}
-        </div> */}
+        </div>
         <div className="rutika">
           <img src="/images/rutika.png" alt="" />
         </div>
@@ -83,7 +83,7 @@ const Mozi = () => {
           </div>
           <br />
 
-          <button className="button" ref={buttonRef}>
+          <button className="erase-btn" ref={buttonRef}>
             クリア
           </button>
         </div>

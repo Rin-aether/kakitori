@@ -3,9 +3,37 @@
 .rutika {
   width: 100%;
   img {
+    position: absolute;
     width: 100%;
+    bottom: 150px;
   }
 }
+.num-wrap{
+  width: 97%;
+	height: auto;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+	text-align: center;
+	border: 2px solid rgba(128,128,128,.8);
+	box-shadow: 0 0 4px 2px #fff;
+	border-radius: 4px;
+}
+.num{
+  width: calc(100% / 10);
+  font-size: 1.7rem;
+	padding: 2px 0;
+	font-weight: bold;
+	color:rgba(255,255,255,.8);
+	border-right: 3px solid rgba(128,128,128,.8);
+	background: rgba(192,192,192,.8);
+}
+.num:last-child{
+	border-right: none;
+}
+
 .q-wrap {
   position: absolute;
   left: 50%;
@@ -44,8 +72,8 @@
 .mozi-canvas-wrap {
   position: absolute;
   left: 50%;
-  bottom: 8px;
-  transform: translateX(-50%) translateY(-8px);
+  bottom: 6px;
+  transform: translateX(-50%) translateY(-6px);
   width: 93%;
   height: 30%;
   background-color: #fff4e9;
@@ -107,7 +135,7 @@ $button-size-pc: 7vw;
     margin: auto;
     width: 100%;
     height: 100%;
-    border: 1.8px solid rgba(255, 255, 255,0.95);
+    border: 1.9px solid rgba(255, 255, 255,0.95);
     border-radius: 50%;
     box-sizing: border-box;
     pointer-events: none;
@@ -130,13 +158,6 @@ $button-size-pc: 7vw;
   }
 }
 
-.num-wrap{
-  width: 98%;
-  height: 100px;
-  background-color: #cd8c4c;
-}
-.num{
-  width: 100px;
-  height: 100px;
-  background-color: #ff5353;
+.erase-btn{
+  display: none;
 }
