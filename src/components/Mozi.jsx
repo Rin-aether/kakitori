@@ -97,7 +97,7 @@ const Mozi = () => {
 
           <div className="life-wrap">
             <img src="/images/heart.png" alt="" />
-            <span>✖</span><h2>{lifeNow}</h2>
+            <h3>✖</h3><h2>{lifeNow}</h2>
           </div>
         </div>
       </div>
