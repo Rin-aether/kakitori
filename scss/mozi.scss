@@ -219,10 +219,9 @@ $button-size-pc: 7vw;
 
 .result-push:active {
   transition: all 0.15s;
-  &:active{
+  &:active {
     @include variables.push;
   }
-
 }
 
 @keyframes pulsate {
@@ -239,4 +238,51 @@ $button-size-pc: 7vw;
 
 .display-none {
   display: none;
+}
+.check-wrap {
+  width: 100%;
+  height: 100%;
+  @include variables.center-center;
+  img {
+    position: absolute;
+    margin-right: -30px;
+    filter: drop-shadow(0px 0px 8px rgb(223, 223, 255));
+  }
+  .maru {
+    width: 75%;
+    visibility: hidden;
+  }
+  .batu {
+    width: 70%;
+    display: none;
+  }
+}
+
+.maru-add {
+  width: 75%;
+  visibility: visible;
+  animation: appear-up 1s ease-out 0s 1 forwards;
+}
+
+@keyframes appear-up {
+  0% {
+    transform: scale(0.4);
+  }
+  10% {
+    transform: scale(1.15);
+  }
+  20% {
+    transform: scale(0.95);
+  }
+  40% {
+    transform: scale(1);
+  }
+  85% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
 }

@@ -11,6 +11,7 @@ const Mozi = () => {
   const [result, setResult] = useState(["例", "夢", "凍"]);
   const [quizNow, setQuizNow] = useState(5);
   const [lifeNow, setLifeNow] = useState(3);
+  const [maru, setMaru] = useState(true);
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -72,7 +73,7 @@ const Mozi = () => {
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={test2}
-              style={{ fontSize: `${6.7 / result[0].length}rem` }}
+              style={{ fontSize: `${6.7 / result[1].length}rem` }}
             >
               <p>{result[1]}</p>
             </div>
@@ -81,7 +82,7 @@ const Mozi = () => {
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={test2}
-              style={{ fontSize: `${6.7 / result[0].length}rem` }}
+              style={{ fontSize: `${6.7 / result[2].length}rem` }}
             >
               <p>{result[2]}</p>
             </div>
@@ -101,12 +102,21 @@ const Mozi = () => {
             <img src="/images/kesi.png" alt="" />
           </button>
 
-          <div className="life-wrap">
+          <div className="life-wrap" onClick={() => setMaru(!maru)}>
             <img src="/images/heart.png" alt="" />
             <h3>✖</h3>
             <h2>{lifeNow}</h2>
           </div>
         </div>
+        <div className="check-wrap">
+          <img
+            className={maru ? "maru" : "maru-add"}
+            src="/images/maru.png"
+            alt=""
+          />
+          <img className="batu" src="/images/batu.png" alt="" />
+        </div>
+       
       </div>
     </>
   );
