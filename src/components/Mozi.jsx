@@ -10,7 +10,8 @@ const Mozi = () => {
 
   const [result, setResult] = useState(["例", "夢", "と"]);
   const [quizNow, setQuizNow] = useState(5);
-  
+  const [lifeNow, setLifeNow] = useState(3);
+
   MoziFunction(function () {
     setResult(["", "", ""]);
   });
@@ -32,19 +33,20 @@ const Mozi = () => {
   }, [canvasRef]);
   const [a, b, c] = result;
 
-
   const test2 = (event) => {
     console.log(event.target.textContent);
   };
-
-
 
   return (
     <>
       <div className="mozi-wrap">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
-            return <div className={i < quizNow -1  ? "num num-add" : "num"} key={v}>{i + 1}</div>;
+            return (
+              <div className={i < quizNow - 1 ? "num num-add" : "num"} key={v}>
+                {i + 1}
+              </div>
+            );
           })}
         </div>
         <div className="rutika">
@@ -86,9 +88,17 @@ const Mozi = () => {
           </div>
           <br />
 
-          <button className={a && b && c ? "erase-btn" : "display-none"} ref={buttonRef}>
-           <img src="/images/kesi.png" alt="" />
+          <button
+            className={a && b && c ? "erase-btn" : "display-none"}
+            ref={buttonRef}
+          >
+            <img src="/images/kesi.png" alt="" />
           </button>
+
+          <div className="life-wrap">
+            <img src="/images/heart.png" alt="" />
+            <span>✖</span><h2>{lifeNow}</h2>
+          </div>
         </div>
       </div>
     </>

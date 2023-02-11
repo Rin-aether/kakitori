@@ -6,11 +6,11 @@ const Keikoku = () => {
     visible && <>
        <div className="keikoku">
         <h2>
-          指が動かしやすいため、
+          動かしやすいため、
           <br />
           スマートフォンでのプレイをおすすめしています。
           <br />
-          (※PCでも全く問題なく遊べます！)
+          (※PCでも問題なく遊べます！)
         </h2>
         <button onClick={() => setVisible(false)}>✖</button>
       </div>
