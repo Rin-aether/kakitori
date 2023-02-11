@@ -59,26 +59,32 @@ const Mozi = () => {
         </div>
         <h1 id="h1"></h1>
         <div className="result-wrap">
-          <div
-            className={a && b && c ? "result add" : "result"}
-            onClick={test2}
-            style={{ fontSize: `${6.7 / result[0].length}rem` }}
-          >
-            <p>{result[0]}</p>
+          <div className="result-push">
+            <div
+              className={a && b && c ? "result add" : "result"}
+              onClick={test2}
+              style={{ fontSize: `${6.7 / result[0].length}rem` }}
+            >
+              <p>{result[0]}</p>
+            </div>
           </div>
-          <div
-            className={a && b && c ? "result add" : "result"}
-            onClick={test2}
-            style={{ fontSize: `${6.7 / result[0].length}rem` }}
-          >
-            <p>{result[1]}</p>
+          <div className="result-push">
+            <div
+              className={a && b && c ? "result add" : "result"}
+              onClick={test2}
+              style={{ fontSize: `${6.7 / result[0].length}rem` }}
+            >
+              <p>{result[1]}</p>
+            </div>
           </div>
-          <div
-            className={a && b && c ? "result add" : "result"}
-            onClick={test2}
-            style={{ fontSize: `${6.7 / result[0].length}rem` }}
-          >
-            <p>{result[2]}</p>
+          <div className="result-push">
+            <div
+              className={a && b && c ? "result add" : "result"}
+              onClick={test2}
+              style={{ fontSize: `${6.7 / result[0].length}rem` }}
+            >
+              <p>{result[2]}</p>
+            </div>
           </div>
         </div>
 
@@ -97,7 +103,8 @@ const Mozi = () => {
 
           <div className="life-wrap">
             <img src="/images/heart.png" alt="" />
-            <h3>✖</h3><h2>{lifeNow}</h2>
+            <h3>✖</h3>
+            <h2>{lifeNow}</h2>
           </div>
         </div>
       </div>
