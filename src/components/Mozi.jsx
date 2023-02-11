@@ -8,7 +8,7 @@ const Mozi = () => {
   const buttonRef = useRef(null);
   const wrapRef = useRef(null);
 
-  const [result, setResult] = useState(["例", "夢", "と"]);
+  const [result, setResult] = useState(["例", "夢", "凍"]);
   const [quizNow, setQuizNow] = useState(5);
   const [lifeNow, setLifeNow] = useState(3);
 
