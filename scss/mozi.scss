@@ -42,6 +42,7 @@
   width: 22%;
   height: auto;
   position: absolute;
+  z-index: 101;
   bottom: 1.2%;
   right: 1.2%;
   display: flex;
@@ -254,17 +255,23 @@ $button-size-pc: 7vw;
   }
   .batu {
     width: 70%;
-    display: none;
+    visibility: hidden;
   }
 }
 
 .maru-add {
   width: 75%;
   visibility: visible;
-  animation: appear-up 1s ease-out 0s 1 forwards;
+  animation: maru-up 1s ease-out 1 forwards;
 }
 
-@keyframes appear-up {
+.batu-add {
+  width: 70%;
+  visibility: visible;
+  animation: batu-up 1s ease-out 1 forwards;
+}
+
+@keyframes maru-up {
   0% {
     transform: scale(0.4);
   }
@@ -283,6 +290,98 @@ $button-size-pc: 7vw;
   }
   100% {
     transform: scale(0.7);
+    opacity: 0;
+  }
+}
+
+@keyframes batu-up {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  5% {
+    opacity: 1;
+    transform: translate(-5px, -0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(5px, 0);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-5px, -0);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(5px, 0);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-5px, -0);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.normal {
+  visibility: hidden;
+}
+
+.red-zone {
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(transparent, #fb3f3f);
+  position: absolute;
+  z-index: 100;
+  opacity: 0;
+  animation: red-zone 1s ease-out 1s 1 forwards;
+}
+
+@keyframes red-zone {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.black-zone{
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  z-index: 100;
+  opacity: 0;
+  animation: black-zone 1.5s ease-out 0s 1 forwards;
+}
+
+@keyframes black-zone {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
 }

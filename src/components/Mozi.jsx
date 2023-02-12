@@ -12,6 +12,7 @@ const Mozi = () => {
   const [quizNow, setQuizNow] = useState(5);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
+  const [batu, setBatu] = useState(true);
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -40,6 +41,8 @@ const Mozi = () => {
 
   return (
     <>
+     {/* <div className={batu ? "normal" : "black-zone"}></div> */}
+      <div className={batu ? "normal" : "red-zone"}></div>
       <div className="mozi-wrap">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
@@ -102,7 +105,7 @@ const Mozi = () => {
             <img src="/images/kesi.png" alt="" />
           </button>
 
-          <div className="life-wrap" onClick={() => setMaru(!maru)}>
+          <div className="life-wrap" onClick={() => setBatu(!batu)}>
             <img src="/images/heart.png" alt="" />
             <h3>✖</h3>
             <h2>{lifeNow}</h2>
@@ -114,10 +117,14 @@ const Mozi = () => {
             src="/images/maru.png"
             alt=""
           />
-          <img className="batu" src="/images/batu.png" alt="" />
+          <img
+            className={batu ? "batu" : "batu-add"}
+            src="/images/batu.png"
+            alt=""
+          />
         </div>
-       
       </div>
+    
     </>
   );
 };
