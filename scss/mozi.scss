@@ -360,7 +360,7 @@ $button-size-pc: 7vw;
   }
 }
 
-.black-zone{
+.black-zone {
   visibility: visible;
   width: 100%;
   height: 100%;
@@ -383,5 +383,137 @@ $button-size-pc: 7vw;
   }
   100% {
     opacity: 0;
+  }
+}
+
+$border-color: rgba(251, 255, 0, 0.6);
+.alert-area {
+  width: 120%;
+  position: absolute;
+  left: 50%;
+  bottom: 38%;
+  transform: translateX(-50%) translateY(-38%);
+  z-index: 90;
+  text-align: center;
+  h2 {
+    font-size: 6rem;
+    background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2.2px #fff;
+
+    border-bottom: 1.5px solid $border-color;
+    border-top: 1.5px solid $border-color;
+  }
+}
+
+.level {
+  visibility: hidden;
+}
+
+.level-add {
+  visibility: visible;
+  animation: level-up 1.2s ease-out 0s 1 forwards;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes level-up {
+  0% {
+    transform: translate(-300px, 0px);
+  }
+  25% {
+    transform: translate(-32px, 0px);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, 0px);
+    opacity: 0;
+  }
+}
+
+.clear-area{
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  bottom: 38%;
+  transform: translateX(-50%) translateY(-38%);
+  z-index: 101;
+  text-align: center;
+  h2 {
+    font-size: 6rem;
+    background-image: linear-gradient(0deg, #b8751e 0%, #ffce08 37%, #fefeb2 47%, #fafad6 50%, #fefeb2 53%, #e1ce08 63%, #b8751e 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    filter: drop-shadow(0px 0px 8px rgb(242, 255, 58));
+    letter-spacing: 0.1rem;
+    @media screen and (min-width: 900px) {
+      font-size: 7.1rem;
+    }
+  }
+}
+
+.clear {
+  visibility: hidden;
+}
+
+.clear-add {
+  visibility: visible;
+  opacity: 0;
+  animation: clear-add 2.5s ease-out 1s 1 forwards;
+}
+
+@keyframes clear-add {
+  0% {
+    transform: scale(6);
+  }
+  10% {
+    transform: scale(0.95);
+  }
+  12%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  76% {
+    transform: scale(1.2);
+  }
+  88% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+.clear-black{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.58);
+  position: absolute;
+  z-index: 100;
+  visibility: hidden;
+}
+
+.clear-black-add{
+  visibility: visible;
+  animation: clear-black 1s ease-in-out 0s 1 forwards;
+}
+
+@keyframes clear-black {
+  0% {
+    opacity: 0;
+  }
+  60%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }

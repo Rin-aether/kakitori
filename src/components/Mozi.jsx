@@ -8,11 +8,15 @@ const Mozi = () => {
   const buttonRef = useRef(null);
   const wrapRef = useRef(null);
 
+  const [question, setQuestion] = useState("千差<span>バンベツ</span>");
   const [result, setResult] = useState(["例", "夢", "凍"]);
+  const [alert, setAlert] = useState("LEVEL UP");
   const [quizNow, setQuizNow] = useState(5);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
+  const [level, setLevel] = useState(true);
+  const [clear, setClear] = useState(true);
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -41,8 +45,19 @@ const Mozi = () => {
 
   return (
     <>
-     {/* <div className={batu ? "normal" : "black-zone"}></div> */}
+      {/* <div className={batu ? "normal" : "black-zone"}></div> */}
       <div className={batu ? "normal" : "red-zone"}></div>
+      <div className={clear ? "clear-black" : "clear-black clear-black-add"}></div>
+      <div className="clear-area">
+        <div className={clear ? "clear" : "clear-add"}>
+          <h2>CLEAR</h2>
+        </div>
+      </div>
+      <div className="alert-area">
+        <div className={level ? "level" : "level-add"}>
+          <h2>{alert}</h2>
+        </div>
+      </div>
       <div className="mozi-wrap">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
@@ -56,11 +71,11 @@ const Mozi = () => {
         <div className="rutika">
           <img src="/images/rutika.png" alt="" />
         </div>
-        <div className="q-wrap">
+        {/* <div className="q-wrap">
           <h1>
-            千差<span>バンベツ</span>
+          <div dangerouslySetInnerHTML={{ __html: question }} />
           </h1>
-        </div>
+        </div> */}
         <h1 id="h1"></h1>
         <div className="result-wrap">
           <div className="result-push">
@@ -105,7 +120,7 @@ const Mozi = () => {
             <img src="/images/kesi.png" alt="" />
           </button>
 
-          <div className="life-wrap" onClick={() => setBatu(!batu)}>
+          <div className="life-wrap" onClick={() => setClear(!clear)}>
             <img src="/images/heart.png" alt="" />
             <h3>✖</h3>
             <h2>{lifeNow}</h2>
@@ -124,7 +139,6 @@ const Mozi = () => {
           />
         </div>
       </div>
-    
     </>
   );
 };
