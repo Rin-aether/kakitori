@@ -1,0 +1,24 @@
+@use "../scss/base/variables";
+
+.story-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-image: url(/images/white.png);
+  background-position: top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  overflow: hidden;
+}
+.rutika {
+  position: absolute;
+  width: 125%;
+  left: 50%;
+  bottom: -10%;
+  transform: translateX(-50%) translateY(10%);
+  img {
+    width: 100%;
+  }
+}

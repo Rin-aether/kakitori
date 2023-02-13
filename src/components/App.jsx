@@ -11,9 +11,8 @@ function App() {
   return (
     <>
       <div className="App">
-    <Live2d/>
-        {/* <Mozi /> */}
-        {/* <Story/> */}
+    {/* <Live2d/> */}
+        <Story/>
       </div>
       <Keikoku />
     </>
