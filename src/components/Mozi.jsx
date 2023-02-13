@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 
-const Mozi = () => {
+const Mozi = ({ motion }) => {
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -79,9 +79,7 @@ const Mozi = () => {
             );
           })}
         </div>
-        <div className="rutika">
-          <img src="/images/rutika.png" alt="" />
-        </div>
+
         <div className="q-wrap">
           <div className={go ? "question" : "q-add"}>
             <h1>
@@ -121,7 +119,10 @@ const Mozi = () => {
         </div>
 
         <div style={{ display: "inline-block" }}>
-          <div className={go ? "mozi-canvas-wrap" : "mozi-canvas-wrap canvas-add"} ref={wrapRef}>
+          <div
+            className={go ? "mozi-canvas-wrap" : "mozi-canvas-wrap canvas-add"}
+            ref={wrapRef}
+          >
             <canvas className="mozi-canvas" ref={canvasRef}></canvas>
           </div>
           <br />
@@ -137,6 +138,7 @@ const Mozi = () => {
             className="life-wrap"
             onClick={() => {
               setGo(!go);
+              motion();
             }}
           >
             <img src="/images/heart.png" alt="" />

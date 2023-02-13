@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import "../../scss/live2d.scss";
+import Mozi from "./Mozi";
 
 const Live2d = () => {
   //appをindex.jsで使いたいのでスコープを外しています。
   const live2dRef = useRef(null);
   const live2dwrapRef = useRef(null);
-  const lbuttonRef = useRef(null);
 
   var app;
 
@@ -28,45 +28,46 @@ const Live2d = () => {
   var currentModel;
 
   // メインの処理開始
-   useEffect(() => {
-  (async function main() {
-    // 2, PixiJSを準備する
-    app = new PIXI.Application({
-      view: live2dRef.current,
-      // backgroundColor: 0x999999,
-      transparent: true,
-      autoStart: true,
-      backgroundAlpha: 0,
-      resizeTo: window,
-    });
-   
-    
- 
-    // 3, Live2Dモデルをロードする
-    currentModel = await Live2DModel.from(modelUrl, { autoInteract: false });
-    currentModel.scale.set(0.35); //モデルの大きさ★
-    currentModel.interactive = true;
-    currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
-    currentModel.position.set(window.innerWidth / 2, window.innerHeight); //モデルの位置★
+  useEffect(() => {
+    (async function main() {
+      // 2, PixiJSを準備する
+      app = new PIXI.Application({
+        view: live2dRef.current,
+        // backgroundColor: 0x999999,
+        transparent: true,
+        autoStart: true,
+        backgroundAlpha: 0,
+        resizeTo: window,
+      });
 
-    // 6, Live2Dモデルを配置する
-    app.stage.addChild(currentModel);
-  })();
-   }, [live2dRef]);
-   
-  function test3() {
-    app.stage.children[0].internalModel.motionManager.startMotion("Tap", 0, 2);
-  }
+      // 3, Live2Dモデルをロードする
+      currentModel = await Live2DModel.from(modelUrl, { autoInteract: false });
+      currentModel.scale.set(0.35); //モデルの大きさ★
+      currentModel.interactive = true;
+      currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
+      currentModel.position.set(window.innerWidth / 2, window.innerHeight); //モデルの位置★
+
+      // 6, Live2Dモデルを配置する
+      app.stage.addChild(currentModel);
+    })();
+  }, [live2dRef]);
+
   return (
     <>
-    <div className="live2d-canvas-wrap" ref={live2dwrapRef}>
-      <canvas className="my-live2d" ref={live2dRef}></canvas>
+      <div className="live2d-canvas-wrap" ref={live2dwrapRef}>
+        <canvas className="my-live2d" ref={live2dRef}></canvas>
       </div>
       <br />
       <br />
-      <button className="button" onClick={test3} ref={lbuttonRef}>
-        クリア
-      </button>
+      <Mozi
+        motion={() => {
+          app.stage.children[0].internalModel.motionManager.startMotion(
+            "Tap",
+            0,
+            2
+          );
+        }}
+      />
     </>
   );
 };
