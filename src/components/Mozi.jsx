@@ -9,7 +9,7 @@ const Mozi = () => {
   const wrapRef = useRef(null);
 
   const [question, setQuestion] = useState("千差<span>バンベツ</span>");
-  const [result, setResult] = useState(["例", "夢", "凍"]);
+  const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
   const [quizNow, setQuizNow] = useState(5);
   const [lifeNow, setLifeNow] = useState(3);
@@ -17,6 +17,10 @@ const Mozi = () => {
   const [batu, setBatu] = useState(true);
   const [level, setLevel] = useState(true);
   const [clear, setClear] = useState(true);
+  const [failed, setFailed] = useState(true);
+  const [start, setStart] = useState(true);
+  const [end, setEnd] = useState(true);
+  const [go, setGo] = useState(true);
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -45,9 +49,14 @@ const Mozi = () => {
 
   return (
     <>
-      {/* <div className={batu ? "normal" : "black-zone"}></div> */}
+      <div className={start ? "normal" : "black-zone"}></div>
       <div className={batu ? "normal" : "red-zone"}></div>
-      <div className={clear ? "clear-black" : "clear-black clear-black-add"}></div>
+      <div className={end ? "end-black" : "end-black end-black-add"}></div>
+      <div className="failed-area">
+        <div className={failed ? "failed" : "failed-add"}>
+          <h2>FAILED...</h2>
+        </div>
+      </div>
       <div className="clear-area">
         <div className={clear ? "clear" : "clear-add"}>
           <h2>CLEAR</h2>
@@ -58,6 +67,8 @@ const Mozi = () => {
           <h2>{alert}</h2>
         </div>
       </div>
+      {/* //////////////////////////////////////////////////// */}
+
       <div className="mozi-wrap">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
@@ -71,11 +82,13 @@ const Mozi = () => {
         <div className="rutika">
           <img src="/images/rutika.png" alt="" />
         </div>
-        {/* <div className="q-wrap">
-          <h1>
-          <div dangerouslySetInnerHTML={{ __html: question }} />
-          </h1>
-        </div> */}
+        <div className="q-wrap">
+          <div className={go ? "question" : "q-add"}>
+            <h1>
+              <div dangerouslySetInnerHTML={{ __html: question }} />
+            </h1>
+          </div>
+        </div>
         <h1 id="h1"></h1>
         <div className="result-wrap">
           <div className="result-push">
@@ -108,7 +121,7 @@ const Mozi = () => {
         </div>
 
         <div style={{ display: "inline-block" }}>
-          <div className="mozi-canvas-wrap" ref={wrapRef}>
+          <div className={go ? "mozi-canvas-wrap" : "mozi-canvas-wrap canvas-add"} ref={wrapRef}>
             <canvas className="mozi-canvas" ref={canvasRef}></canvas>
           </div>
           <br />
@@ -120,7 +133,12 @@ const Mozi = () => {
             <img src="/images/kesi.png" alt="" />
           </button>
 
-          <div className="life-wrap" onClick={() => setClear(!clear)}>
+          <div
+            className="life-wrap"
+            onClick={() => {
+              setGo(!go);
+            }}
+          >
             <img src="/images/heart.png" alt="" />
             <h3>✖</h3>
             <h2>{lifeNow}</h2>
