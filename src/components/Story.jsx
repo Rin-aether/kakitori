@@ -8,6 +8,10 @@ const Story = () => {
         <div className="rutika">
           <img src="/images/rutika.png" alt="" />
         </div>
+<div className="serif-wrap">
+    
+</div>
+
       </div>
     </>
   );
