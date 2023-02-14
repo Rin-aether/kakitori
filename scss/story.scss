@@ -22,7 +22,7 @@
     width: 100%;
   }
   @media screen and (min-width: 900px) {
-    width: 122%;
+    width: 120%;
     bottom: -5%;
   }
 }
@@ -38,4 +38,216 @@
     rgba(17, 30, 47, 0.6) 5% 95%,
     transparent 100%
   );
+  h2 {
+    color: #fff;
+    margin-top: 4%;
+    margin-left: 4%;
+    padding-left: 3%;
+    padding-bottom: 0.8%;
+    width: 93%;
+    font-size: 2.2rem;
+    letter-spacing: 0.08rem;
+    -webkit-text-stroke: 0.2px rgb(68, 68, 102);
+    filter: drop-shadow(0px 0px 3px rgba(68, 68, 102,0.8));
+    border-bottom: 1.8px solid rgba(215, 215, 215, 0.6);
+  }
+}
+
+.skip-btn {
+  position: absolute;
+  top: 1.7%;
+  right: 1.9%;
+  width: auto;
+  height: auto;
+  background: #fff;
+  border: 2px solid #555577;
+  border-radius: 10px;
+  cursor: pointer;
+  @include variables.transition;
+  box-shadow: 0 1.5px #555577, inset 0 0 0 3px #e1e1e1;
+  color: #444466;
+  font-size: 1.5rem;
+  padding: 8px 15px;
+  letter-spacing: 0.08rem;
+  font-style: italic;
+  &:active {
+    @include variables.push;
+  }
+}
+
+.modal-wrap {
+  position: absolute;
+  width: 85%;
+  height: 27%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  z-index: 11;
+  h2 {
+    width: 100%;
+    color: #fff;
+    font-size: 1.7rem;
+    background-color: #444466;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    letter-spacing: 0.08rem;
+    font-style: italic;
+  }
+  h3 {
+    font-size: 1.6rem;
+    color: #444466;
+    padding-top: 5%;
+  }
+  @media screen and (min-width: 900px) {
+    height: 25%;
+    h3 {
+      font-size: 1.8rem;
+      padding-top: 8%;
+    }
+  }
+}
+
+.modal {
+  border: 2px solid #445566;
+  background-color: #fff;
+  border-radius: 15px;
+  visibility: hidden;
+}
+
+.modal-add {
+  visibility: visible;
+  animation: modal-up 0.3s 0s 1 forwards;
+}
+@keyframes modal-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.btn-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4%;
+}
+.cancel-btn,
+.ok-btn {
+  width: 35%;
+  height: auto;
+  background: #fff;
+  border: 2px solid #555577;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 1.5px #555577, inset 0 0 0 3px #e1e1e1;
+  color: #444466;
+  font-size: 1.5rem;
+  padding: 3%;
+  letter-spacing: 0.08rem;
+  margin: 4%;
+  &:active {
+    @include variables.push;
+  }
+  @media screen and (min-width: 900px) {
+    width: 30%;
+    box-shadow: 0 1.5px #555577, inset 0 0 0 4px #e1e1e1;
+  }
+}
+
+.ok-btn {
+  background-image: linear-gradient(135deg, #fdeb71 10%, #ffe640 100%);
+  box-shadow: 0 1.5px #555577, inset 0 0 0 3px #fff;
+  @media screen and (min-width: 900px) {
+    box-shadow: 0 1.5px #555577, inset 0 0 0 4px #fff;
+  }
+}
+
+.overlay {
+  visibility: hidden;
+}
+.overlay-add {
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+.scroll-area {
+  position: absolute;
+  width: 50%;
+  height: 6%;
+  top: 1.9%;
+  left: 2%;
+  position: relative;
+  opacity: 0;
+  svg {
+    overflow: visible;
+  }
+  @media screen and (min-width: 900px) {
+    //PC
+    height: 5%;
+    top: 1.3%;
+    left: 1.8%;
+  }
+}
+.ape {
+  opacity: 1;
+}
+.mikaesi {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid rgb(255, 239, 134);
+  filter: drop-shadow(3px 3px 0px #445566);
+  transform: translateX(-100%);
+  width: 100%;
+  height: 100%;
+  @include variables.center-center;
+  h2 {
+    overflow: hidden;
+    font-size: 1.5rem;
+    padding: 0.5em 0.4em 0.4em 0.4em;
+    color: #444466;
+    margin-left: 3.5%;
+  }
+  @media screen and (min-width: 900px) {
+    //PC
+    h2 {
+      font-size: 1.6rem;
+      padding: 0.45em;
+    }
+  }
+}
+$ziku-color: rgb(28, 119, 28);
+.ziku {
+  fill: $ziku-color;
+  stroke: $ziku-color;
+  stroke-width: 10;
+}
+.maesvg {
+  transform: translateX(-30%);
+}
+.maesvg,
+.usirosvg {
+  position: absolute;
+  top: 0;
+}
+.usirosvg {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.mikaesi-add,
+.scroll-h2-add,
+.maesvg-add {
+  animation: kakudai 0.3s ease-in-out forwards;
+}
+@keyframes kakudai {
+  100% {
+    transform: translateX(0%);
+  }
 }
