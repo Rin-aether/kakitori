@@ -1,8 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
+import { kanjiData0, kanjiData1, kanjiData2 } from "./Kanjidata";
 
 const Mozi = ({ motion }) => {
+  const kanjiDataList = [kanjiData0, kanjiData1, kanjiData2]; // 配列のリスト
+  const randomIndex = Math.floor(Math.random() * kanjiDataList.length); // 配列のリストのうちランダムに1つのインデックスを取得
+  const quiz = kanjiDataList[randomIndex];
+  console.log(quiz);
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -49,6 +54,11 @@ const Mozi = ({ motion }) => {
 
   return (
     <>
+      {/* <div>
+      {kanjiData.map((item, index) => (
+        <p key={index}>{item.name} is {item.age} years old.</p>
+      ))}
+    </div> */}
       <div className={start ? "normal" : "black-zone"}></div>
       <div className={batu ? "normal" : "red-zone"}></div>
       <div className={end ? "end-black" : "end-black end-black-add"}></div>

@@ -32,13 +32,15 @@
   height: 28%;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(17, 30, 47, 0.6) 5% 95%,
-    transparent 100%
-  );
+  background-color: transparent;
+  // background: linear-gradient(
+  //   to bottom,
+  //   transparent 0%,
+  //   rgba(17, 30, 47, 0.6) 5% 95%,
+  //   transparent 100%
+  // );
   h2 {
+    position: absolute;
     color: #fff;
     margin-top: 4%;
     margin-left: 4%;

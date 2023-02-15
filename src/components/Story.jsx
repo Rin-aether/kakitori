@@ -33,8 +33,9 @@ const Story = () => {
           width: screenWidth,
           height: screenHeight,
           fontSize: FONT_SIZE,
-          fontFamily : "Line-bold",
-          fill: "black",
+          fontFamily: "Line-bold",
+
+          fill: "#fff",
         })
           .addChildTo(this)
           .setPosition(this.gridX.center(), this.gridY.center());
@@ -49,7 +50,7 @@ const Story = () => {
           radius: FONT_SIZE / 2,
         })
           .addChildTo(this)
-          .setPosition(this.labelArea.right - 55, this.labelArea.bottom - 85);
+          .setPosition(this.labelArea.right - 55, this.labelArea.bottom - 45);
 
         this.nextTriangle.rotation = 180;
 
@@ -57,7 +58,6 @@ const Story = () => {
 
         this.messageSpeed = MESSAGE_SPEED;
       },
-
       update: function (app) {
         if (app.pointer.getPointingStart()) {
           if (this.textAll) {
@@ -81,18 +81,15 @@ const Story = () => {
           this.nextTriangle.hide();
         }
       },
-
       showAllText: function () {
         var text = this.texts[this.textIndex];
         this.labelArea.text = text;
         this.textAll = true;
         this.charIndex = text.length;
       },
-
       clearText: function () {
         this.labelArea.text = "";
       },
-
       nextText: function () {
         this.clearText();
         if (this.texts.length <= ++this.textIndex) {
@@ -101,11 +98,9 @@ const Story = () => {
         this.charIndex = 0;
         this.addChar();
       },
-
       addChar: function () {
         this.labelArea.text += this.getChar();
       },
-
       getChar: function () {
         var text = this.texts[this.textIndex];
         if (text.length <= this.charIndex) {
@@ -125,6 +120,7 @@ const Story = () => {
         startLabel: "main",
         width: screenWidth,
         height: screenHeight,
+        backgroundColor: "rgba(17, 30, 47, 0.6)",
         // 画面にフィットさせない
         fit: false,
       });
