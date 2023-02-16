@@ -4,23 +4,67 @@ import "../../scss/story.scss";
 const Story = () => {
   const [showModal, setShowModal] = useState(true);
   const [makimono, setMakimono] = useState(false);
-
+  const [image, setImage] = useState("komari");
+  const [name, setName] = useState("謎の少女");
   const serifRef = useRef(null);
   const serifwrapRef = useRef(null);
 
   useEffect(() => {
+    phina.display.CanvasApp.prototype._draw = function () {
+      if (this.backgroundColor) {
+        if (this.backgroundColor === "transparent") {
+          this.canvas.clear();
+        } else {
+          this.canvas.clearColor(this.backgroundColor);
+        }
+      } else {
+        this.canvas.clear();
+      }
+
+      if (this.currentScene.canvas) {
+        this.currentScene._render();
+
+        this._scenes.each(function (scene) {
+          var c = scene.canvas;
+          if (c) {
+            this.canvas.context.drawImage(
+              c.domElement,
+              0,
+              0,
+              c.width,
+              c.height
+            );
+          }
+        }, this);
+      }
+    };
     let serifParent = serifwrapRef.current;
     let screenWidth = serifParent.clientWidth; //縦と横
     let screenHeight = serifParent.clientHeight;
 
+    if (window.innerWidth < 768) {
+      var minusx = 60;
+      var minusy = 110;
+      var fontsize = 20;
+      var cursolx = 35;
+      var cursoly = 20;
+    } else {
+      //pc
+      var minusx = 90;
+      var minusy = 150;
+      var fontsize = 24;
+      var cursolx = 35;
+      var cursoly = 20;
+    }
+
     phina.globalize();
 
     var MESSAGE_SPEED = 2; //1<n 低いほど早い
-    var FONT_SIZE = 25;
+    var FONT_SIZE = fontsize;
     var TEXTS = [
-      "我々は宇宙人だ",
-      "ちきゅうはいただいた。",
-      "命が惜しければ\nよろしくね",
+      "……。",
+      "はぁ……。",
+      "皆はどうしているのでしょうか……\n心細い……",
     ];
 
     phina.define("MainScene", {
@@ -28,34 +72,34 @@ const Story = () => {
 
       init: function (option) {
         this.superInit(option);
+
         this.labelArea = LabelArea({
           text: "",
-          width: screenWidth,
-          height: screenHeight,
+          width: screenWidth - minusx,
+          height: screenHeight - minusy,
           fontSize: FONT_SIZE,
           fontFamily: "Line-bold",
-
           fill: "#fff",
+          stroke: "#444466",
+          strokeWidth: 2,
         })
           .addChildTo(this)
           .setPosition(this.gridX.center(), this.gridY.center());
-
         this.texts = TEXTS;
         this.textIndex = 0;
         this.charIndex = 0;
-
         this.nextTriangle = TriangleShape({
-          fill: "white",
+          fill: "#7BF8FF",
           stroke: "transparent",
           radius: FONT_SIZE / 2,
         })
           .addChildTo(this)
-          .setPosition(this.labelArea.right - 55, this.labelArea.bottom - 45);
-
+          .setPosition(
+            this.labelArea.right - cursolx,
+            this.labelArea.bottom + cursoly
+          );
         this.nextTriangle.rotation = 180;
-
         this.nextTriangle.hide();
-
         this.messageSpeed = MESSAGE_SPEED;
       },
       update: function (app) {
@@ -120,7 +164,7 @@ const Story = () => {
         startLabel: "main",
         width: screenWidth,
         height: screenHeight,
-        backgroundColor: "rgba(17, 30, 47, 0.6)",
+        backgroundColor: "transparent",
         // 画面にフィットさせない
         fit: false,
       });
@@ -161,40 +205,39 @@ const Story = () => {
             setMakimono(!makimono);
           }}
         >
-          <img src="/images/rutika.png" alt="" />
+          <img src={`/images/${image}.png`} alt="" />
         </div>
         <div className="serif-wrap" ref={serifwrapRef}>
-          <h2>瑠散花</h2>
+          <h2>{name}</h2>
           <canvas className="serif-canvas" ref={serifRef}></canvas>
         </div>
 
         {/* ///////モーダル////////////////////////////////// */}
-        <div>
-          <button
-            className="skip-btn"
-            onClick={() => {
-              setShowModal(!showModal);
-            }}
-          >
-            SKIP
-          </button>
 
-          <div className="modal-wrap">
-            <div className={showModal ? "modal" : "modal modal-add"}>
-              <h2>━ STORY SKIP ━</h2>
-              <h3>ストーリーをスキップしますか？</h3>
+        <button
+          className="skip-btn"
+          onClick={() => {
+            setShowModal(!showModal);
+          }}
+        >
+          SKIP
+        </button>
 
-              <div className="btn-wrap">
-                <button
-                  className="cancel-btn"
-                  onClick={() => {
-                    setShowModal(!showModal);
-                  }}
-                >
-                  キャンセル
-                </button>
-                <button className="ok-btn">OK</button>
-              </div>
+        <div className="modal-wrap">
+          <div className={showModal ? "modal" : "modal modal-add"}>
+            <h2>━ STORY SKIP ━</h2>
+            <h3>ストーリーをスキップしますか？</h3>
+
+            <div className="btn-wrap">
+              <button
+                className="cancel-btn"
+                onClick={() => {
+                  setShowModal(!showModal);
+                }}
+              >
+                キャンセル
+              </button>
+              <button className="ok-btn">OK</button>
             </div>
           </div>
         </div>
