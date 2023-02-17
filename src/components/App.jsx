@@ -12,7 +12,7 @@ function App() {
   const [storyModal, setStoryModal] = useState(false);
   const [storyVisible, setStoryVisible] = useState(false);
   const [quizVisible, setquizVisible] = useState(false);
-  const [home, setHome] = useState(false);
+  const [home, setHome] = useState(true);
   const [clearF, setCrearF] = useState(true);
   const storyCheck = () => {
     if (clearF) {
@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <div className="App">
-      <Live2d/>
+      {/* <Live2d/> */}
         {/* {quizVisible ? <Live2d  quizHidden={() => {
               setquizVisible(false);
               setHome(true);

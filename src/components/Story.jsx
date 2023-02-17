@@ -81,9 +81,9 @@ const Story = ({ storyHidden }) => {
     var FONT_SIZE = fontsize;
     const MAINNTEXTS = [
       "……。",
-      "はぁ……。",
       "皆はどうしているのでしょうか……\n心細い……",
-      "……いえ！\n落ち込んでなどいられません！\nこんな時こそ頑張らなければ……！",
+      "……いえ！\n落ち込んでなどいられません！",
+      "生徒会長として、\nこんな時こそ頑張らなければ……！",
       "あの……",
       "うわ！びっくりしました！\n外から来た方ですか！？",
       "ここは一体……？",
@@ -194,10 +194,10 @@ const Story = ({ storyHidden }) => {
             break;
           case 2:
             setNext(true);
+            setImage("sinken");
             break;
           case 3:
             setNext(false);
-            setImage("sinken");
             break;
           case 4:
             setName("あなた");
