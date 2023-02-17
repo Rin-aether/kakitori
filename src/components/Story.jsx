@@ -11,6 +11,15 @@ const Story = () => {
   const serifRef = useRef(null);
   const serifwrapRef = useRef(null);
 
+  const img1 = new Image();
+  img1.src = "/images/komari.png";
+  const img2 = new Image();
+  img2.src = "/images/egao.png";
+  const img3 = new Image();
+  img3.src = "/images/sinken.png";
+  const img4 = new Image();
+  img4.src = "/images/odoroki.png";
+
   useEffect(() => {
     phina.display.CanvasApp.prototype._draw = function () {
       if (this.backgroundColor) {
@@ -71,7 +80,7 @@ const Story = () => {
       "あの……",
       "うわ！びっくりしました！\n外から来た方ですか！？",
       "ここは一体……？",
-      "此処はまだ何もない世界のようで……\n外からやってくる人も、\n少ししか居られないみたいです。",
+      "此処はまだ何もない世界のようで……外からやってくる人も、少ししか居られないみたいです。",
       "頼りになる仲間たちも……\n此処にはいません……",
       "ですが……大丈夫です！\n必ずこの世界は形になります。\nそれまで絶対に諦めません。",
       "……強い意志を感じる目だ。\nきっとこの子は……",
