@@ -4,6 +4,8 @@ import "../../scss/story.scss";
 const Story = () => {
   const [showModal, setShowModal] = useState(true);
   const [makimono, setMakimono] = useState(false);
+  const [next, setNext] = useState(true);
+  const [shadow, setShadow] = useState(false);
   const [image, setImage] = useState("komari");
   const [name, setName] = useState("謎の少女");
   const serifRef = useRef(null);
@@ -43,17 +45,17 @@ const Story = () => {
     let screenHeight = serifParent.clientHeight;
 
     if (window.innerWidth < 768) {
-      var minusx = 60;
+      var minusx = 54;
       var minusy = 110;
       var fontsize = 20;
-      var cursolx = 35;
+      var cursolx = 34;
       var cursoly = 20;
     } else {
       //pc
       var minusx = 90;
       var minusy = 150;
       var fontsize = 24;
-      var cursolx = 35;
+      var cursolx = 34;
       var cursoly = 20;
     }
 
@@ -61,10 +63,23 @@ const Story = () => {
 
     var MESSAGE_SPEED = 2; //1<n 低いほど早い
     var FONT_SIZE = fontsize;
-    var TEXTS = [
+    const MAINNTEXTS = [
       "……。",
       "はぁ……。",
       "皆はどうしているのでしょうか……\n心細い……",
+      "……いえ！\n落ち込んでなどいられません！\nこんな時こそ頑張らなければ……！",
+      "あの……",
+      "うわ！びっくりしました！\n外から来た方ですか！？",
+      "ここは一体……？",
+      "此処はまだ何もない世界のようで……\n外からやってくる人も、\n少ししか居られないみたいです。",
+      "頼りになる仲間たちも……\n此処にはいません……",
+      "ですが……大丈夫です！\n必ずこの世界は形になります。\nそれまで絶対に諦めません。",
+      "……強い意志を感じる目だ。\nきっとこの子は……",
+      "…！\n(これ以上、ここに居られない気がする。)",
+      "(最後に、名前だけでも…)",
+      "君の名前は？",
+      "天白 瑠散花です。\n……いつかまた、どこかで。",
+      "",
     ];
 
     phina.define("MainScene", {
@@ -85,7 +100,7 @@ const Story = () => {
         })
           .addChildTo(this)
           .setPosition(this.gridX.center(), this.gridY.center());
-        this.texts = TEXTS;
+        this.texts = MAINNTEXTS;
         this.textIndex = 0;
         this.charIndex = 0;
         this.nextTriangle = TriangleShape({
@@ -106,6 +121,7 @@ const Story = () => {
         if (app.pointer.getPointingStart()) {
           if (this.textAll) {
             this.nextText();
+            this.setPhase();
           } else {
             this.showAllText();
           }
@@ -155,6 +171,61 @@ const Story = () => {
           return text[this.charIndex++];
         }
       },
+      setPhase: function () {
+        switch (this.textIndex) {
+          case 1:
+            setNext(false);
+            break;
+          case 2:
+            setNext(true);
+            break;
+          case 3:
+            setNext(false);
+            setImage("sinken");
+            break;
+          case 4:
+            setName("あなた");
+            setShadow(true);
+            break;
+          case 5:
+            setImage("odoroki");
+            setShadow(false);
+            setName("謎の少女");
+            setNext(true);
+            break;
+          case 6:
+            setShadow(true);
+            setName("あなた");
+            break;
+          case 7:
+            setImage("komari");
+            setShadow(false);
+            setName("謎の少女");
+            setNext(false);
+            break;
+          case 8:
+            setNext(true);
+            break;
+          case 9:
+            setImage("sinken");
+            setNext(false);
+            break;
+          case 10:
+            setShadow(true);
+            setName("あなた");
+            break;
+          case 13:
+            setShadow(false);
+            break;
+          case 14:
+            setImage("egao");
+            setNext(true);
+            setName(
+              "<ruby>天白<rt>アマシロ</tr></ruby><ruby>&nbsp瑠散花<rt>&nbspルチカ</tr></ruby>"
+            );
+            break;
+        }
+      },
     });
     phina.main(function () {
       var app = GameApp({
@@ -199,16 +270,19 @@ const Story = () => {
           </svg>
         </div>
         {/* //////////////////////////////////////////////// */}
-        <div
-          className="rutika"
-          onClick={() => {
-            setMakimono(!makimono);
-          }}
-        >
-          <img src={`/images/${image}.png`} alt="" />
+        <div className="rutika">
+          <img
+            className={`${next ? "rutika-add2" : "rutika-add"} ${
+              shadow ? "rutika-shadow" : ""
+            }`}
+            src={`/images/${image}.png`}
+            alt=""
+          />
         </div>
         <div className="serif-wrap" ref={serifwrapRef}>
-          <h2>{name}</h2>
+          <h2>
+            <div dangerouslySetInnerHTML={{ __html: name }} />
+          </h2>
           <canvas className="serif-canvas" ref={serifRef}></canvas>
         </div>
 
