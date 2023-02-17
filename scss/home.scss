@@ -37,8 +37,8 @@
 }
 
 .logo-diss,
-.qstart-diss ,
-.story-diss{
+.qstart-diss,
+.story-diss {
   display: none;
 }
 @keyframes logo-app {
@@ -140,9 +140,9 @@
   transform: translateX(-50%) translateY(-48%);
   width: 100%;
   height: 60%;
-  
 }
-.quiz-start,.story-start{
+.quiz-start,
+.story-start {
   width: 85%;
   height: 25%;
   margin: 15px auto;
@@ -169,13 +169,13 @@
   }
 }
 
-.story-start{
-    background: linear-gradient(to top, #abdcff, #ffffff);
-    @include variables.btn-Inline($inColor: #deeffc);
-    img {
-        width: 10%;
-        padding-bottom: 0%;
-      }
+.story-start {
+  background: linear-gradient(to top, #abdcff, #ffffff);
+  @include variables.btn-Inline($inColor: #deeffc);
+  img {
+    width: 10%;
+    padding-bottom: 0%;
+  }
 }
 @keyframes toright {
   0% {
@@ -192,102 +192,132 @@
 }
 
 .modal-wrap {
-    position: absolute;
-    width: 85%;
-    height: 27%;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    text-align: center;
-    z-index: 11;
-    h2 {
-      width: 100%;
-      color: #fff;
-      font-size: 1.7rem;
-      background-color: #444466;
-      border-radius: 10px 10px 0 0;
-      padding: 10px;
-      letter-spacing: 0.08rem;
-      font-style: italic;
-    }
-    h3 {
-      font-size: 1.6rem;
-      color: #444466;
-      padding-top: 5%;
-    }
-    @media screen and (min-width: 900px) {
-      height: 25%;
-      h3 {
-        font-size: 1.8rem;
-        padding-top: 8%;
-      }
-    }
-  }
-  
-  .modal {
-    border: 2px solid #445566;
-    background-color: #fff;
-    border-radius: 15px;
-    display: none;
-  }
-  
-  .modal-add {
-    display: block;
-    animation: modal-up 0.3s 0s 1 forwards;
-  }
-  @keyframes modal-up {
-    0% {
-      opacity: 0;
-      transform: scale(0.4);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  .btn-wrap {
+  position: absolute;
+  width: 85%;
+  height: 27%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  z-index: 11;
+  h2 {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 4%;
-  }
-  .close-btn{
-    width: 35%;
-    height: auto;
-    background: #fff;
-    border: 2px solid #555577;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 1.5px #555577, inset 0 0 0 3px #e1e1e1;
-    color: #444466;
-    font-size: 1.5rem;
-    padding: 3%;
+    color: #fff;
+    font-size: 1.7rem;
+    background-color: #444466;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
     letter-spacing: 0.08rem;
-    margin: 4%;
-    &:active {
-      @include variables.push;
+    font-style: italic;
+  }
+  h3 {
+    font-size: 1.6rem;
+    color: #444466;
+    padding-top: 5%;
+  }
+  @media screen and (min-width: 900px) {
+    height: 25%;
+    h3 {
+      font-size: 1.8rem;
+      padding-top: 8%;
     }
-    @media screen and (min-width: 900px) {
-      width: 30%;
-      box-shadow: 0 1.5px #555577, inset 0 0 0 4px #e1e1e1;
-    }
   }
-  .overlay {
-    visibility: hidden;
-  }
-  .overlay-add {
-    visibility: visible;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 10;
-  }
+}
 
-  .home-wrap{
-    display: block;
+.modal {
+  border: 2px solid #445566;
+  background-color: #fff;
+  border-radius: 15px;
+  display: none;
+}
+
+.modal-add {
+  display: block;
+  animation: modal-up 0.3s 0s 1 forwards;
+}
+@keyframes modal-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
   }
-  .home-diss{
-    display: none;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
+}
+.btn-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4%;
+}
+.close-btn {
+  width: 35%;
+  height: auto;
+  background: #fff;
+  border: 2px solid #555577;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 1.5px #555577, inset 0 0 0 3px #e1e1e1;
+  color: #444466;
+  font-size: 1.5rem;
+  padding: 3%;
+  letter-spacing: 0.08rem;
+  margin: 4%;
+  &:active {
+    @include variables.push;
+  }
+  @media screen and (min-width: 900px) {
+    width: 30%;
+    box-shadow: 0 1.5px #555577, inset 0 0 0 4px #e1e1e1;
+  }
+}
+.overlay {
+  visibility: hidden;
+}
+.overlay-add {
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.home-wrap {
+  display: block;
+}
+.home-diss {
+  display: none;
+}
+
+.black {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  z-index: 10;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.black-add {
+  visibility: visible;
+  animation: black-add 1.8s ease-in-out 0s 1 forwards;
+}
+
+@keyframes black-add {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

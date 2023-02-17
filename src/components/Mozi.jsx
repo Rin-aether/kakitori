@@ -3,7 +3,7 @@ import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 import { kanjiData0, kanjiData1, kanjiData2 } from "./Kanjidata";
 
-const Mozi = ({ motion }) => {
+const Mozi = ({ motion1, motion2 }) => {
   const kanjiDataList = [kanjiData0, kanjiData1, kanjiData2]; // 配列のリスト
   const randomIndex = Math.floor(Math.random() * kanjiDataList.length); // 配列のリストのうちランダムに1つのインデックスを取得
   const quiz = kanjiDataList[randomIndex];
@@ -13,10 +13,10 @@ const Mozi = ({ motion }) => {
   const buttonRef = useRef(null);
   const wrapRef = useRef(null);
 
-  const [question, setQuestion] = useState("千差<span>バンベツ</span>");
+  const [question, setQuestion] = useState("<span>ユウシュウ</span>の美");
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
-  const [quizNow, setQuizNow] = useState(5);
+  const [quizNow, setQuizNow] = useState(1);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
@@ -148,7 +148,7 @@ const Mozi = ({ motion }) => {
             className="life-wrap"
             onClick={() => {
               setGo(!go);
-              motion();
+              motion2();
             }}
           >
             <img src="/images/heart.png" alt="" />

@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import "../../scss/story.scss";
 
-const Story = () => {
+const Story = ({ storyHidden }) => {
   const [showModal, setShowModal] = useState(true);
-  const [makimono, setMakimono] = useState(false);
+  const [makimono, setMakimono] = useState(true);
   const [next, setNext] = useState(true);
   const [shadow, setShadow] = useState(false);
+  const [storyBlack, setStoryBlack] = useState(false);
+  const [storyEnd, setStoryEnd] = useState(true);
   const [image, setImage] = useState("komari");
   const [name, setName] = useState("謎の少女");
   const serifRef = useRef(null);
@@ -19,6 +21,11 @@ const Story = () => {
   img3.src = "/images/sinken.png";
   const img4 = new Image();
   img4.src = "/images/odoroki.png";
+
+  setTimeout(() => {
+    setMakimono(false);
+    setStoryBlack(true);
+  }, 1500);
 
   useEffect(() => {
     phina.display.CanvasApp.prototype._draw = function () {
@@ -233,6 +240,13 @@ const Story = () => {
               "<ruby>天白<rt>アマシロ</tr></ruby><ruby>&nbsp瑠散花<rt>&nbspルチカ</tr></ruby>"
             );
             break;
+          case 15:
+            setStoryEnd(false);
+            setTimeout(() => {
+              storyHidden();
+            }, 1200);
+
+            break;
         }
       },
     });
@@ -259,7 +273,11 @@ const Story = () => {
     <>
       <div className="story-wrap">
         <div className={showModal ? "overlay" : "overlay-add"}></div>
-
+        <div
+          className={`${
+            storyBlack ? "story-black" : "story-black story-black-add"
+          } ${storyEnd ? "" : "story-end-add"}`}
+        ></div>
         <div className={makimono ? "scroll-area" : "scroll-area ape"}>
           <div className={makimono ? "usirosvg" : "q-add"}>
             {/* <!-- 伸びるとこ --> */}
@@ -320,7 +338,17 @@ const Story = () => {
               >
                 キャンセル
               </button>
-              <button className="ok-btn">OK</button>
+              <button
+                className="ok-btn"
+                onClick={() => {
+                  setStoryEnd(false);
+                  setTimeout(() => {
+                    storyHidden();
+                  }, 1200);
+                }}
+              >
+                OK
+              </button>
             </div>
           </div>
         </div>

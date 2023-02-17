@@ -294,6 +294,51 @@ $ziku-color: rgb(28, 119, 28);
   }
 }
 
+.story-black {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  z-index: 12;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.story-black-add {
+  visibility: visible;
+  animation: story-black-add 1s ease-in-out 0s 1 forwards;
+}
+.story-end-add {
+  visibility: visible;
+  animation: story-end-add 1.8s ease-in-out 0s 1 forwards;
+}
+
+@keyframes story-black-add {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes story-end-add {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 // .choice-wrap {
 //   position: absolute;
 //   left: 50%;

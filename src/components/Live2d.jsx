@@ -52,6 +52,16 @@ const Live2d = () => {
     })();
   }, [live2dRef]);
 
+  const flick = () => {
+    app.stage.children[0].internalModel.motionManager.startMotion(
+      "Flick",
+      1,
+      2
+    );
+  };
+  const tap = () => {
+    app.stage.children[0].internalModel.motionManager.startMotion("Tap", 0, 2);
+  };
   return (
     <>
       <div className="live2d-canvas-wrap" ref={live2dwrapRef}>
@@ -59,15 +69,7 @@ const Live2d = () => {
       </div>
       <br />
       <br />
-      <Mozi
-        motion={() => {
-          app.stage.children[0].internalModel.motionManager.startMotion(
-            "Tap",
-            0,
-            2
-          );
-        }}
-      />
+      <Mozi motion1={flick} motion2={tap} />
     </>
   );
 };

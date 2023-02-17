@@ -10,11 +10,17 @@ function App() {
   const [qstart, setQstart] = useState(false);
   const [sstart, setSstart] = useState(false);
   const [storyModal, setStoryModal] = useState(false);
+  const [storyVisible, setStoryVisible] = useState(false);
+  const [quizVisible, setquizVisible] = useState(false);
   const [home, setHome] = useState(false);
-  const [clearF, setCrearF] = useState(false);
+  const [clearF, setCrearF] = useState(true);
   const storyCheck = () => {
     if (clearF) {
       //ストーリー開始
+      setHome(false);
+      setTimeout(() => {
+        setStoryVisible(true);
+      }, 700);
     } else {
       setStoryModal(!storyModal);
     }
@@ -22,8 +28,20 @@ function App() {
   return (
     <>
       <div className="App">
-        {/* <Live2d/> */}
-        <Story/>
+      <Live2d/>
+        {/* {quizVisible ? <Live2d  quizHidden={() => {
+              setquizVisible(false);
+              setHome(true);
+            }}/> : null} */}
+        {storyVisible ? (
+          <Story
+            storyHidden={() => {
+              setStoryVisible(false);
+              setHome(true);
+            }}
+          />
+        ) : null}
+        <div className={home ? "black" : "black black-add"}></div>
         <section className={home ? "home-wrap" : "home-diss"}>
           <div className={storyModal ? "overlay-add" : "overlay"}></div>
           <div

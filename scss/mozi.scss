@@ -1,6 +1,5 @@
 @use "../scss/base/variables";
 
-
 .num-wrap {
   width: 97%;
   height: auto;
@@ -76,22 +75,22 @@
   text-align: center;
   -webkit-text-stroke: 2.2px #fff;
   h1 {
-    font-size: 3.95rem;
+    font-size: 3.45rem;
     color: #333333;
     letter-spacing: 0.15rem;
   }
   span {
-    font-size: 5.95rem;
+    font-size: 5.45rem;
     color: #ff5353;
     margin-left: 5px;
   }
   @media screen and (min-width: 900px) {
     //PC
     h1 {
-      font-size: 5.5rem;
+      font-size: 4.8rem;
     }
     span {
-      font-size: 7.5rem;
+      font-size: 6.8rem;
     }
   }
 }
@@ -391,17 +390,17 @@ $button-size-pc: 7vw;
   position: absolute;
   z-index: 100;
   opacity: 0;
-  animation: black-zone 1.5s ease-out 0s 1 forwards;
+  animation: black-zone 1.8s ease-out 0s 1 forwards;
 }
 
 @keyframes black-zone {
   0% {
     opacity: 0;
   }
-  20% {
+  30% {
     opacity: 1;
   }
-  80% {
+  70% {
     opacity: 1;
   }
   100% {
