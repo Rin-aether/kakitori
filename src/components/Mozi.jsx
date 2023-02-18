@@ -89,6 +89,9 @@ const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
         setFailed(false);
         setEnd(false);
         setGo(true);
+        setTimeout(() => {
+          allend();
+        }, 3500);
       }
     }, 1800);
   };
