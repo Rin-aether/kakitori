@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../scss/style.scss";
 import "../../scss/home.scss";
 import Keikoku from "./Keikoku";
@@ -6,6 +6,8 @@ import Live2d from "./Live2d";
 import Story from "./Story";
 
 function App() {
+  const appState = localStorage.getItem("flag");
+  const flag = appState ? appState : "no";
   const [logo, setLogo] = useState(true);
   const [qstart, setQstart] = useState(false);
   const [sstart, setSstart] = useState(false);
@@ -13,9 +15,18 @@ function App() {
   const [storyVisible, setStoryVisible] = useState(false);
   const [quizVisible, setquizVisible] = useState(false);
   const [home, setHome] = useState(true);
-  const [clearF, setCrearF] = useState(true);
+  const [clearF, setCrearF] = useState("no");
+  const displayStyle = clearF === "ok" ? {} : { display: "none" };
+
+  useEffect(() => {
+    setCrearF(flag);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("flag", clearF);
+  }, [clearF]);
+
   const storyCheck = () => {
-    if (clearF) {
+    if (clearF == "ok") {
       //ストーリー開始
       setHome(false);
       setTimeout(() => {
@@ -25,14 +36,27 @@ function App() {
       setStoryModal(!storyModal);
     }
   };
+  const qstartBtn = () => {
+    setHome(false);
+    setTimeout(() => {
+      setquizVisible(true);
+    }, 700);
+  };
+  const changeF = () => {
+    setCrearF("ok");
+  };
   return (
     <>
       <div className="App">
-      {/* <Live2d/> */}
-        {/* {quizVisible ? <Live2d  quizHidden={() => {
+        {quizVisible ? (
+          <Live2d
+            quizHidden={() => {
               setquizVisible(false);
               setHome(true);
-            }}/> : null} */}
+            }}
+            flag={changeF}
+          />
+        ) : null}
         {storyVisible ? (
           <Story
             storyHidden={() => {
@@ -82,9 +106,13 @@ function App() {
           </div>
 
           <div className="start-wrap">
-            <div className={qstart ? "quiz-start" : "qstart-diss"}>
+            <div
+              className={qstart ? "quiz-start" : "qstart-diss"}
+              onClick={qstartBtn}
+            >
               <img className="kaki-img" src="/images/pen.png" alt="" />
               <h2 className="item">━ 意外と書けない漢字編 ━</h2>
+              <h3 style={displayStyle}>CLEAR!</h3>
             </div>
             <div
               className={sstart ? "story-start" : "story-diss"}

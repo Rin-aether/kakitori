@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "../../scss/live2d.scss";
 import Mozi from "./Mozi";
 
-const Live2d = () => {
+const Live2d = ({ quizHidden, flag }) => {
   //appをindex.jsで使いたいのでスコープを外しています。
   const live2dRef = useRef(null);
   const live2dwrapRef = useRef(null);
@@ -69,7 +69,12 @@ const Live2d = () => {
       </div>
       <br />
       <br />
-      <Mozi motion1={flick} motion2={tap} />
+      <Mozi
+        motion1={flick}
+        motion2={tap}
+        moziHidden={quizHidden}
+        flagprop={flag}
+      />
     </>
   );
 };

@@ -13,7 +13,7 @@ const MoziFunction = (reset) => {
 
     root.handwriting = handwriting;
 
-    handwriting.Canvas = function (cvs, lineWidth, btn) {
+    handwriting.Canvas = function (cvs, lineWidth, btn, btn1, btn2, btn3) {
       this.canvas = cvs;
       this.cxt = cvs.getContext("2d");
       this.cxt.lineCap = "round"; //線の端っこの形
@@ -38,6 +38,9 @@ const MoziFunction = (reset) => {
       cvs.addEventListener("touchmove", this.touchMove.bind(this));
       cvs.addEventListener("touchend", this.touchEnd.bind(this));
       btn.addEventListener("click", this.erase.bind(this));
+      btn1.addEventListener("click", this.erase2.bind(this));
+      btn2.addEventListener("click", this.erase2.bind(this));
+      btn3.addEventListener("click", this.erase2.bind(this));
       this.callback = undefined;
       this.recognize = handwriting.recognize;
     };
@@ -150,6 +153,15 @@ const MoziFunction = (reset) => {
       this.trace = [];
       this.ok_search = false;
       reset();
+    };
+
+    handwriting.Canvas.prototype.erase2 = function () {
+      this.cxt.clearRect(0, 0, this.cxt.canvas.width, this.cxt.canvas.height);
+      setTimeout(() => {
+        this.step = [];
+        this.trace = [];
+        this.ok_search = false;
+      }, 500);
     };
     ///////////////////////////////////////////////////////////////////////
 
