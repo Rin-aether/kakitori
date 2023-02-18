@@ -111,6 +111,7 @@ const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
       if (quizNow == 9) {
         setClear(false);
         setEnd(false);
+        flagprop();
         setTimeout(() => {
           allend();
         }, 3500);
@@ -146,7 +147,6 @@ const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
 
   const allend = () => {
     setEndBlack(false);
-    flagprop();
     setTimeout(() => {
       moziHidden();
     }, 1400);
