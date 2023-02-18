@@ -32,7 +32,7 @@ const kanjiData2 = [
   { question: "<span>センサイ</span>な人", answer: "繊細" },
   { question: "<span>ダジャレ</span>を言う", answer: "駄洒落" },
   { question: "<span>カツオ</span>ぶし", answer: "鰹" },
-  { question: "力が<span>ミナギ</span>る", answer: "漲" },
+  { question: "<span>クタビ</span>れた顔", answer: "草臥" },
 ];
 
 const kanjiDataList = [kanjiData0, kanjiData1, kanjiData2]; // 配列のリスト
