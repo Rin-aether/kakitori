@@ -23,8 +23,7 @@ const Live2d = ({ quizHidden, flag }) => {
   } = Kalidokit;
 
   // 1, Live2Dモデルへのパスを指定する
-  var modelUrl =
-    "../../Live2dModels/haru_greeter_pro_jp/runtime/haru_greeter_t03.model3.json";
+  var modelUrl = "/Live2dModels/rutika-model/runtime/rutika.model3.json";
   var currentModel;
 
   // メインの処理開始
@@ -48,9 +47,9 @@ const Live2d = ({ quizHidden, flag }) => {
         currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
       } else {
         //pc
-        currentModel.scale.set(0.35); //モデルの大きさ★
+        currentModel.scale.set(0.36); //モデルの大きさ★
         currentModel.interactive = true;
-        currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
+        currentModel.anchor.set(0.5, 1.15); //モデルのアンカー★
       }
       currentModel.position.set(window.innerWidth / 2, window.innerHeight); //モデルの位置★
 
@@ -59,15 +58,8 @@ const Live2d = ({ quizHidden, flag }) => {
     })();
   }, [live2dRef]);
 
-  const flick = () => {
-    app.stage.children[0].internalModel.motionManager.startMotion(
-      "Flick",
-      1,
-      2
-    );
-  };
-  const tap = () => {
-    app.stage.children[0].internalModel.motionManager.startMotion("Tap", 0, 2);
+  const slash = () => {
+    app.stage.children[0].internalModel.motionManager.startMotion("Slash", 0, 2);
   };
   return (
     <>
@@ -76,12 +68,7 @@ const Live2d = ({ quizHidden, flag }) => {
       </div>
       <br />
       <br />
-      <Mozi
-        motion1={flick}
-        motion2={tap}
-        moziHidden={quizHidden}
-        flagprop={flag}
-      />
+      <Mozi motion={slash} moziHidden={quizHidden} flagprop={flag} />
     </>
   );
 };

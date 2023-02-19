@@ -1,0 +1,40 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "rutika.moc3",
+		"Textures": [
+			"rutika.2048/texture_00.png",
+			"rutika.2048/texture_01.png"
+		],
+		"DisplayInfo": "rutika.cdi3.json",
+		"Motions": {
+			"Idle": [
+				{
+					"File": "motion/Idle.motion3.json"
+				}
+			],
+			"Slash": [
+				{
+					"File": "motion/slash.motion3.json",
+					"FadeOutTime": 1
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

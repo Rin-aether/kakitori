@@ -1,0 +1,177 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamSayuuOpa",
+			"GroupId": "",
+			"Name": "左右斬撃透明度"
+		},
+		{
+			"Id": "Param3tobuOpa",
+			"GroupId": "",
+			"Name": "3つ斬撃透明度"
+		},
+		{
+			"Id": "ParamMigisita",
+			"GroupId": "",
+			"Name": "右下"
+		},
+		{
+			"Id": "ParamMigiue",
+			"GroupId": "",
+			"Name": "右上"
+		},
+		{
+			"Id": "ParamMaue",
+			"GroupId": "",
+			"Name": "真上"
+		},
+		{
+			"Id": "ParamHidarisita",
+			"GroupId": "",
+			"Name": "左下"
+		},
+		{
+			"Id": "ParamHidariue",
+			"GroupId": "",
+			"Name": "左上"
+		},
+		{
+			"Id": "ParamEfectset",
+			"GroupId": "",
+			"Name": "キラ光輪位置"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "右眉　角度"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "",
+			"Name": "剣　オーラ"
+		},
+		{
+			"Id": "ParamArm",
+			"GroupId": "",
+			"Name": "腕"
+		},
+		{
+			"Id": "Paramrightarm",
+			"GroupId": "",
+			"Name": "→腕"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamKamae",
+			"GroupId": "",
+			"Name": "構える"
+		},
+		{
+			"Id": "ParamKagayaki",
+			"GroupId": "",
+			"Name": "かがやき透明度"
+		},
+		{
+			"Id": "ParamKagayakisize",
+			"GroupId": "",
+			"Name": "かがやき大きさ"
+		},
+		{
+			"Id": "ParamRingopa",
+			"GroupId": "",
+			"Name": "光輪透明度"
+		},
+		{
+			"Id": "ParamRingsize",
+			"GroupId": "",
+			"Name": "光輪大きさ"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "",
+			"Name": "髪揺れ　前"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "",
+			"Name": "髪揺れ　横"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "",
+			"Name": "髪揺れ　後"
+		},
+		{
+			"Id": "Parammanto",
+			"GroupId": "",
+			"Name": "マント揺れ"
+		},
+		{
+			"Id": "Paramfuwa",
+			"GroupId": "",
+			"Name": "ふわふわ"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "顔パーツ"
+		},
+		{
+			"Id": "Part5",
+			"Name": "首元"
+		},
+		{
+			"Id": "Part6",
+			"Name": "身体パーツ"
+		},
+		{
+			"Id": "Part2",
+			"Name": "←目"
+		},
+		{
+			"Id": "Part3",
+			"Name": "→目"
+		},
+		{
+			"Id": "Part4",
+			"Name": "髪"
+		}
+	]
+}

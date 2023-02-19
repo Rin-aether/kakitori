@@ -3,7 +3,7 @@ import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 import { quiz, reloadQuiz } from "./Kanjidata";
 
-const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
+const Mozi = ({ motion, moziHidden, flagprop }) => {
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -71,11 +71,11 @@ const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
 
   const firstset = () => {
     setTimeout(() => {
-      motion1();
-    }, 1000);
+      motion();
+    }, 800);
     setTimeout(() => {
       setGo(false);
-    }, 4000);
+    }, 3000);
   };
 
   const batuAct = () => {
@@ -133,11 +133,11 @@ const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
       }, 1000);
       if (quizNow != 9) {
         setTimeout(() => {
-          motion2();
-        }, 1700);
+          motion();
+        }, 1900);
         setTimeout(() => {
           setGo(false);
-        }, 4500);
+        }, 4100);
       }
     } else {
       setResult(["", "", ""]);
