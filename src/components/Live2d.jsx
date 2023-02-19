@@ -32,7 +32,6 @@ const Live2d = ({ quizHidden, flag }) => {
       // 2, PixiJSを準備する
       app = new PIXI.Application({
         view: live2dRef.current,
-        // backgroundColor: 0x999999,
         transparent: true,
         autoStart: true,
         backgroundAlpha: 0,
