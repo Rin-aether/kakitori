@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
-import { quiz } from "./Kanjidata";
+import { quiz, reloadQuiz } from "./Kanjidata";
 
 const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
-  const quizLenght = quiz.length; //クイズの数
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -37,6 +36,7 @@ const Mozi = ({ motion1, motion2, moziHidden, flagprop }) => {
   }, 1000);
 
   useEffect(() => {
+    reloadQuiz();
     setTimeout(() => {
       setQuestion(quiz[quizNow].question);
       setGo(true);

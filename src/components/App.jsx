@@ -17,7 +17,8 @@ function App() {
   const [home, setHome] = useState(true);
   const [clearF, setCrearF] = useState("no");
   const displayStyle = clearF === "ok" ? {} : { display: "none" };
-
+  const modelUrl =
+    "../../Live2dModels/haru_greeter_pro_jp/runtime/haru_greeter_t03.model3.json";
   useEffect(() => {
     setCrearF(flag);
   }, []);
@@ -46,7 +47,7 @@ function App() {
     setCrearF("ok");
   };
   return (
-    <>
+    modelUrl && <>
       <div className="App">
         {quizVisible ? (
           <Live2d
