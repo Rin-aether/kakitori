@@ -42,12 +42,12 @@ const Live2d = ({ quizHidden, flag }) => {
       // 3, Live2Dモデルをロードする
       currentModel = await Live2DModel.from(modelUrl, { autoInteract: false });
       if (window.innerWidth < 768) {
-        currentModel.scale.set(0.3); //モデルの大きさ★
+        currentModel.scale.set(0.32); //モデルの大きさ★
         currentModel.interactive = true;
-        currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
+        currentModel.anchor.set(0.5, 1.1); //モデルのアンカー★
       } else {
         //pc
-        currentModel.scale.set(0.36); //モデルの大きさ★
+        currentModel.scale.set(0.38); //モデルの大きさ★
         currentModel.interactive = true;
         currentModel.anchor.set(0.5, 1.15); //モデルのアンカー★
       }
