@@ -15,8 +15,7 @@
 			],
 			"Slash": [
 				{
-					"File": "motion/slash.motion3.json",
-					"FadeOutTime": 1
+					"File": "motion/slash.motion3.json"
 				}
 			]
 		}
