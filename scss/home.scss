@@ -168,12 +168,12 @@
     transform: rotate(12deg);
     font-size: 2.1rem;
     color: #ff5353;
-    -webkit-text-stroke: 0.2px #fff;
+    @include variables.textStroke(0.2px, #fff);
     filter: drop-shadow(0px 0px 8px rgb(254, 255, 240));
     letter-spacing: 0.1rem;
     @media screen and (min-width: 900px) {
       font-size: 3.1rem;
-      -webkit-text-stroke: 0.5px #fff;
+      @include variables.textStroke(0.5px, #fff);
     }
   }
   img {
