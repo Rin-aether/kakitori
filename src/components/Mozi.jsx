@@ -251,7 +251,7 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
 
           <div className="life-wrap">
             <img src="/images/heart.png" alt="" />
-            <h3>✖</h3>
+            <h4>✖</h4>
             <h2>{lifeNow}</h2>
           </div>
         </div>
