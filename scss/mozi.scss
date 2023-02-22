@@ -445,13 +445,13 @@ $border-color: rgba(251, 255, 0, 0.6);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1.5px #fff;
 
     border-bottom: 1.5px solid $border-color;
     border-top: 1.5px solid $border-color;
     @media screen and (min-width: 900px) {
       font-size: 6rem;
-      -webkit-text-stroke: 2.2px #fff;
+      -webkit-text-stroke: 2px #fff;
     }
   }
 }
@@ -507,11 +507,12 @@ $border-color: rgba(251, 255, 0, 0.6);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1.5px #fff;
     filter: drop-shadow(0px 0px 8px rgb(242, 255, 58));
     letter-spacing: 0.1rem;
     @media screen and (min-width: 900px) {
       font-size: 7.1rem;
+      -webkit-text-stroke: 2px #fff;
     }
   }
 }
@@ -565,11 +566,12 @@ $border-color: rgba(251, 255, 0, 0.6);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px #ffffff;
+    -webkit-text-stroke: 1.5px #ffffff;
     filter: drop-shadow(0px 0px 10px rgb(97, 58, 255));
     letter-spacing: 0.1rem;
     @media screen and (min-width: 900px) {
       font-size: 6.8rem;
+      -webkit-text-stroke: 2px #ffffff;
     }
   }
 }
