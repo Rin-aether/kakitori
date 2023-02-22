@@ -22,9 +22,9 @@
   gap: 1ch;
 }
 
-@mixin textStroke($shadowPx, $shadowColor) {
-  text-shadow: -$shadowPx -$shadowPx 0 $shadowColor, -$shadowPx 0 0 $shadowColor,
-    -$shadowPx $shadowPx 0 $shadowColor, 0 $shadowPx 0 $shadowColor,
-    0 $shadowPx 0 $shadowColor, $shadowPx -$shadowPx 0 $shadowColor,
-    $shadowPx 0 0 $shadowColor, $shadowPx $shadowPx 0 $shadowColor;
-}
+// @mixin textStroke($shadowPx, $shadowColor) {
+//   text-shadow: -$shadowPx -$shadowPx 0 $shadowColor, -$shadowPx 0 0 $shadowColor,
+//     -$shadowPx $shadowPx 0 $shadowColor, 0 $shadowPx 0 $shadowColor,
+//     0 $shadowPx 0 $shadowColor, $shadowPx -$shadowPx 0 $shadowColor,
+//     $shadowPx 0 0 $shadowColor, $shadowPx $shadowPx 0 $shadowColor;
+// }
