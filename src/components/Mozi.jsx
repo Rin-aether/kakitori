@@ -151,10 +151,7 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
       moziHidden();
     }, 1400);
   };
-  //任意のタイミングでuseEffectを実行する関数
-  // const executeUseEffect = () => {
-  //   setDummyState((prevState) => !prevState);
-  // };
+ 
   return (
     <>
       <div
@@ -251,7 +248,6 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
 
           <div className="life-wrap">
             <img src="/images/heart.png" alt="" />
-            <h4>✖</h4>
             <h2>{lifeNow}</h2>
           </div>
         </div>

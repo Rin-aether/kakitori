@@ -41,32 +41,49 @@ const Live2d = ({ quizHidden, flag }) => {
       // 3, Live2Dモデルをロードする
       currentModel = await Live2DModel.from(modelUrl, { autoInteract: false });
       if (window.innerWidth < 768) {
-        currentModel.scale.set(0.3); //モデルの大きさ★
-        currentModel.interactive = true;
-        currentModel.anchor.set(0.5, 1.1); //モデルのアンカー★
+        currentModel.scale.set(0.8); //モデルの大きさ★
+        currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
       } else {
         //pc
-        currentModel.scale.set(0.38); //モデルの大きさ★
-        currentModel.interactive = true;
-        currentModel.anchor.set(0.5, 1.15); //モデルのアンカー★
+        currentModel.scale.set(0.57); //モデルの大きさ★
+        currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
       }
-      currentModel.position.set(window.innerWidth / 2, window.innerHeight); //モデルの位置★
+      currentModel.interactive = true;
 
       // 6, Live2Dモデルを配置する
       app.stage.addChild(currentModel);
+      function handleResize() {
+        var parent = live2dwrapRef.current;
+        var canvas = live2dRef.current;
+        var ratio = window.devicePixelRatio;
+        canvas.width = parent.clientWidth * ratio;
+        canvas.height = parent.clientHeight * ratio;
+        canvas.style.width = parent.clientWidth + "px";
+        canvas.style.height = parent.clientHeight + "px";
+
+        currentModel.position.set(app.view.width / 2, app.view.height / 2); //モデルの位置★
+
+        // PixiJSのrendererにcanvasのサイズを更新する
+        app.renderer.resize(canvas.width, canvas.height);
+      }
+
+      window.addEventListener("resize", handleResize);
+      handleResize();
     })();
   }, [live2dRef]);
 
   const slash = () => {
-    app.stage.children[0].internalModel.motionManager.startMotion("Slash", 0, 2);
+    app.stage.children[0].internalModel.motionManager.startMotion(
+      "Slash",
+      0,
+      2
+    );
   };
   return (
     <>
       <div className="live2d-canvas-wrap" ref={live2dwrapRef}>
         <canvas className="my-live2d" ref={live2dRef}></canvas>
       </div>
-      <br />
-      <br />
       <Mozi motion={slash} moziHidden={quizHidden} flagprop={flag} />
     </>
   );
