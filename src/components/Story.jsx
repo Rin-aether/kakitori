@@ -25,7 +25,7 @@ const Story = ({ storyHidden }) => {
   setTimeout(() => {
     setMakimono(false);
     setStoryBlack(true);
-  }, 1500);
+  }, 1800);
 
   useEffect(() => {
     phina.display.CanvasApp.prototype._draw = function () {
@@ -62,7 +62,7 @@ const Story = ({ storyHidden }) => {
 
     if (window.innerWidth < 768) {
       var minusx = 54;
-      var minusy = 110;
+      var minusy = 120;
       var fontsize = 20;
       var cursolx = 34;
       var cursoly = 20;
@@ -236,15 +236,13 @@ const Story = ({ storyHidden }) => {
           case 14:
             setImage("egao");
             setNext(true);
-            setName(
-              "<ruby>天白<rt>アマシロ</tr></ruby><ruby>&nbsp瑠散花<rt>&nbspルチカ</tr></ruby>"
-            );
+            setName("アマシロ ルチカ");
             break;
           case 15:
             setStoryEnd(false);
             setTimeout(() => {
               storyHidden();
-            }, 1200);
+            }, 1600);
 
             break;
         }
@@ -344,7 +342,7 @@ const Story = ({ storyHidden }) => {
                   setStoryEnd(false);
                   setTimeout(() => {
                     storyHidden();
-                  }, 1200);
+                  }, 1500);
                 }}
               >
                 OK

@@ -26,14 +26,15 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
   const [end, setEnd] = useState(true);
   const [endBlack, setEndBlack] = useState(true);
   const [go, setGo] = useState(true);
+  const [showModal, setShowModal] = useState(true);
 
   MoziFunction(function () {
     setResult(["", "", ""]);
   });
-
+  ////////////開始処理///////////////////////////
   setTimeout(() => {
     setStartBlack(true);
-  }, 1000);
+  }, 2000);
 
   useEffect(() => {
     reloadQuiz();
@@ -41,7 +42,7 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
       setQuestion(quiz[quizNow].question);
       setGo(true);
       firstset();
-    }, 500);
+    }, 1600);
   }, []);
 
   useEffect(() => {
@@ -151,7 +152,7 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
       moziHidden();
     }, 1400);
   };
- 
+
   return (
     <>
       <div
@@ -159,6 +160,7 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
           startBlack ? "mozi-black" : "mozi-black mozi-black-add"
         } ${endBlack ? "" : "mozi-end-add"}`}
       ></div>
+      <div className={showModal ? "overlay" : "overlay-add"}></div>
       <div className={batu ? "normal" : "red-zone"}></div>
       <div className={end ? "end-black" : "end-black end-black-add"}></div>
       <div className="failed-area">
@@ -176,7 +178,40 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
           <h2>{alert}</h2>
         </div>
       </div>
-      {/* //////////////////////////////////////////////////// */}
+      {/* ///////モーダル////////////////////////////////// */}
+
+      <button
+        className="quiz-skip-btn"
+        onClick={() => {
+          setShowModal(!showModal);
+        }}
+      ></button>
+
+      <div className="modal-wrap">
+        <div className={showModal ? "modal" : "modal modal-add"}>
+          <h2>━ RETIRE ━</h2>
+          <h3>書き取りを中断しますか？</h3>
+
+          <div className="btn-wrap">
+            <button
+              className="cancel-btn"
+              onClick={() => {
+                setShowModal(!showModal);
+              }}
+            >
+              キャンセル
+            </button>
+            <button
+              className="ok-btn"
+              onClick={() => {
+                allend();
+              }}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div className="mozi-wrap">
         <div className="num-wrap">

@@ -125,7 +125,7 @@ rt {
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
-  z-index: 11;
+  z-index: 12;
   h2 {
     width: 100%;
     color: #fff;
@@ -299,14 +299,14 @@ $ziku-color: rgb(28, 119, 28);
   width: 100%;
   height: 100%;
   background-color: #0d0d0d;
-  z-index: 12;
+  z-index: 13;
   visibility: hidden;
   pointer-events: none;
 }
 
 .story-black-add {
   visibility: visible;
-  animation: story-black-add 1s ease-in-out 0s 1 forwards;
+  animation: story-black-add 1.8s ease-in-out 0s 1 forwards;
 }
 .story-end-add {
   visibility: visible;
@@ -315,9 +315,9 @@ $ziku-color: rgb(28, 119, 28);
 
 @keyframes story-black-add {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
-  30% {
+  70% {
     opacity: 1;
   }
   100% {
@@ -336,7 +336,7 @@ $ziku-color: rgb(28, 119, 28);
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
 // .choice-wrap {
