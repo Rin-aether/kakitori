@@ -1,0 +1,35 @@
+{
+	"Type": "Live2D Pose",
+	"Groups": [
+		[
+			{
+				"Id": "Part7",
+				"Link": []
+			},
+			{
+				"Id": "Part10",
+				"Link": []
+			}
+		],
+		[
+			{
+				"Id": "Part8",
+				"Link": []
+			},
+			{
+				"Id": "Part11",
+				"Link": []
+			}
+		],
+		[
+			{
+				"Id": "Part9",
+				"Link": []
+			},
+			{
+				"Id": "Part12",
+				"Link": []
+			}
+		]
+	]
+}

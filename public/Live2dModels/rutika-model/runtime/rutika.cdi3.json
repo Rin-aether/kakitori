@@ -27,49 +27,9 @@
 			"Name": "右目　開閉"
 		},
 		{
-			"Id": "ParamSayuuOpa",
-			"GroupId": "",
-			"Name": "左右斬撃透明度"
-		},
-		{
-			"Id": "Param3tobuOpa",
-			"GroupId": "",
-			"Name": "3つ斬撃透明度"
-		},
-		{
-			"Id": "ParamMigisita",
-			"GroupId": "",
-			"Name": "右下"
-		},
-		{
-			"Id": "ParamMigiue",
-			"GroupId": "",
-			"Name": "右上"
-		},
-		{
-			"Id": "ParamMaue",
-			"GroupId": "",
-			"Name": "真上"
-		},
-		{
-			"Id": "ParamHidarisita",
-			"GroupId": "",
-			"Name": "左下"
-		},
-		{
-			"Id": "ParamHidariue",
-			"GroupId": "",
-			"Name": "左上"
-		},
-		{
 			"Id": "ParamEfectset",
 			"GroupId": "",
 			"Name": "キラ光輪位置"
-		},
-		{
-			"Id": "ParamBrowRAngle",
-			"GroupId": "",
-			"Name": "右眉　角度"
 		},
 		{
 			"Id": "ParamBrowLForm",
@@ -145,10 +105,47 @@
 			"Id": "Paramfuwa",
 			"GroupId": "",
 			"Name": "ふわふわ"
+		},
+		{
+			"Id": "ParamMannakaEn",
+			"GroupId": "",
+			"Name": "真ん中円エフェクト"
+		},
+		{
+			"Id": "ParamMannakaKira",
+			"GroupId": "",
+			"Name": "真ん中キラ大きさ"
+		},
+		{
+			"Id": "ParamThree",
+			"GroupId": "",
+			"Name": "三剣軌道"
+		},
+		{
+			"Id": "ParamNiken",
+			"GroupId": "",
+			"Name": "二剣"
+		},
+		{
+			"Id": "ParamKaiten",
+			"GroupId": "",
+			"Name": "剣回転"
 		}
 	],
 	"ParameterGroups": [],
 	"Parts": [
+		{
+			"Id": "Part7",
+			"Name": "真ん中エフェ"
+		},
+		{
+			"Id": "Part8",
+			"Name": "三剣"
+		},
+		{
+			"Id": "Part9",
+			"Name": "二剣"
+		},
 		{
 			"Id": "Part",
 			"Name": "顔パーツ"
@@ -160,6 +157,18 @@
 		{
 			"Id": "Part6",
 			"Name": "身体パーツ"
+		},
+		{
+			"Id": "Part12",
+			"Name": "二剣消える"
+		},
+		{
+			"Id": "Part11",
+			"Name": "三剣消える"
+		},
+		{
+			"Id": "Part10",
+			"Name": "真ん中エフェ消える"
 		},
 		{
 			"Id": "Part2",

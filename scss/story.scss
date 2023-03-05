@@ -126,6 +126,7 @@ rt {
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
   z-index: 12;
+  pointer-events: none;
   h2 {
     width: 100%;
     color: #fff;
@@ -155,6 +156,7 @@ rt {
   background-color: #fff;
   border-radius: 15px;
   visibility: hidden;
+  pointer-events: auto;
 }
 
 .modal-add {

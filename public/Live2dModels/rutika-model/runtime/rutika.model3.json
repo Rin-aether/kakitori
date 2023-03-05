@@ -3,14 +3,34 @@
 	"FileReferences": {
 		"Moc": "rutika.moc3",
 		"Textures": [
-			"rutika.2048/texture_00.png",
-			"rutika.2048/texture_01.png"
+			"rutika.4096/texture_00.png"
 		],
+		"Pose": "rutika.pose3.json",
 		"DisplayInfo": "rutika.cdi3.json",
 		"Motions": {
 			"Idle": [
 				{
 					"File": "motion/Idle.motion3.json"
+				}
+			],
+			"": [
+				{
+					"File": "motion/kamaeFirst.motion3.json"
+				}
+			],
+			"Final": [
+				{
+					"File": "motion/kamaeFour.motion3.json"
+				}
+			],
+			"Second": [
+				{
+					"File": "motion/kamaeSecond.motion3.json"
+				}
+			],
+			"Three": [
+				{
+					"File": "motion/kamaeThird.motion3.json"
 				}
 			],
 			"Slash": [

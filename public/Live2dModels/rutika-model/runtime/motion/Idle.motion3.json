@@ -5,9 +5,9 @@
 		"Fps": 30.0,
 		"Loop": true,
 		"AreBeziersRestricted": false,
-		"CurveCount": 10,
-		"TotalSegmentCount": 84,
-		"TotalPointCount": 232,
+		"CurveCount": 17,
+		"TotalSegmentCount": 91,
+		"TotalPointCount": 248,
 		"UserDataCount": 0,
 		"TotalUserDataSize": 0
 	},
@@ -376,6 +376,21 @@
 		},
 		{
 			"Target": "Parameter",
+			"Id": "ParamKamae",
+			"Segments": [
+				0,
+				0,
+				1,
+				2.667,
+				0,
+				5.333,
+				0,
+				8,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
 			"Id": "ParamBreath",
 			"Segments": [
 				0,
@@ -618,6 +633,72 @@
 				0,
 				8,
 				0
+			]
+		},
+		{
+			"Target": "PartOpacity",
+			"Id": "Part7",
+			"Segments": [
+				0,
+				0,
+				0,
+				8,
+				0
+			]
+		},
+		{
+			"Target": "PartOpacity",
+			"Id": "Part8",
+			"Segments": [
+				0,
+				0,
+				0,
+				8,
+				0
+			]
+		},
+		{
+			"Target": "PartOpacity",
+			"Id": "Part9",
+			"Segments": [
+				0,
+				0,
+				0,
+				8,
+				0
+			]
+		},
+		{
+			"Target": "PartOpacity",
+			"Id": "Part12",
+			"Segments": [
+				0,
+				1,
+				0,
+				8,
+				1
+			]
+		},
+		{
+			"Target": "PartOpacity",
+			"Id": "Part11",
+			"Segments": [
+				0,
+				1,
+				0,
+				8,
+				1
+			]
+		},
+		{
+			"Target": "PartOpacity",
+			"Id": "Part10",
+			"Segments": [
+				0,
+				1,
+				0,
+				8,
+				1
 			]
 		}
 	]

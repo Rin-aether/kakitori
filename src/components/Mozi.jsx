@@ -3,7 +3,7 @@ import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 import { quiz, reloadQuiz } from "./Kanjidata";
 
-const Mozi = ({ motion, moziHidden, flagprop }) => {
+const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -15,7 +15,7 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
   const [question, setQuestion] = useState("<span>ユウシュウ</span>の美");
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
-  const [quizNow, setQuizNow] = useState(0);
+  const [quizNow, setQuizNow] = useState(8);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
@@ -120,6 +120,18 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
     }, 1800);
   };
 
+  const motionStart = () => {
+    if (quizNow <= 1) {
+      motion();
+    } else if (quizNow >= 2 && quizNow <= 4) {
+      motion2();
+    } else if (quizNow >= 5 && quizNow <= 7) {
+      motion3();
+    } else{
+      motion4();
+    }
+  };
+
   const answerCheck = (event) => {
     if (quiz[quizNow].answer == event.target.textContent) {
       setResult(["", "", ""]);
@@ -134,11 +146,11 @@ const Mozi = ({ motion, moziHidden, flagprop }) => {
       }, 1000);
       if (quizNow != 9) {
         setTimeout(() => {
-          motion();
-        }, 1900);
+          motionStart();
+        }, 1600);
         setTimeout(() => {
           setGo(false);
-        }, 4100);
+        }, 3600);
       }
     } else {
       setResult(["", "", ""]);
