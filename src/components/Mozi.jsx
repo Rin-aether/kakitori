@@ -34,7 +34,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   ////////////開始処理///////////////////////////
   setTimeout(() => {
     setStartBlack(true);
-  }, 2000);
+  }, 2500);
 
   useEffect(() => {
     reloadQuiz();
@@ -42,7 +42,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
       setQuestion(quiz[quizNow].question);
       setGo(true);
       firstset();
-    }, 1600);
+    }, 2100);
   }, []);
 
   useEffect(() => {

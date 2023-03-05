@@ -55,16 +55,16 @@
 	"Groups": [
 		{
 			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
 			"Name": "EyeBlink",
 			"Ids": [
 				"ParamEyeLOpen",
 				"ParamEyeROpen"
 			]
-		},
-		{
-			"Target": "Parameter",
-			"Name": "LipSync",
-			"Ids": []
 		}
 	],
 	"HitAreas": []
