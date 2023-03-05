@@ -10,32 +10,44 @@
 		"Motions": {
 			"Idle": [
 				{
-					"File": "motion/Idle.motion3.json"
+					"File": "motion/Idle.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			],
 			"": [
 				{
-					"File": "motion/kamaeFirst.motion3.json"
+					"File": "motion/kamaeFirst.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			],
 			"Final": [
 				{
-					"File": "motion/kamaeFour.motion3.json"
+					"File": "motion/kamaeFour.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			],
 			"Second": [
 				{
-					"File": "motion/kamaeSecond.motion3.json"
+					"File": "motion/kamaeSecond.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			],
 			"Three": [
 				{
-					"File": "motion/kamaeThird.motion3.json"
+					"File": "motion/kamaeThird.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			],
 			"Slash": [
 				{
-					"File": "motion/slash.motion3.json"
+					"File": "motion/slash.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			]
 		}
