@@ -47,7 +47,7 @@ const Live2d = ({ quizHidden, flag }) => {
       currentModel.anchor.set(0.5, 0.5); // モデルのアンカー
     } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
       // タブレット
-      currentModel.scale.set(0.85); // モデルの大きさ
+      currentModel.scale.set(0.8); // モデルの大きさ
       currentModel.anchor.set(0.5, 0.55); // モデルのアンカー
     } else {
       // desktop

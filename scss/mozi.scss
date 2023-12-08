@@ -338,7 +338,7 @@ $button-size-pc: 7vw;
   animation: maru-up 1s ease-out 1 forwards;
    //ipad
    @media (min-width: 768px) and (max-width: 991px) {
-    width: 60%;
+    width: 55%;
   }
 }
 
@@ -348,7 +348,7 @@ $button-size-pc: 7vw;
   animation: batu-up 1s ease-out 1 forwards;
    //ipad
    @media (min-width: 768px) and (max-width: 991px) {
-    width: 55%;
+    width: 50%;
   }
 }
 
@@ -727,7 +727,7 @@ $border-color: rgba(251, 255, 0, 0.6);
    //ipad
    @media (min-width: 768px) and (max-width: 991px) {
     top: 4%;
-    width: 6.4rem;
-    height: 6.4rem;
+    width: 6.2rem;
+    height: 6.2rem;
   }
 }
