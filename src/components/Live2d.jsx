@@ -40,14 +40,21 @@ const Live2d = ({ quizHidden, flag }) => {
 
       // 3, Live2Dモデルをロードする
       currentModel = await Live2DModel.from(modelUrl, { autoInteract: false });
-      if (window.innerWidth < 768) {
-        currentModel.scale.set(0.8); //モデルの大きさ★
-        currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
-      } else {
-        //pc
-        currentModel.scale.set(0.57); //モデルの大きさ★
-        currentModel.anchor.set(0.5, 0.5); //モデルのアンカー★
-      }
+
+    if (window.innerWidth <= 767) {
+      // 767px以下の画面幅の場合
+      currentModel.scale.set(0.8); // モデルの大きさ
+      currentModel.anchor.set(0.5, 0.5); // モデルのアンカー
+    } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
+      // タブレット
+      currentModel.scale.set(0.85); // モデルの大きさ
+      currentModel.anchor.set(0.5, 0.55); // モデルのアンカー
+    } else {
+      // desktop
+      currentModel.scale.set(0.57); // モデルの大きさ
+      currentModel.anchor.set(0.5, 0.5); // モデルのアンカー
+    }
+
       currentModel.interactive = true;
 
       // 6, Live2Dモデルを配置する

@@ -21,9 +21,15 @@
   img {
     width: 100%;
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 992px) {
     width: 120%;
     bottom: -5%;
+  }
+  //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 100%;
+    bottom: -8%;
+    transform: translateX(-50%) translateY(8%);
   }
 }
 .rutika-shadow {
@@ -86,8 +92,16 @@ rt {
     filter: drop-shadow(0px 0px 3px rgba(68, 68, 102, 0.8));
     border-bottom: 1.8px solid rgba(215, 215, 215, 0.6);
     pointer-events: none;
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width: 992px) {
       font-size: 2.2rem;
+    }
+    //ipad
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 2.8rem;
+      -webkit-text-stroke: 0.5px rgb(68, 68, 102);
+      filter: drop-shadow(0px 0px 5px rgba(68, 68, 102, 0.8));
+      border-bottom: 1.8px solid rgba(215, 215, 215, 0.6);
+      padding-bottom: 3px;
     }
   }
   canvas {
@@ -114,6 +128,11 @@ rt {
   font-style: italic;
   &:active {
     @include variables.push;
+  }
+   //ipad
+   @media (min-width: 768px) and (max-width: 991px) {
+    box-shadow: 0 2px #555577, inset 0 0 0 3px #e1e1e1;
+    font-size: 1.6rem;
   }
 }
 
@@ -142,13 +161,25 @@ rt {
     color: #444466;
     padding-top: 5%;
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 992px) {
     height: 25%;
     h3 {
       font-size: 1.8rem;
       padding-top: 8%;
     }
   }
+  //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 65%;
+    height: 30%;
+      h2 {
+        font-size: 2rem;
+        border-radius: 10px 10px 0 0;
+      }
+      h3 {
+        font-size: 1.8rem;
+      }
+    }
 }
 
 .modal {
@@ -197,7 +228,7 @@ rt {
   &:active {
     @include variables.push;
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width:992px) {
     width: 30%;
     box-shadow: 0 1.5px #555577, inset 0 0 0 4px #e1e1e1;
   }
@@ -206,7 +237,7 @@ rt {
 .ok-btn {
   background-image: linear-gradient(135deg, #fdeb71 10%, #ffe640 100%);
   box-shadow: 0 1.5px #555577, inset 0 0 0 3px #fff;
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 992px) {
     box-shadow: 0 1.5px #555577, inset 0 0 0 4px #fff;
   }
 }
@@ -233,12 +264,16 @@ rt {
   svg {
     overflow: visible;
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 992px) {
     //PC
     height: 5%;
     top: 1.3%;
     left: 1.8%;
   }
+   //ipad
+   @media (min-width: 768px) and (max-width: 991px) {
+    width: 40%;
+    }
 }
 .ape {
   opacity: 1;
@@ -257,13 +292,15 @@ rt {
     padding: 0.5em 0.4em 0.4em 0.4em;
     color: #444466;
     margin-left: 3.5%;
-  }
-  @media screen and (min-width: 900px) {
-    //PC
-    h2 {
-      font-size: 1.6rem;
-      padding: 0.45em;
+    @media screen and (min-width: 992px) {
+      //PC
+        font-size: 1.6rem;
+        padding: 0.45em;
     }
+    //ipad
+    @media (min-width: 768px) and (max-width: 991px) {
+        font-size: 1.6rem;
+      }
   }
 }
 $ziku-color: rgb(28, 119, 28);
@@ -365,7 +402,7 @@ $ziku-color: rgb(28, 119, 28);
 //   h3 {
 //     font-size: 1.8rem;
 //     color: #444466;
-//     @media screen and (min-width: 900px) {
+//     @media screen and (min-width:992px) {
 //       font-size: 2rem;
 //     }
 //   }

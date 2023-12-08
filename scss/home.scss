@@ -21,18 +21,18 @@
   &:active {
     @include variables.push;
   }
-  @media screen and (min-width: 900px) {
-    width: 6.5rem;
-    height: 6.5rem;
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 7.2rem;
+    height: 7.2rem;
   }
 }
 
 .logo-wrap {
   position: absolute;
   width: 100%;
-  top: 48%;
-  left: 53%;
-  transform: translateX(-52%) translateY(-48%);
+  top: 50%;
+  left: 60%;
+  transform: translateX(-50%) translateY(-50%);
   animation: logo-app 1s ease-out 0s 1 forwards;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .logo-img {
-  width: 90%;
+  width: 80%;
   animation: Afuwa 2s ease-in-out 1.5s infinite alternate,
     kiran 2s ease-in-out 1.5s infinite alternate;
 }
@@ -102,6 +102,16 @@
   &:active {
     @include variables.push;
   }
+  //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
+  width: 38%;
+  h2 {
+    font-size: 2.4rem;
+  }
+  img {
+    width: 35%;
+  }
+  }
 }
 
 .story-btn {
@@ -131,6 +141,16 @@
   &:active {
     @include variables.push;
   }
+   //ipad
+   @media (min-width: 768px) and (max-width: 991px) {
+    width: 38%;
+    h2 {
+      font-size: 2.4rem;
+    }
+    img {
+      width: 37%;
+    }
+    }
 }
 
 .start-wrap {
@@ -157,7 +177,7 @@
   h2 {
     font-size: 1.8rem;
     color: #444466;
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width: 992px) {
       font-size: 2rem;
     }
   }
@@ -171,7 +191,7 @@
     -webkit-text-stroke: 0.2px #fff;
     filter: drop-shadow(0px 0px 8px rgb(254, 255, 240));
     letter-spacing: 0.1rem;
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width:992px) {
       font-size: 3.1rem;
       -webkit-text-stroke: 0.5px #fff;
     }
@@ -231,13 +251,25 @@
     color: #444466;
     padding-top: 5%;
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width:992px) {
     height: 25%;
     h3 {
       font-size: 1.8rem;
       padding-top: 8%;
     }
   }
+    //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 65%;
+    height: 30%;
+      h2 {
+        font-size: 2rem;
+        border-radius: 10px 10px 0 0;
+      }
+      h3 {
+        font-size: 1.8rem;
+      }
+    }
 }
 
 .modal {
@@ -284,7 +316,7 @@
   &:active {
     @include variables.push;
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width:992px) {
     width: 30%;
     box-shadow: 0 1.5px #555577, inset 0 0 0 4px #e1e1e1;
   }
