@@ -195,7 +195,158 @@
     height: 6.4rem;
   }
 }
+//意味表示ボタン
+.meaning-btn {
+  padding: 0;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  right: -5%;
+  top: -7%;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #8888AA 10%, #444466 100%);
+  border-radius: 5px;
+  @include variables.center-center;
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  &:active {
+    @include variables.push;
+  }
+  img {
+    width: 68%;
+  }
+  @media screen and (min-width:992px) {
+    right: -4%;
+    top: -6%;
+  }
+  //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 6rem;
+    height: 6rem;
+    right: -2%;
+    top: -5%;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+  }
+}
 
+//意味表示領域
+.meaning-wrap{
+  position: absolute;
+  width: 94%;
+  left: 50%;
+  bottom: 28%;
+  transform: translateX(-50%) translateY(-28%);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(17, 30, 47, 0.6);
+  padding: 8px;
+  pointer-events: none;
+  border-radius: 5px;
+  h2{
+    font-size: 1.4rem;
+    color: #fff;
+    -webkit-text-stroke: 0.5px rgb(68, 68, 102);
+    filter: drop-shadow(0px 0px 3px rgba(68, 68, 102, 0.8));
+    border-bottom: 1.8px solid rgba(215, 215, 215, 0.6);
+    border-top: 1.8px solid rgba(215, 215, 215, 0.6);
+    padding: 8px;
+  }
+  @media screen and (min-width:992px) {
+    width: 80%;
+    padding: 12px;
+  }
+   //ipad
+   @media (min-width: 768px) and (max-width: 991px) {
+    width: 80%;
+    bottom: 30%;
+    padding: 12px;
+    transform: translateX(-50%) translateY(-30%);
+    h2{
+      font-size: 2rem;
+      padding: 12px;
+    }
+  }
+}
+
+//解答表示ボタン
+.answer-btn{
+  position: absolute;
+  z-index: 1;
+  right: -5%;
+  bottom: -6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  background-image: linear-gradient(135deg, #FEB692 10%, #EE4467 100%);
+  box-shadow: 0 0 8px #fff;
+  border-radius: 5px;
+  border: none;
+  appearance: none;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  &:active {
+    @include variables.push;
+  }
+  h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: "Line-bold", sans-serif;
+    padding: 0px 3px;
+  }
+  img {
+    padding: 3px;
+    width: 40%;
+  }
+  @media screen and (min-width:992px) {
+    right: -4%;
+    bottom: -5%;
+    width: 20%;
+  }
+  //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
+    right: -2%;
+    bottom: -3.5%;
+    width: 18%;
+    padding: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    h2 {
+      font-size: 2.1rem;
+    }
+    img {
+      width: 30%;
+    }
+  }
+}
+
+//答え表示領域
+.answer-wrap{
+    position: fixed;
+    left: 80%;
+    bottom: 1%;
+    transform: translateX(-80%) translateY(-1%);
+    width:90%;
+    height: 29%;
+    pointer-events: none;
+    text-align: center;
+    // background-color: #0396ff4b;
+    h2{
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20rem;
+      color: #808080;
+      letter-spacing: 0.3em;
+    }
+    //ipad
+    @media (min-width: 768px) and (max-width: 991px) {
+    
+    }
+  
+}
 .result-wrap {
   position: absolute;
   width: 90%;

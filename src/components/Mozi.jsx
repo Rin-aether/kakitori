@@ -15,7 +15,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   const [question, setQuestion] = useState("<span>ユウシュウ</span>の美");
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
-  const [quizNow, setQuizNow] = useState(8);
+  const [quizNow, setQuizNow] = useState(0);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
@@ -27,6 +27,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   const [endBlack, setEndBlack] = useState(true);
   const [go, setGo] = useState(true);
   const [showModal, setShowModal] = useState(true);
+  const [meaningVisible, setMeaningVisible] = useState(false);
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -165,6 +166,9 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     }, 1400);
   };
 
+  const handleMouseDown = () => setMeaningVisible(true);
+  const handleMouseUp = () => setMeaningVisible(false);
+
   return (
     <>
       <div
@@ -225,6 +229,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
         </div>
       </div>
 
+     {/* 問題数ゲージ */}
       <div className="mozi-wrap">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
@@ -236,6 +241,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           })}
         </div>
 
+       {/* 問題文表示ゾーン */}
         <div className="q-wrap">
           <div className={go ? "question" : "q-add"}>
             <h1>
@@ -244,6 +250,8 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           </div>
         </div>
         <h1 id="h1"></h1>
+
+        {/* 文字認識結果表示ゾーン */}
         <div className="result-wrap">
           <div className="result-push">
             <div
@@ -277,27 +285,51 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           </div>
         </div>
 
+        {/* 記述キャンバス領域 */}
         <div style={{ display: "inline-block" }}>
           <div
             className={go ? "mozi-canvas-wrap" : "mozi-canvas-wrap canvas-add"}
             ref={wrapRef}
           >
             <canvas className="mozi-canvas" ref={canvasRef}></canvas>
+             {/* 意味表示ボタン */}
+          <button className="meaning-btn" 
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onTouchStart={handleMouseDown}
+          onTouchEnd={handleMouseUp}>
+            <img src="/images/megane.svg" alt="" />
+          </button>
+           {/* 答え表示ボタン */}
+           <button className="answer-btn">
+           <img src="/images/eye.svg" alt="" />
+                    <h2>答え</h2>
+          </button>
           </div>
-          <br />
+          <br/>
+        </div>
 
+      {/* 意味表示領域 */}
+      <div className={meaningVisible ? "meaning-wrap" : "meaning-wrap display-none"}>
+        <h2 dangerouslySetInnerHTML={{ __html: quiz[quizNow].meaning }} />
+          </div>
+
+          {/* 答え表示領域 */}
+          <div className="answer-wrap">
+                  <h2>{quiz[quizNow].answer}</h2>
+          </div>
+          {/* 消しゴムボタン */}
           <button
             className={a && b && c ? "erase-btn" : "display-none"}
-            ref={buttonRef}
-          >
-            <img src="/images/kesi.png" alt="" />
+            ref={buttonRef}>
+          <img src="/images/kesi.png" alt="" />
           </button>
-
-          <div className="life-wrap">
-            <img src="/images/heart.png" alt="" />
-            <h2>{lifeNow}</h2>
-          </div>
-        </div>
+          {/* 残りライフ表示 */}
+          {/* <div className="life-wrap">
+                    <img src="/images/heart.png" alt="" />
+                    <h2>{lifeNow}</h2>
+          </div> */}
+        {/* マルバツ演出表示領域 */}
         <div className="check-wrap">
           <img
             className={maru ? "maru" : "maru-add"}

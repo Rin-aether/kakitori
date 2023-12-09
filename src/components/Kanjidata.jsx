@@ -1,5 +1,6 @@
 const kanjiData0 = [
-  { question: "体重を<span>ハカ</span>る", answer: "量" },
+  { question: "体重を<span>ハカ</span>る", answer: "量", 
+  meaning:"ある基準をもとにして物の度合いを調べる。<br/>特に、はかり・ゲージなどの計測機器で測定する。" },
   { question: "<span>セリフ</span>を言う", answer: "台詞" },
   { question: "<span>イバラキ</span>県", answer: "茨城" },
   { question: "人事<span>イドウ</span>", answer: "異動" },
@@ -11,7 +12,8 @@ const kanjiData0 = [
   { question: "<span>シンピョウ</span>性", answer: "信憑" },
 ];
 const kanjiData1 = [
-  { question: "<span>イシン</span>伝心", answer: "以心" },
+  { question: "<span>イシン</span>伝心", answer: "以心",
+meaning:"言葉によらずに、互いの心から心に伝えること。"},
   { question: "お<span>ミヤゲ</span>", answer: "土産" },
   { question: "<span>ニイガタ</span>県", answer: "新潟" },
   { question: "食費に<span>ア</span>てる", answer: "充" },
