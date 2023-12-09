@@ -3,6 +3,7 @@ import "../../scss/style.scss";
 import "../../scss/home.scss";
 import Keikoku from "./Keikoku";
 import Live2d from "./Live2d";
+import Kanbatu from "./Kanbatu";
 import Story from "./Story";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [storyModal, setStoryModal] = useState(false);
   const [storyVisible, setStoryVisible] = useState(false);
   const [quizVisible, setquizVisible] = useState(false);
+  const [quizVisible2, setquizVisible2] = useState(false);
   const [home, setHome] = useState(true);
   const [clearF, setCrearF] = useState("no");
   const displayStyle = clearF === "ok" ? {} : { display: "none" };
@@ -42,6 +44,13 @@ function App() {
       setquizVisible(true);
     }, 500);
   };
+  // 漢伐↓
+  const qstartBtn2 = () => {
+    setHome(false);
+    setTimeout(() => {
+      setquizVisible2(true);
+    }, 500);
+  };
   const changeF = () => {
     setCrearF("ok");
   };
@@ -58,6 +67,18 @@ function App() {
               flag={changeF}
             />
           ) : null}
+
+     {/* 漢伐↓ */}
+          {quizVisible2 ? (
+            <Kanbatu
+              quizHidden2={() => {
+                setquizVisible2(false);
+                setHome(true);
+              }}
+              flag={changeF}
+            />
+          ) : null}
+
           {storyVisible ? (
             <Story
               storyHidden={() => {
@@ -112,9 +133,19 @@ function App() {
                 onClick={qstartBtn}
               >
                 <img className="kaki-img" src="/images/pen.png" alt="" />
-                <h2 className="item">━ 意外と書けない漢字編 ━</h2>
+                <h2 className="item">━ 意外と書けない漢字編 練習字合━</h2>
                 <h3 style={displayStyle}>CLEAR!</h3>
               </div>
+              {/* 漢伐↓ */}
+              <div
+                className={qstart ? "kanbatu-start" : "qstart-diss"}
+                onClick={qstartBtn2}
+              >
+                <img className="kaki-img" src="/images/penwhite.png" alt="" />
+                <h2 className="item">━ 意外と書けない漢字編 漢伐━</h2>
+                <h3 style={displayStyle}>CLEAR!</h3>
+              </div>
+              {/* ストーリー↓ */}
               <div
                 className={sstart ? "story-start" : "story-diss"}
                 onClick={storyCheck}

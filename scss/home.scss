@@ -162,7 +162,8 @@
   height: 60%;
 }
 .quiz-start,
-.story-start {
+.story-start,
+.kanbatu-start{
   width: 85%;
   height: 25%;
   margin: 15px auto;
@@ -175,9 +176,10 @@
   animation: toright 0.3s ease-in-out;
   position: relative;
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #444466;
-    @media screen and (min-width: 992px) {
+    //ipad
+    @media (min-width: 768px) and (max-width: 991px) {
       font-size: 2rem;
     }
   }
@@ -213,6 +215,15 @@
     padding-bottom: 0%;
   }
 }
+.kanbatu-start{
+  background: linear-gradient(to top, rgba(31, 40, 238, 1), rgba(100, 49, 140, 1));
+  @include variables.btn-Inline($inColor: #7ab0fb90);
+  h2{
+    color: #fff;
+  }
+  
+}
+
 @keyframes toright {
   0% {
     opacity: 0;

@@ -3,7 +3,7 @@ import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 import { quiz, reloadQuiz } from "./Kanjidata";
 
-const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
+const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -128,9 +128,9 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     } else if (quizNow >= 2 && quizNow <= 4) {
       motion2();
     } else if (quizNow >= 5 && quizNow <= 7) {
-      motion3();
+      motion2();
     } else{
-      motion4();
+      motion2();
     }
   };
 
@@ -164,7 +164,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   const allend = () => {
     setEndBlack(false);
     setTimeout(() => {
-      moziHidden();
+      moziHidden2();
     }, 1400);
   };
 
@@ -183,6 +183,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
 
   return (
     <>
+    
       <div
         className={`${
           startBlack ? "mozi-black" : "mozi-black mozi-black-add"
@@ -206,6 +207,8 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           <h2>{alert}</h2>
         </div>
       </div>
+
+      
       {/* ///////モーダル////////////////////////////////// */}
 
       <button
@@ -242,7 +245,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
       </div>
 
      {/* 問題数ゲージ */}
-      <div className="mozi-wrap">
+      <div className="mozi-wrap kanbatu-background">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
             return (
@@ -312,11 +315,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           onTouchEnd={handleMouseUp}>
             <img src="/images/megane.svg" alt="" />
           </button>
-           {/* 答え表示ボタン */}
-           <button className="answer-btn" onClick={toggleAnswerVisibility}>
-           <img src="/images/eye.svg" alt="" />
-                    <h2>答え</h2>
-          </button>
+         
           </div>
           <br/>
         </div>
@@ -326,10 +325,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
         <h2 dangerouslySetInnerHTML={{ __html: quiz[quizNow].meaning }} />
           </div>
 
-          {/* 答え表示領域 */}
-          <div className={`answer-wrap ${isAnswerVisible ? "answer-visible" : ""}`}>
-          <h2 className={getAnswerClass()}>{quiz[quizNow].answer}</h2>
-          </div>
+          
 
 
           {/* 消しゴムボタン */}
@@ -339,10 +335,10 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           <img src="/images/kesi.png" alt="" />
           </button>
           {/* 残りライフ表示 */}
-          {/* <div className="life-wrap">
+          <div className="life-wrap">
                     <img src="/images/heart.png" alt="" />
                     <h2>{lifeNow}</h2>
-          </div> */}
+          </div>
         {/* マルバツ演出表示領域 */}
         <div className="check-wrap">
           <img
@@ -361,4 +357,4 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   );
 };
 
-export default Mozi;
+export default Mozi2;

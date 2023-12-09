@@ -135,6 +135,9 @@
   width: 100%;
   height: 100%;
 }
+.kanbatu-background{
+  background-color: rgba(16, 16, 44, 0.4);
+}
 
 .mozi-canvas-wrap {
   position: absolute;
@@ -170,8 +173,8 @@
 }
 .erase-btn {
   padding: 0;
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   position: absolute;
   left: 1.2%;
   bottom: 1.2%;
@@ -191,8 +194,8 @@
   }
   //ipad
   @media (min-width: 768px) and (max-width: 991px) {
-    width: 6.4rem;
-    height: 6.4rem;
+    width: 6rem;
+    height: 6rem;
   }
 }
 //意味表示ボタン
@@ -313,7 +316,7 @@
     right: -2%;
     bottom: -3.5%;
     width: 18%;
-    padding: 5px;
+    padding: 7px;
     border: 2px solid rgba(255, 255, 255, 0.95);
     h2 {
       font-size: 2.1rem;
@@ -327,27 +330,86 @@
 //答え表示領域
 .answer-wrap{
     position: fixed;
-    left: 80%;
-    bottom: 1%;
-    transform: translateX(-80%) translateY(-1%);
+    left: 78%;
+    bottom: 0%;
+    transform: translateX(-78%) translateY(0%);
     width:90%;
     height: 29%;
     pointer-events: none;
     text-align: center;
-    opacity: 0.3;
-    // background-color: #0396ff4b;
+    transition: opacity 1s, visibility 0s ease 1s;
+    opacity: 0;
+    visibility: hidden;
     h2{
       font-family: 'Noto Serif JP', serif;
-      font-size: 20rem;
       color: #808080;
-      letter-spacing: 0.3em;
+    }
+    //pc
+    @media screen and (min-width:992px) {
+      left: 65%;
+      bottom: -1%;
+      transform: translateX(-65%) translateY(1%);
     }
     //ipad
     @media (min-width: 768px) and (max-width: 991px) {
-    
+      bottom: 1.5%;
+      transform: translateX(-78%) translateY(-1.5%);
     }
-  
 }
+//答え表示
+.answer-visible{
+  transition-delay: 0s;
+  opacity: 0.3;
+  visibility: visible;
+}
+// １文字・２文字の場合
+.double-or-less-char {
+  font-size: 11rem;
+  letter-spacing: 0.3em;
+   //pc
+   @media screen and (min-width:992px) {
+    font-size: 11rem;
+    letter-spacing: 0.4em;
+   }
+   //ipad
+   @media (min-width: 768px) and (max-width: 991px) {
+       font-size: 20rem;
+   }
+}
+
+.answer-wrap:has(> .triple-char) {
+  left: 82%;
+  bottom: -1%;
+  transform: translateX(-80%) translateY(1%);
+  width:94%;
+   //pc
+   @media screen and (min-width:992px) {
+    left: 72%;
+    bottom: -1%;
+    transform: translateX(-72%) translateY(1%);
+   }
+   //ipad
+   @media (min-width: 768px) and (max-width: 991px) {
+    left: 73.5%;
+    bottom: 0%;
+    transform: translateX(-72%) translateY(0%);
+   }
+}
+// 3文字の場合
+.triple-char {
+  font-size: 8.5rem;
+  letter-spacing: 0.3em;
+   //pc
+   @media screen and (min-width:992px) {
+    font-size: 11rem;
+   }
+   //ipad
+   @media (min-width: 768px) and (max-width: 991px) {
+       font-size: 16rem;
+   }
+}
+
+
 .result-wrap {
   position: absolute;
   width: 90%;

@@ -1,0 +1,47 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "silme.moc3",
+		"Textures": [
+			"silme.2048/texture_00.png"
+		],
+		"Pose": "silme.pose3.json",
+		"DisplayInfo": "silme.cdi3.json",
+		"Motions": {
+			"EyeWave": [
+				{
+					"File": "motions/EyeWave.motion3.json",
+					"FadeInTime": 0.5,
+					"FadeOutTime": 0.5
+				}
+			],
+			"Idle": [
+				{
+					"File": "motions/Idle.motion3.json",
+					"FadeInTime": 0.5,
+					"FadeOutTime": 0.5
+				}
+			],
+			"RushCharge": [
+				{
+					"File": "motions/RushCharge.motion3.json",
+					"FadeInTime": 0.5,
+					"FadeOutTime": 0.5
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}
