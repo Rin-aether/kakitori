@@ -29,7 +29,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
   const [showModal, setShowModal] = useState(true);
   const [meaningVisible, setMeaningVisible] = useState(false);
 
-  const TOTAL_TIME = 20; // タイマーの秒数
+  const TOTAL_TIME = 30; // タイマーの秒数
   const [timer, setTimer] = useState(TOTAL_TIME * 1000); // ミリ秒単位で初期化
   const [countdown, setCountdown] = useState(null);
   //タイマーリセット
