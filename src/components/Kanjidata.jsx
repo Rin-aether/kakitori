@@ -1,7 +1,8 @@
 const kanjiData0 = [
   { question: "<span>アイサツ</span>をする", answer: "挨拶", 
   meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
-  { question: "<span>セリフ</span>を言う", answer: "台詞" },
+  { question: "<span>セリフ</span>を言う", answer: "台詞",
+  meaning:"俳優が劇中で話す言葉。<br/>人に対する言葉。言いぐさ。" },
   { question: "<span>イバラキ</span>県", answer: "茨城" },
   { question: "人事<span>イドウ</span>", answer: "異動" },
   { question: "<span>アワ</span>てる", answer: "慌" },
@@ -16,7 +17,8 @@ const kanjiData0 = [
 const kanjiData1 = [
   { question: "<span>アイサツ</span>をする", answer: "挨拶",
   meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。"},
-  { question: "お<span>ミヤゲ</span>", answer: "土産" },
+  { question: "お<span>ミヤゲ</span>", answer: "土産",
+  meaning:"遠隔地の産物などを送られた、あるいは入手した時に、近隣の者に裾分けすること。また、その品物。"},
   { question: "<span>ニイガタ</span>県", answer: "新潟" },
   { question: "食費に<span>ア</span>てる", answer: "充" },
   { question: "眼鏡の<span>フチ</span>", answer: "縁" },
@@ -31,7 +33,8 @@ const kanjiData1 = [
 const kanjiData2 = [
   { question: "<span>アイサツ</span>をする", answer: "挨拶",
   meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
-  { question: "座右の<span>メイ</span>", answer: "銘" },
+  { question: "座右の<span>メイ</span>", answer: "銘",
+  meaning:"いつも心に留めておいて、生き方の参考とすることばのこと。" },
   { question: "<span>ノリ</span>を食べる", answer: "海苔" },
   { question: "<span>アクビ</span>をする", answer: "欠伸" },
   { question: "桜<span>フブキ</span>", answer: "吹雪" },
