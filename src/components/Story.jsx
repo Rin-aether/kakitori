@@ -64,21 +64,21 @@ const Story = ({ storyHidden }) => {
       // 767px以下の画面幅の場合
       var minusx = 54;
       var minusy = 120;
-      var fontsize = 20;
+      var fontsize = 18;
       var cursolx = 34;
       var cursoly = 20;
     } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
       // タブレット
       var minusx = 120;
       var minusy = 180;
-      var fontsize = 28;
+      var fontsize = 26;
       var cursolx = 34;
       var cursoly = 20;
     } else {
       // desktop
       var minusx = 90;
       var minusy = 150;
-      var fontsize = 24;
+      var fontsize = 20;
       var cursolx = 34;
       var cursoly = 20;
     }

@@ -14,21 +14,21 @@
 }
 .rutika {
   position: absolute;
-  width: 135%;
+  width: 120%;
   left: 50%;
-  bottom: -10%;
-  transform: translateX(-50%) translateY(10%);
+  bottom: -8%;
+  transform: translateX(-50%) translateY(5%);
   img {
     width: 100%;
   }
   @media screen and (min-width: 992px) {
-    width: 120%;
+    width: 100%;
     bottom: -5%;
   }
   //ipad
   @media (min-width: 768px) and (max-width: 991px) {
-    width: 100%;
-    bottom: -8%;
+    width: 90%;
+    bottom: -5%;
     transform: translateX(-50%) translateY(8%);
   }
 }
@@ -86,18 +86,18 @@ rt {
     margin-left: 4%;
     padding-left: 3%;
     width: 93%;
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 0.08rem;
     -webkit-text-stroke: 0.3px rgb(68, 68, 102);
     filter: drop-shadow(0px 0px 3px rgba(68, 68, 102, 0.8));
     border-bottom: 1.8px solid rgba(215, 215, 215, 0.6);
     pointer-events: none;
     @media screen and (min-width: 992px) {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
     //ipad
     @media (min-width: 768px) and (max-width: 991px) {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       -webkit-text-stroke: 0.5px rgb(68, 68, 102);
       filter: drop-shadow(0px 0px 5px rgba(68, 68, 102, 0.8));
       border-bottom: 1.8px solid rgba(215, 215, 215, 0.6);
