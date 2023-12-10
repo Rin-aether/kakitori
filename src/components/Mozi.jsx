@@ -16,7 +16,6 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
   const [quizNow, setQuizNow] = useState(0);
-  const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
   const [level, setLevel] = useState(true);
@@ -81,25 +80,15 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     }, 3000);
   };
 
+    //////不正解の場合の処理   ////////////////////////
   const batuAct = () => {
     setBatu(false);
     setTimeout(() => {
-      setLifeNow(lifeNow - 1);
-    }, 1100);
-    setTimeout(() => {
       setBatu(true);
-      if (lifeNow == 1) {
-        setFailed(false);
-        setEnd(false);
-        setGo(true);
-        setTimeout(() => {
-          allend();
-        }, 3500);
-      }
     }, 1800);
   };
 
-   //正解の場合の処理
+   //正解の場合の処理    ////////////////////////////////
   const maruAct = () => {
     setMaru(false);
     setGo(true);
@@ -191,7 +180,6 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
         } ${endBlack ? "" : "mozi-end-add"}`}
       ></div>
       <div className={showModal ? "overlay" : "overlay-add"}></div>
-      <div className={batu ? "normal" : "red-zone"}></div>
       <div className={end ? "end-black" : "end-black end-black-add"}></div>
       <div className="failed-area">
         <div className={failed ? "failed" : "failed-add"}>
@@ -340,11 +328,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
             ref={buttonRef}>
           <img src="/images/kesi.png" alt="" />
           </button>
-          {/* 残りライフ表示 */}
-          {/* <div className="life-wrap">
-                    <img src="/images/heart.png" alt="" />
-                    <h2>{lifeNow}</h2>
-          </div> */}
+        
         {/* マルバツ演出表示領域 */}
         <div className="check-wrap">
           <img

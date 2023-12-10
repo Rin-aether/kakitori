@@ -15,7 +15,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
   const [question, setQuestion] = useState("<span>ユウシュウ</span>の美");
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
-  const [quizNow, setQuizNow] = useState(9);
+  const [quizNow, setQuizNow] = useState(8);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
@@ -28,7 +28,15 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
   const [go, setGo] = useState(true);
   const [showModal, setShowModal] = useState(true);
   const [meaningVisible, setMeaningVisible] = useState(false);
-  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+
+  const TOTAL_TIME = 20; // タイマーの秒数
+  const [timer, setTimer] = useState(TOTAL_TIME * 1000); // ミリ秒単位で初期化
+  const [countdown, setCountdown] = useState(null);
+  //タイマーリセット
+  const resetTimer = () => {
+    setTimer(TOTAL_TIME * 1000);
+  };
+  
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -66,6 +74,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
     });
   }, [canvasRef]);
   const [a, b, c] = result;
+
   ///////////////問題書き換え////////////////////
   const quizset = () => {
     setQuestion(quiz[quizNow + 1].question);
@@ -78,16 +87,29 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
     }, 800);
     setTimeout(() => {
       setGo(false);
+      resetTimer(); // タイマーをリセット
     }, 3000);
   };
 
+    //////不正解の場合の処理   ////////////////////////
   const batuAct = () => {
     setBatu(false);
+    setGo(true);
+    setResult(["", "", ""]); 
+    //ライフ減少
     setTimeout(() => {
       setLifeNow(lifeNow - 1);
-    }, 1100);
+      motionStart();
+    }, 1200);
+
+    setTimeout(() => {
+      resetTimer(); // タイマーをリセット
+      setGo(false);
+    }, 3000); // 3秒後に実行
+
     setTimeout(() => {
       setBatu(true);
+      //ライフがない場合
       if (lifeNow == 1) {
         setFailed(false);
         setEnd(false);
@@ -97,9 +119,10 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
         }, 3500);
       }
     }, 1800);
+
   };
 
-  //正解の場合の処理
+     //正解の場合の処理    ////////////////////////////////
   const maruAct = () => {
     setMaru(false);
     setGo(true);
@@ -115,6 +138,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
     }, 1100);
     setTimeout(() => {
       setMaru(true);
+      //最終問題のみ
       if (quizNow == 9) {
         setClear(false);
         setEnd(false);
@@ -140,12 +164,12 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
 
 //答えチェック処理
   const answerCheck = (event) => {
-    setIsAnswerVisible(false);
 
     if (quiz[quizNow].answer == event.target.textContent) {
       setResult(["", "", ""]);
       maruAct();
 
+      //レベルに応じた処理
       setTimeout(() => {
         if (quizNow == 2 || quizNow == 5 || quizNow == 8) {
           setLevel(false);
@@ -153,17 +177,22 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
           setLevel(true);
         }
       }, 1000);
+      //最後以外出題開始
       if (quizNow != 9) {
         setTimeout(() => {
           motionStart();
         }, 1600);
         setTimeout(() => {
           setGo(false);
+          resetTimer(); // タイマーをリセット
         }, 3600);
       }
     } else {
       setResult(["", "", ""]);
-      batuAct();
+      setBatu(false);
+      setTimeout(() => {
+          setBatu(true);
+        }, 1800);
     }
   };
 
@@ -176,16 +205,29 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
 
   const handleMouseDown = () => setMeaningVisible(true);
   const handleMouseUp = () => setMeaningVisible(false);
-//答えの文字数取得
-  const getAnswerClass = () => {
-    const answerLength = quiz[quizNow].answer.length;
-    return answerLength === 3 ? "triple-char" : "double-or-less-char";
-  };
-//答えの表示切り替え
-  const toggleAnswerVisibility = () => {
-    setIsAnswerVisible(!isAnswerVisible);
-  };
 
+  //タイマー処理   /////////////////////////////
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer((prevTimer) => {
+        const newTime = prevTimer - 10;
+        if (newTime <= 5000 && newTime > 0) {
+          setCountdown(Math.ceil(newTime / 1000));
+        }
+        if (newTime <= 0) {
+          clearInterval(interval);
+          setCountdown(null);
+          batuAct(); // タイマーが0になった時の処理をここに書く
+          return 0;
+        }
+        return newTime;
+      });
+    }, 10);
+  
+    return () => clearInterval(interval);
+  }, [timer]);
+  
+  
 
   return (
     <>
@@ -251,7 +293,8 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
       </div>
 
      {/* 問題数ゲージ */}
-      <div className="mozi-wrap kanbatu-background">
+      <div className={end ? "mozi-wrap kanbatu-background" : "display-none"}>
+      
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
             return (
@@ -262,6 +305,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
           })}
         </div>
 
+       
        {/* 問題文表示ゾーン */}
         <div className="q-wrap">
           <div className={go ? "question" : "q-add"}>
@@ -313,7 +357,14 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
             ref={wrapRef}
           >
             <canvas className="mozi-canvas" ref={canvasRef}></canvas>
-             {/* 意味表示ボタン */}
+           
+          {/* タイマー表示領域 */}
+            <div className="timer-container">
+               <div className="timer-gauge" style={{ width: `${(timer / (TOTAL_TIME * 1000)) * 100}%` }}></div>
+               <img src="/images/timer.svg" alt=""/>
+               <h2>残り時間</h2>
+            </div>
+          {/* 意味表示ボタン */}
           <button className="meaning-btn" 
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
@@ -321,7 +372,6 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
           onTouchEnd={handleMouseUp}>
             <img src="/images/megane.svg" alt="" />
           </button>
-         
           </div>
           <br/>
         </div>
@@ -331,7 +381,12 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
         <h2 dangerouslySetInnerHTML={{ __html: quiz[quizNow].meaning }} />
           </div>
 
-          
+     
+      {/* カウントダウン表示領域 */}
+      {/* <div className="countdown-container" key={countdown} style={{ visibility: countdown ? 'visible' : 'hidden' }}>
+        {countdown}
+      </div> */}
+
 
 
           {/* 消しゴムボタン */}

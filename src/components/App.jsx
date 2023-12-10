@@ -134,7 +134,7 @@ function App() {
               >
                 <img className="kaki-img" src="/images/pen.png" alt="" />
                 <h2 className="item">━ 意外と書けない漢字編 練習字合━</h2>
-                <h3 style={displayStyle}>CLEAR!</h3>
+                {/* <h3 style={displayStyle}>CLEAR!</h3> */}
               </div>
               {/* 漢伐↓ */}
               <div

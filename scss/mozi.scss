@@ -337,7 +337,7 @@
     height: 29%;
     pointer-events: none;
     text-align: center;
-    transition: opacity 1s, visibility 0s ease 1s;
+    transition: opacity 0.5s, visibility 0s ease 0.5s;
     opacity: 0;
     visibility: hidden;
     h2{
@@ -943,5 +943,86 @@ $border-color: rgba(251, 255, 0, 0.6);
     top: 4%;
     width: 6rem;
     height: 6rem;
+  }
+}
+
+//タイマー //////////
+.timer-container {
+  position: absolute;
+  width: 92%;
+  height: 9%;
+  top: -5.5%;
+  left: -2.5%;
+  background-color: rgba(68, 68, 102,0.95);
+  pointer-events: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 9px rgba(255, 255, 255, 0.8);
+  h2{
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: "Line-bold", sans-serif;
+    z-index: 1;
+    padding: 1.5px 0px 0 4px;
+  }
+  img{
+    height: 95%;
+    z-index: 1;
+    padding: 1px 0 1px 5px;
+  }
+  @media screen and (min-width:992px) {
+    width: 95%;
+    top: -5%;
+    left: -2%;
+    h2{
+      font-size: 1.4rem;
+      padding: 1.5px 3px 0 5px;
+    }
+    img{
+      height: 90%;
+    }
+  }
+  //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
+    height: 8%;
+    width: 92%;
+    top: -4%;
+    left: -1%;
+    h2{
+      font-size: 1.4rem;
+      padding: 1.5px 3px 0 5px;
+    }
+    img{
+      height: 90%;
+    }
+  }
+}
+
+.timer-gauge {
+  position: absolute;
+  height: 100%;
+  background-color: rgba(255, 83, 83, 0.95);
+  border-radius: 3px;
+  z-index: 0;
+}
+
+.countdown-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  animation: fadeOut 1s ease-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
   }
 }
