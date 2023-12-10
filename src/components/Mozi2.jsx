@@ -15,7 +15,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
   const [question, setQuestion] = useState("<span>ユウシュウ</span>の美");
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
-  const [quizNow, setQuizNow] = useState(8);
+  const [quizNow, setQuizNow] = useState(9);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);

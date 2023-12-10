@@ -1,6 +1,6 @@
 const kanjiData0 = [
-  { question: "体重を<span>ハカ</span>る", answer: "量", 
-  meaning:"ある基準をもとにして物の度合いを調べる。<br/>特に、はかり・ゲージなどの計測機器で測定する。" },
+  { question: "<span>アイサツ</span>をする", answer: "挨拶", 
+  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
   { question: "<span>セリフ</span>を言う", answer: "台詞" },
   { question: "<span>イバラキ</span>県", answer: "茨城" },
   { question: "人事<span>イドウ</span>", answer: "異動" },
@@ -9,12 +9,13 @@ const kanjiData0 = [
   { question: "<span>サギ</span>に遭う", answer: "詐欺" },
   { question: "<span>ツジツマ</span>が合う", answer: "辻褄" },
   { question: "<span>カンキツ</span>系", answer: "柑橘" },
-  { question: "<span>シンピョウ</span>性", answer: "信憑" },
+  { question: "<span>アイサツ</span>をする", answer: "挨拶", 
+  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
   { question: "", answer: "" },
 ];
 const kanjiData1 = [
-  { question: "<span>イシン</span>伝心", answer: "以心",
-meaning:"言葉によらずに、互いの心から心に伝えること。"},
+  { question: "<span>アイサツ</span>をする", answer: "挨拶",
+  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。"},
   { question: "お<span>ミヤゲ</span>", answer: "土産" },
   { question: "<span>ニイガタ</span>県", answer: "新潟" },
   { question: "食費に<span>ア</span>てる", answer: "充" },
@@ -23,11 +24,13 @@ meaning:"言葉によらずに、互いの心から心に伝えること。"},
   { question: "<span>オオミソカ</span>", answer: "大晦日" },
   { question: "<span>シンチン</span>代謝", answer: "新陳" },
   { question: "<span>ゴイ</span>力を上げる", answer: "語彙" },
-  { question: "子供が<span>ハシャ</span>ぐ", answer: "燥" },
+  { question: "<span>アイサツ</span>をする", answer: "挨拶", 
+  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
   { question: "", answer: "" },
 ];
 const kanjiData2 = [
-  { question: "<span>カジョウ</span>書き", answer: "箇条" },
+  { question: "<span>アイサツ</span>をする", answer: "挨拶",
+  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
   { question: "座右の<span>メイ</span>", answer: "銘" },
   { question: "<span>ノリ</span>を食べる", answer: "海苔" },
   { question: "<span>アクビ</span>をする", answer: "欠伸" },
@@ -36,7 +39,8 @@ const kanjiData2 = [
   { question: "犬を<span>シツ</span>ける", answer: "躾" },
   { question: "<span>ダジャレ</span>を言う", answer: "駄洒落" },
   { question: "<span>カツオ</span>ぶし", answer: "鰹" },
-  { question: "<span>クタビ</span>れた顔", answer: "草臥" },
+  { question: "<span>アイサツ</span>をする", answer: "挨拶", 
+  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
   { question: "", answer: "" },
 ];
 
