@@ -99,12 +99,14 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     }, 1800);
   };
 
+   //正解の場合の処理
   const maruAct = () => {
     setMaru(false);
     setGo(true);
     if (quizNow == 7) {
       setAlert("FINAL");
     }
+    
     setTimeout(() => {
       setQuizNow((quizNow) => quizNow + 1);
       quizset();

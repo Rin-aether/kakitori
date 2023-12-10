@@ -10,6 +10,7 @@ const kanjiData0 = [
   { question: "<span>ツジツマ</span>が合う", answer: "辻褄" },
   { question: "<span>カンキツ</span>系", answer: "柑橘" },
   { question: "<span>シンピョウ</span>性", answer: "信憑" },
+  { question: "", answer: "" },
 ];
 const kanjiData1 = [
   { question: "<span>イシン</span>伝心", answer: "以心",
@@ -23,6 +24,7 @@ meaning:"言葉によらずに、互いの心から心に伝えること。"},
   { question: "<span>シンチン</span>代謝", answer: "新陳" },
   { question: "<span>ゴイ</span>力を上げる", answer: "語彙" },
   { question: "子供が<span>ハシャ</span>ぐ", answer: "燥" },
+  { question: "", answer: "" },
 ];
 const kanjiData2 = [
   { question: "<span>カジョウ</span>書き", answer: "箇条" },
@@ -35,6 +37,7 @@ const kanjiData2 = [
   { question: "<span>ダジャレ</span>を言う", answer: "駄洒落" },
   { question: "<span>カツオ</span>ぶし", answer: "鰹" },
   { question: "<span>クタビ</span>れた顔", answer: "草臥" },
+  { question: "", answer: "" },
 ];
 
 // ランダムな配列を生成する関数を定義

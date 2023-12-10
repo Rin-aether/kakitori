@@ -359,7 +359,7 @@
 //答え表示
 .answer-visible{
   transition-delay: 0s;
-  opacity: 0.3;
+  opacity: 0.4;
   visibility: visible;
 }
 // １文字・２文字の場合
@@ -913,7 +913,7 @@ $border-color: rgba(251, 255, 0, 0.6);
     opacity: 1;
   }
 }
-
+//中断ボタン
 .quiz-skip-btn {
   position: absolute;
   top: 6%;
@@ -941,7 +941,7 @@ $border-color: rgba(251, 255, 0, 0.6);
    //ipad
    @media (min-width: 768px) and (max-width: 991px) {
     top: 4%;
-    width: 6.2rem;
-    height: 6.2rem;
+    width: 6rem;
+    height: 6rem;
   }
 }

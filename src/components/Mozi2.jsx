@@ -15,7 +15,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
   const [question, setQuestion] = useState("<span>ユウシュウ</span>の美");
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
-  const [quizNow, setQuizNow] = useState(0);
+  const [quizNow, setQuizNow] = useState(9);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
@@ -99,15 +99,19 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
     }, 1800);
   };
 
+  //正解の場合の処理
   const maruAct = () => {
     setMaru(false);
     setGo(true);
     if (quizNow == 7) {
       setAlert("FINAL");
     }
+    
     setTimeout(() => {
+      if (quizNow + 1 < quiz.length) {
       setQuizNow((quizNow) => quizNow + 1);
       quizset();
+      }
     }, 1100);
     setTimeout(() => {
       setMaru(true);
@@ -134,8 +138,10 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
     }
   };
 
+//答えチェック処理
   const answerCheck = (event) => {
     setIsAnswerVisible(false);
+
     if (quiz[quizNow].answer == event.target.textContent) {
       setResult(["", "", ""]);
       maruAct();
