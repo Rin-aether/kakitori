@@ -179,7 +179,9 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
       }, 1000);
       //最後以外出題開始
       if (quizNow == 9) {
+        setTimeout(() => {
         setShakeAnimation(true); // Trigger the animation
+      }, 3600);
       }else{
         setTimeout(() => {
           motionStart();
