@@ -217,17 +217,19 @@
 .back-eng-practice,.back-eng-test{
 position: absolute;
 color: transparent;
--webkit-text-stroke: 0.8px rgba(68, 68, 102, 0.3);
+font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+-webkit-text-stroke: 0.8px rgba(68, 68, 102, 0.2);
+letter-spacing: 0.04em;
 font-size: 4rem;
 z-index: 0;
 @media screen and (min-width:992px) {
   font-size: 5rem;
-  -webkit-text-stroke: 1px rgba(68, 68, 102, 0.3);
+  -webkit-text-stroke: 1px rgba(68, 68, 102, 0.2);
 }
   //ipad
   @media (min-width: 768px) and (max-width: 991px) {
     font-size: 7.5rem;
-    -webkit-text-stroke: 1px rgba(68, 68, 102, 0.3);
+    -webkit-text-stroke: 1px rgba(68, 68, 102, 0.2);
   }
 }
 

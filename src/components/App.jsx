@@ -134,7 +134,7 @@ function App() {
               >
                 <h1 className="back-eng-practice">PRACTICE</h1>
                 <img className="kaki-img" src="/images/pen.png" alt="" />
-                <h2 className="item">━ 意外と書けない漢字編 <ruby>練習字合 <rt>れんしゅうじあい</rt></ruby> ━</h2>
+                <h2 className="item">━ 意外と書けない漢字編 練習字合━</h2>
               
                 {/* <h3 style={displayStyle}>CLEAR!</h3> */}
               </div>
@@ -145,7 +145,7 @@ function App() {
               >
                 <h1 className="back-eng-test">TEST</h1>
                 <img className="kaki-img" src="/images/penwhite.png" alt="" />
-                <h2 className="item">━ 意外と書けない漢字編 <ruby>答伐<rt>とうばつ</rt></ruby> ━</h2>
+                <h2 className="item">━ 意外と書けない漢字編 答伐━</h2>
                 <h3 style={displayStyle}>CLEAR!</h3>
               </div>
               {/* ストーリー↓ */}
