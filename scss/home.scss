@@ -207,10 +207,20 @@
   img {
     width: 8%;
     padding-bottom: 2%;
+    z-index: 1;
   }
   &:active {
     @include variables.push;
   }
+}
+
+.back-eng{
+position: absolute;
+color: transparent;
+-webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+filter: drop-shadow(0px 0px 0.5px #444466);
+font-size: 7.5rem;
+z-index: 0;
 }
 
 .story-start {
