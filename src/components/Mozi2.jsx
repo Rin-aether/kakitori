@@ -181,7 +181,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
       if (quizNow == 9) {
         setTimeout(() => {
         setShakeAnimation(true); // Trigger the animation
-      }, 3600);
+      }, 1100);
       }else{
         setTimeout(() => {
           motionStart();
@@ -251,7 +251,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
       </div>
       <div className="clear-area">
         <div className={clear ? "clear" : "clear-add"}>
-          <h2>CLEAR</h2>
+          <h2>CLEAR!</h2>
         </div>
       </div>
       <div className="alert-area">
