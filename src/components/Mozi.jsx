@@ -188,7 +188,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
       </div>
       <div className="clear-area">
         <div className={clear ? "clear" : "clear-add"}>
-          <h2>CLEAR</h2>
+          <h2>CLEAR!</h2>
         </div>
       </div>
       <div className="alert-area">

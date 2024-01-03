@@ -132,7 +132,7 @@ function App() {
                 className={qstart ? "quiz-start" : "qstart-diss"}
                 onClick={qstartBtn}
               >
-                <h1 className="back-eng">PRACTICE</h1>
+                <h1 className="back-eng-practice">PRACTICE</h1>
                 <img className="kaki-img" src="/images/pen.png" alt="" />
                 <h2 className="item">━ 意外と書けない漢字編 <ruby>練習字合 <rt>れんしゅうじあい</rt></ruby> ━</h2>
               
@@ -143,7 +143,7 @@ function App() {
                 className={qstart ? "kanbatu-start" : "qstart-diss"}
                 onClick={qstartBtn2}
               >
-                <h1 className="back-eng">TEST</h1>
+                <h1 className="back-eng-test">TEST</h1>
                 <img className="kaki-img" src="/images/penwhite.png" alt="" />
                 <h2 className="item">━ 意外と書けない漢字編 <ruby>答伐<rt>とうばつ</rt></ruby> ━</h2>
                 <h3 style={displayStyle}>CLEAR!</h3>
