@@ -6,6 +6,7 @@ const Kanbatu = ({ quizHidden2, flag }) => {
   //appをindex.jsで使いたいのでスコープを外しています。
   const live2dRef = useRef(null);
   const live2dwrapRef = useRef(null);
+  const [shakeAnimation, setShakeAnimation] = useState(false);
 
   var app;
 
@@ -96,10 +97,10 @@ const Kanbatu = ({ quizHidden2, flag }) => {
 
   return (
     <>
-      <div className="live2d-canvas-wrap" ref={live2dwrapRef}>
+     <div className={`live2d-canvas-wrap ${shakeAnimation ? 'live2d-shake' : ''}`} ref={live2dwrapRef}>
         <canvas className="my-live2d" ref={live2dRef}></canvas>
       </div>
-      <Mozi2 motion={eyewave} motion2={rushcharge}  moziHidden2={quizHidden2} flagprop={flag} />
+      <Mozi2 motion={eyewave} motion2={rushcharge}  moziHidden2={quizHidden2} flagprop={flag} setShakeAnimation={setShakeAnimation}/>
     </>
   );
 };

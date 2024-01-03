@@ -3,7 +3,7 @@ import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 import { quiz, reloadQuiz } from "./Kanjidata";
 
-const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
+const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => {
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -178,7 +178,9 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop }) => {
         }
       }, 1000);
       //最後以外出題開始
-      if (quizNow != 9) {
+      if (quizNow == 9) {
+        setShakeAnimation(true); // Trigger the animation
+      }else{
         setTimeout(() => {
           motionStart();
         }, 1600);
