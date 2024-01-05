@@ -12,6 +12,21 @@
   background-size: auto 100%;
   overflow: hidden;
 }
+
+.test5{
+  background-color: #fff;
+  width: 100vw;
+  height: 100dvh;
+  background-image: url(/images/img4.PNG);
+  background-position: top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  overflow: hidden;
+  position: absolute;
+  margin-top: -40px;
+}
+
 .rutika {
   position: absolute;
   width: 120%;
@@ -265,6 +280,7 @@ rt {
   left: 2%;
   position: relative;
   opacity: 0;
+  z-index: 2;
   svg {
     overflow: visible;
   }

@@ -303,6 +303,8 @@ const Story = ({ storyHidden }) => {
           </svg>
         </div>
         {/* //////////////////////////////////////////////// */}
+        
+
         <div className="rutika">
           <img
             className={`${next ? "rutika-add2" : "rutika-add"} ${
@@ -312,6 +314,11 @@ const Story = ({ storyHidden }) => {
             alt=""
           />
         </div>
+
+        {/* <div className="test5">
+        </div>
+       */}
+
         <div className="serif-wrap" ref={serifwrapRef}>
           <h2>
             <div dangerouslySetInnerHTML={{ __html: name }} />
