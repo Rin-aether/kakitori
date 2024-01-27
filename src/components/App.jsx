@@ -161,7 +161,7 @@ function App() {
             <div className="modal-wrap">
               <div className={storyModal ? "modal modal-add" : "modal"}>
                 <h2>━ 解放条件 ━</h2>
-                <h3>意外と書けない漢字編をクリアする</h3>
+                <h3>"答伐"ステージをクリアする</h3>
                 <div className="btn-wrap">
                   <button
                     className="close-btn"
