@@ -1,6 +1,6 @@
 const kanjiData0 = [
-  { question: "<span>レイ</span>を出す", answer: "例", 
-  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
+  { question: "<span>レイダイ</span>を出す", answer: "例題", 
+  meaning:"理解を助けるため、または練習のため、示した問題。" },
   { question: "<span>セリフ</span>を言う", answer: "台詞",
   meaning:"俳優が劇中で話す言葉。<br/>人に対する言葉。言いぐさ。" },
   { question: "<span>イバラキ</span>県", answer: "茨城" ,
@@ -22,8 +22,8 @@ const kanjiData0 = [
   { question: "", answer: "", meaning:"" },
 ];
 const kanjiData1 = [
-  {  question: "<span>レイ</span>を出す", answer: "例",
-  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。"},
+  {  question: "<span>カジョウ</span>書き", answer: "箇条",
+  meaning:"一つ一つの条項に分けて書き並べること。また、そうして書かれたもの。"},
   { question: "お<span>ミヤゲ</span>", answer: "土産",
   meaning:"遠隔地の産物などを入手した時に、近隣の者に裾分けすること。また、その品物。"},
   { question: "<span>ニイガタ</span>県", answer: "新潟",
@@ -45,8 +45,8 @@ const kanjiData1 = [
   { question: "", answer: "", meaning:"" },
 ];
 const kanjiData2 = [
-  {  question: "<span>レイ</span>を出す", answer: "例",
-  meaning:"人に会ったときや別れるときなどに取り交わす、礼にかなった動作や言葉。" },
+  {  question: "<span>イシン</span>伝心", answer: "以心",
+  meaning:" 無言のうちに心が通じ合うこと。" },
   { question: "座右の<span>メイ</span>", answer: "銘",
   meaning:"いつも心に留めておいて、生き方の参考とすることばのこと。" },
   { question: "<span>ノリ</span>を食べる", answer: "海苔",
