@@ -15,7 +15,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
   const [question, setQuestion] = useState("<span>ユウシュウ</span>の美");
   const [result, setResult] = useState(["", "", ""]);
   const [alert, setAlert] = useState("LEVEL UP");
-  const [quizNow, setQuizNow] = useState(9);
+  const [quizNow, setQuizNow] = useState(0);
   const [lifeNow, setLifeNow] = useState(3);
   const [maru, setMaru] = useState(true);
   const [batu, setBatu] = useState(true);
@@ -28,8 +28,9 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
   const [go, setGo] = useState(true);
   const [showModal, setShowModal] = useState(true);
   const [meaningVisible, setMeaningVisible] = useState(false);
-
-  const TOTAL_TIME = 30; // タイマーの秒数
+  const [buttonImage, setButtonImage] = useState("/images/megane.svg");
+  
+  const TOTAL_TIME = 18; // タイマーの秒数
   const [timer, setTimer] = useState(TOTAL_TIME * 1000); // ミリ秒単位で初期化
   const [countdown, setCountdown] = useState(null);
   //タイマーリセット
@@ -207,8 +208,15 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
     }, 1400);
   };
 
-  const handleMouseDown = () => setMeaningVisible(true);
-  const handleMouseUp = () => setMeaningVisible(false);
+  const toggleMeaningVisibility = () => {
+    setMeaningVisible(!meaningVisible);
+    // 画像を切り替える
+    if (!meaningVisible) {
+      setButtonImage("/images/mean-batu.svg"); // 表示時の画像に切り替える
+    } else {
+      setButtonImage("/images/megane.svg"); // 非表示時の元の画像に戻す
+    }
+  };
 
   //タイマー処理   /////////////////////////////
   useEffect(() => {
@@ -369,13 +377,9 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
                <h2>残り時間</h2>
             </div>
           {/* 意味表示ボタン */}
-          <button className="meaning-btn" 
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onTouchStart={handleMouseDown}
-          onTouchEnd={handleMouseUp}>
-            <img src="/images/megane.svg" alt="" />
-          </button>
+          <button className="meaning-btn" onClick={toggleMeaningVisibility}>
+              <img src={buttonImage} alt="" />
+            </button>
           </div>
           <br/>
         </div>

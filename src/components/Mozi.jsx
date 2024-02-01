@@ -28,6 +28,11 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   const [showModal, setShowModal] = useState(true);
   const [meaningVisible, setMeaningVisible] = useState(false);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+  const [buttonImage, setButtonImage] = useState("/images/megane.svg");
+  const [answerButtonState, setAnswerButtonState] = useState({
+    text: "答え",
+    imagePath: "/images/eye.svg"
+  });
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -159,8 +164,16 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     }, 1400);
   };
 
-  const handleMouseDown = () => setMeaningVisible(true);
-  const handleMouseUp = () => setMeaningVisible(false);
+   // 意味表示の切り替えとボタン画像の更新を行う関数
+   const toggleMeaningVisibility = () => {
+    setMeaningVisible(!meaningVisible);
+    // 画像を切り替える
+    if (!meaningVisible) {
+      setButtonImage("/images/mean-batu.svg"); // 表示時の画像に切り替える
+    } else {
+      setButtonImage("/images/megane.svg"); // 非表示時の元の画像に戻す
+    }
+  };
 //答えの文字数取得
   const getAnswerClass = () => {
     const answerLength = quiz[quizNow].answer.length;
@@ -169,6 +182,19 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
 //答えの表示切り替え
   const toggleAnswerVisibility = () => {
     setIsAnswerVisible(!isAnswerVisible);
+    if (!isAnswerVisible) {
+      // 答えを表示する状態へ切り替える
+      setAnswerButtonState({
+        text: "隠す",
+        imagePath: "/images/eye-close.svg"
+      });
+    } else {
+      // 答えを隠す状態へ切り替える
+      setAnswerButtonState({
+        text: "答え",
+        imagePath: "/images/eye.svg"
+      });
+    }
   };
 
 
@@ -295,17 +321,13 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           >
             <canvas className="mozi-canvas" ref={canvasRef}></canvas>
              {/* 意味表示ボタン */}
-          <button className="meaning-btn" 
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onTouchStart={handleMouseDown}
-          onTouchEnd={handleMouseUp}>
-            <img src="/images/megane.svg" alt="" />
-          </button>
+             <button className="meaning-btn" onClick={toggleMeaningVisibility}>
+              <img src={buttonImage} alt="" />
+            </button>
            {/* 答え表示ボタン */}
            <button className="answer-btn" onClick={toggleAnswerVisibility}>
-           <img src="/images/eye.svg" alt="" />
-                    <h2>答え</h2>
+           <img src={answerButtonState.imagePath} alt="" />
+            <h2>{answerButtonState.text}</h2>
           </button>
           </div>
           <br/>
