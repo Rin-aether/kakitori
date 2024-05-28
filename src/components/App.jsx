@@ -176,7 +176,7 @@ function App() {
             </div>
           </section>
         </div>
-        {/* <Keikoku /> */}
+        <Keikoku />
       </>
     )
   );
