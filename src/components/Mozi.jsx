@@ -31,7 +31,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
   const [buttonImage, setButtonImage] = useState("/images/megane.svg");
   const [answerButtonState, setAnswerButtonState] = useState({
     text: "答え",
-    imagePath: "/images/eye.svg"
+    imagePath: "/images/eye.svg",
   });
 
   MoziFunction(function () {
@@ -85,7 +85,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     }, 3000);
   };
 
-    //////不正解の場合の処理   ////////////////////////
+  //////不正解の場合の処理   ////////////////////////
   const batuAct = () => {
     setBatu(false);
     setTimeout(() => {
@@ -93,14 +93,14 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     }, 1800);
   };
 
-   //正解の場合の処理    ////////////////////////////////
+  //正解の場合の処理    ////////////////////////////////
   const maruAct = () => {
     setMaru(false);
     setGo(true);
     if (quizNow == 7) {
       setAlert("FINAL");
     }
-    
+
     setTimeout(() => {
       setQuizNow((quizNow) => quizNow + 1);
       quizset();
@@ -125,7 +125,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
       motion2();
     } else if (quizNow >= 5 && quizNow <= 7) {
       motion3();
-    } else{
+    } else {
       motion4();
     }
   };
@@ -164,8 +164,8 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
     }, 1400);
   };
 
-   // 意味表示の切り替えとボタン画像の更新を行う関数
-   const toggleMeaningVisibility = () => {
+  // 意味表示の切り替えとボタン画像の更新を行う関数
+  const toggleMeaningVisibility = () => {
     setMeaningVisible(!meaningVisible);
     // 画像を切り替える
     if (!meaningVisible) {
@@ -174,29 +174,37 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
       setButtonImage("/images/megane.svg"); // 非表示時の元の画像に戻す
     }
   };
-//答えの文字数取得
+  //答えの文字数取得
   const getAnswerClass = () => {
     const answerLength = quiz[quizNow].answer.length;
     return answerLength === 3 ? "triple-char" : "double-or-less-char";
   };
-//答えの表示切り替え
+  //答えの表示切り替え
   const toggleAnswerVisibility = () => {
     setIsAnswerVisible(!isAnswerVisible);
     if (!isAnswerVisible) {
       // 答えを表示する状態へ切り替える
       setAnswerButtonState({
         text: "隠す",
-        imagePath: "/images/eye-close.svg"
+        imagePath: "/images/eye-close.svg",
       });
     } else {
       // 答えを隠す状態へ切り替える
       setAnswerButtonState({
         text: "答え",
-        imagePath: "/images/eye.svg"
+        imagePath: "/images/eye.svg",
       });
     }
   };
 
+  const getFontSize = (length) => {
+    if (length === 1) return 6.6; // 1文字の場合のフォントサイズ
+    if (length === 2) return 3.3; // 2文字の場合のフォントサイズ
+    if (length === 3) return 2.2; // 3文字の場合のフォントサイズ
+    return 2.2; // 4文字以上の場合のフォントサイズ
+  };
+
+  /////////////////////////return/////////////////////////////////////
 
   return (
     <>
@@ -257,7 +265,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
         </div>
       </div>
 
-     {/* 問題数ゲージ */}
+      {/* 問題数ゲージ */}
       <div className="mozi-wrap">
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
@@ -269,7 +277,7 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
           })}
         </div>
 
-       {/* 問題文表示ゾーン */}
+        {/* 問題文表示ゾーン */}
         <div className="q-wrap">
           <div className={go ? "question" : "q-add"}>
             <h1>
@@ -285,7 +293,12 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={answerCheck}
-              style={{ fontSize: `${6.7 / result[0].length}rem` }}
+              style={{
+                fontSize:
+                  result && result[0] && result[0].length
+                    ? `${getFontSize(result[0].length)}rem`
+                    : "2.2rem", // デフォルトのフォントサイズを設定
+              }}
               ref={resultBtn1}
             >
               <p>{result[0]}</p>
@@ -295,7 +308,12 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={answerCheck}
-              style={{ fontSize: `${6.7 / result[1].length}rem` }}
+              style={{
+                fontSize:
+                  result && result[1] && result[1].length
+                    ? `${getFontSize(result[1].length)}rem`
+                    : "2.2rem", // デフォルトのフォントサイズを設定
+              }}
               ref={resultBtn2}
             >
               <p>{result[1]}</p>
@@ -305,7 +323,12 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={answerCheck}
-              style={{ fontSize: `${6.7 / result[2].length}rem` }}
+              style={{
+                fontSize:
+                  result && result[2] && result[2].length
+                    ? `${getFontSize(result[2].length)}rem`
+                    : "2.2rem", // デフォルトのフォントサイズを設定
+              }}
               ref={resultBtn3}
             >
               <p>{result[2]}</p>
@@ -320,37 +343,43 @@ const Mozi = ({ motion, motion2, motion3, motion4, moziHidden, flagprop }) => {
             ref={wrapRef}
           >
             <canvas className="mozi-canvas" ref={canvasRef}></canvas>
-             {/* 意味表示ボタン */}
-             <button className="meaning-btn" onClick={toggleMeaningVisibility}>
+            {/* 意味表示ボタン */}
+            <button className="meaning-btn" onClick={toggleMeaningVisibility}>
               <img src={buttonImage} alt="" />
             </button>
-           {/* 答え表示ボタン */}
-           <button className="answer-btn" onClick={toggleAnswerVisibility}>
-           <img src={answerButtonState.imagePath} alt="" />
-            <h2>{answerButtonState.text}</h2>
-          </button>
+            {/* 答え表示ボタン */}
+            <button className="answer-btn" onClick={toggleAnswerVisibility}>
+              <img src={answerButtonState.imagePath} alt="" />
+              <h2>{answerButtonState.text}</h2>
+            </button>
           </div>
-          <br/>
+          <br />
         </div>
 
-      {/* 意味表示領域 */}
-      <div className={meaningVisible ? "meaning-wrap" : "meaning-wrap display-none"}>
-        <h2 dangerouslySetInnerHTML={{ __html: quiz[quizNow].meaning }} />
-          </div>
+        {/* 意味表示領域 */}
+        <div
+          className={
+            meaningVisible ? "meaning-wrap" : "meaning-wrap display-none"
+          }
+        >
+          <h2 dangerouslySetInnerHTML={{ __html: quiz[quizNow].meaning }} />
+        </div>
 
-          {/* 答え表示領域 */}
-          <div className={`answer-wrap ${isAnswerVisible ? "answer-visible" : ""}`}>
+        {/* 答え表示領域 */}
+        <div
+          className={`answer-wrap ${isAnswerVisible ? "answer-visible" : ""}`}
+        >
           <h2 className={getAnswerClass()}>{quiz[quizNow].answer}</h2>
-          </div>
+        </div>
 
-
-          {/* 消しゴムボタン */}
-          <button
-            className={a && b && c ? "erase-btn" : "display-none"}
-            ref={buttonRef}>
+        {/* 消しゴムボタン */}
+        <button
+          className={a && b && c ? "erase-btn" : "display-none"}
+          ref={buttonRef}
+        >
           <img src="/images/kesi.png" alt="" />
-          </button>
-        
+        </button>
+
         {/* マルバツ演出表示領域 */}
         <div className="check-wrap">
           <img

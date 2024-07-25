@@ -3,7 +3,13 @@ import MoziFunction from "./MoziFunction";
 import "../../scss/mozi.scss";
 import { quiz, reloadQuiz } from "./Kanjidata";
 
-const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => {
+const Mozi2 = ({
+  motion,
+  motion2,
+  moziHidden2,
+  flagprop,
+  setShakeAnimation,
+}) => {
   ////////////////////////////////
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
@@ -29,15 +35,39 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
   const [showModal, setShowModal] = useState(true);
   const [meaningVisible, setMeaningVisible] = useState(false);
   const [buttonImage, setButtonImage] = useState("/images/megane.svg");
-  
+
   const TOTAL_TIME = 18; // タイマーの秒数
   const [timer, setTimer] = useState(TOTAL_TIME * 1000); // ミリ秒単位で初期化
   const [countdown, setCountdown] = useState(null);
+  const [isTimerRunning, setIsTimerRunning] = useState(true); // タイマーの動作状態を管理する
   //タイマーリセット
   const resetTimer = () => {
     setTimer(TOTAL_TIME * 1000);
+    setIsTimerRunning(true); // タイマーを再開
   };
-  
+
+  //タイマー処理   /////////////////////////////
+  useEffect(() => {
+    if (!isTimerRunning) return; // タイマーが動作していないときは何もしない
+
+    const interval = setInterval(() => {
+      setTimer((prevTimer) => {
+        const newTime = prevTimer - 10;
+        if (newTime <= 5000 && newTime > 0) {
+          setCountdown(Math.ceil(newTime / 1000));
+        }
+        if (newTime <= 0) {
+          clearInterval(interval);
+          setCountdown(null);
+          batuAct(); // タイマーが0になった時の処理をここに書く
+          return 0;
+        }
+        return newTime;
+      });
+    }, 10);
+
+    return () => clearInterval(interval);
+  }, [timer]);
 
   MoziFunction(function () {
     setResult(["", "", ""]);
@@ -92,11 +122,11 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
     }, 3000);
   };
 
-    //////不正解の場合の処理   ////////////////////////
+  //////不正解の場合の処理   ////////////////////////
   const batuAct = () => {
     setBatu(false);
     setGo(true);
-    setResult(["", "", ""]); 
+    setResult(["", "", ""]);
     //ライフ減少
     setTimeout(() => {
       setLifeNow(lifeNow - 1);
@@ -120,21 +150,21 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
         }, 3500);
       }
     }, 1800);
-
   };
 
-     //正解の場合の処理    ////////////////////////////////
+  //正解の場合の処理    ////////////////////////////////
   const maruAct = () => {
     setMaru(false);
     setGo(true);
+    setIsTimerRunning(false); // 正解時にタイマーを停止
     if (quizNow == 7) {
       setAlert("FINAL");
     }
-    
+
     setTimeout(() => {
       if (quizNow + 1 < quiz.length) {
-      setQuizNow((quizNow) => quizNow + 1);
-      quizset();
+        setQuizNow((quizNow) => quizNow + 1);
+        quizset();
       }
     }, 1100);
     setTimeout(() => {
@@ -158,14 +188,13 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
       motion2();
     } else if (quizNow >= 5 && quizNow <= 7) {
       motion2();
-    } else{
+    } else {
       motion2();
     }
   };
 
-//答えチェック処理
+  //答えチェック処理
   const answerCheck = (event) => {
-
     if (quiz[quizNow].answer == event.target.textContent) {
       setResult(["", "", ""]);
       maruAct();
@@ -181,9 +210,9 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
       //最後以外出題開始
       if (quizNow == 9) {
         setTimeout(() => {
-        setShakeAnimation(true); // Trigger the animation
-      }, 1100);
-      }else{
+          setShakeAnimation(true); // Trigger the animation
+        }, 1100);
+      } else {
         setTimeout(() => {
           motionStart();
         }, 1600);
@@ -196,8 +225,8 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
       setResult(["", "", ""]);
       setBatu(false);
       setTimeout(() => {
-          setBatu(true);
-        }, 1800);
+        setBatu(true);
+      }, 1800);
     }
   };
 
@@ -218,32 +247,17 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
     }
   };
 
-  //タイマー処理   /////////////////////////////
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer((prevTimer) => {
-        const newTime = prevTimer - 10;
-        if (newTime <= 5000 && newTime > 0) {
-          setCountdown(Math.ceil(newTime / 1000));
-        }
-        if (newTime <= 0) {
-          clearInterval(interval);
-          setCountdown(null);
-          batuAct(); // タイマーが0になった時の処理をここに書く
-          return 0;
-        }
-        return newTime;
-      });
-    }, 10);
-  
-    return () => clearInterval(interval);
-  }, [timer]);
-  
-  
+  const getFontSize = (length) => {
+    if (length === 1) return 6.6; // 1文字の場合のフォントサイズ
+    if (length === 2) return 3.3; // 2文字の場合のフォントサイズ
+    if (length === 3) return 2.2; // 3文字の場合のフォントサイズ
+    return 2.2; // 4文字以上の場合のフォントサイズ
+  };
+
+  /////////////////////////return/////////////////////////////////////
 
   return (
     <>
-    
       <div
         className={`${
           startBlack ? "mozi-black" : "mozi-black mozi-black-add"
@@ -268,7 +282,6 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
         </div>
       </div>
 
-      
       {/* ///////モーダル////////////////////////////////// */}
 
       <button
@@ -304,9 +317,8 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
         </div>
       </div>
 
-     {/* 問題数ゲージ */}
+      {/* 問題数ゲージ */}
       <div className={end ? "mozi-wrap kanbatu-background" : "display-none"}>
-      
         <div className="num-wrap">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, i) => {
             return (
@@ -317,8 +329,7 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
           })}
         </div>
 
-       
-       {/* 問題文表示ゾーン */}
+        {/* 問題文表示ゾーン */}
         <div className="q-wrap">
           <div className={go ? "question" : "q-add"}>
             <h1>
@@ -334,7 +345,12 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={answerCheck}
-              style={{ fontSize: `${6.7 / result[0].length}rem` }}
+              style={{
+                fontSize:
+                  result && result[0] && result[0].length
+                    ? `${getFontSize(result[0].length)}rem`
+                    : "2.2rem", // デフォルトのフォントサイズを設定
+              }}
               ref={resultBtn1}
             >
               <p>{result[0]}</p>
@@ -344,7 +360,12 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={answerCheck}
-              style={{ fontSize: `${6.7 / result[1].length}rem` }}
+              style={{
+                fontSize:
+                  result && result[1] && result[1].length
+                    ? `${getFontSize(result[1].length)}rem`
+                    : "2.2rem", // デフォルトのフォントサイズを設定
+              }}
               ref={resultBtn2}
             >
               <p>{result[1]}</p>
@@ -354,7 +375,12 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
             <div
               className={a && b && c ? "result add" : "result"}
               onClick={answerCheck}
-              style={{ fontSize: `${6.7 / result[2].length}rem` }}
+              style={{
+                fontSize:
+                  result && result[2] && result[2].length
+                    ? `${getFontSize(result[2].length)}rem`
+                    : "2.2rem", // デフォルトのフォントサイズを設定
+              }}
               ref={resultBtn3}
             >
               <p>{result[2]}</p>
@@ -369,45 +395,50 @@ const Mozi2 = ({ motion, motion2, moziHidden2, flagprop, setShakeAnimation}) => 
             ref={wrapRef}
           >
             <canvas className="mozi-canvas" ref={canvasRef}></canvas>
-           
-          {/* タイマー表示領域 */}
+
+            {/* タイマー表示領域 */}
             <div className="timer-container">
-               <div className="timer-gauge" style={{ width: `${(timer / (TOTAL_TIME * 1000)) * 100}%` }}></div>
-               <img src="/images/timer.svg" alt=""/>
-               <h2>残り時間</h2>
+              <div
+                className="timer-gauge"
+                style={{ width: `${(timer / (TOTAL_TIME * 1000)) * 100}%` }}
+              ></div>
+              <img src="/images/timer.svg" alt="" />
+              <h2>残り時間</h2>
             </div>
-          {/* 意味表示ボタン */}
-          <button className="meaning-btn" onClick={toggleMeaningVisibility}>
+            {/* 意味表示ボタン */}
+            <button className="meaning-btn" onClick={toggleMeaningVisibility}>
               <img src={buttonImage} alt="" />
             </button>
           </div>
-          <br/>
+          <br />
         </div>
 
-      {/* 意味表示領域 */}
-      <div className={meaningVisible ? "meaning-wrap" : "meaning-wrap display-none"}>
-        <h2 dangerouslySetInnerHTML={{ __html: quiz[quizNow].meaning }} />
-          </div>
+        {/* 意味表示領域 */}
+        <div
+          className={
+            meaningVisible ? "meaning-wrap" : "meaning-wrap display-none"
+          }
+        >
+          <h2 dangerouslySetInnerHTML={{ __html: quiz[quizNow].meaning }} />
+        </div>
 
-     
-      {/* カウントダウン表示領域 */}
-      {/* <div className="countdown-container" key={countdown} style={{ visibility: countdown ? 'visible' : 'hidden' }}>
+        {/* カウントダウン表示領域 */}
+        {/* <div className="countdown-container" key={countdown} style={{ visibility: countdown ? 'visible' : 'hidden' }}>
         {countdown}
       </div> */}
 
-
-
-          {/* 消しゴムボタン */}
-          <button
-            className={a && b && c ? "erase-btn" : "display-none"}
-            ref={buttonRef}>
+        {/* 消しゴムボタン */}
+        <button
+          className={a && b && c ? "erase-btn" : "display-none"}
+          ref={buttonRef}
+        >
           <img src="/images/kesi.png" alt="" />
-          </button>
-          {/* 残りライフ表示 */}
-          <div className="life-wrap">
-                    <img src="/images/heart.png" alt="" />
-                    <h2>{lifeNow}</h2>
-          </div>
+        </button>
+        {/* 残りライフ表示 */}
+        <div className="life-wrap">
+          <img src="/images/heart.png" alt="" />
+          <h2>{lifeNow}</h2>
+        </div>
         {/* マルバツ演出表示領域 */}
         <div className="check-wrap">
           <img

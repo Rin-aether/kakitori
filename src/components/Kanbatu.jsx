@@ -42,19 +42,19 @@ const Kanbatu = ({ quizHidden2, flag }) => {
       // 3, Live2Dモデルをロードする
       currentModel = await Live2DModel.from(modelUrl, { autoInteract: false });
 
-    if (window.innerWidth <= 767) {
-      // 767px以下の画面幅の場合
-      currentModel.scale.set(1); // モデルの大きさ
-      currentModel.anchor.set(0.5, 0.75); // モデルのアンカー
-    } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
-      // タブレット
-      currentModel.scale.set(1.1); // モデルの大きさ
-      currentModel.anchor.set(0.5, 0.75); // モデルのアンカー
-    } else {
-      // desktop
-      currentModel.scale.set(0.85); // モデルの大きさ
-      currentModel.anchor.set(0.5, 0.75); // モデルのアンカー
-    }
+      if (window.innerWidth <= 767) {
+        // 767px以下の画面幅の場合
+        currentModel.scale.set(1); // モデルの大きさ
+        currentModel.anchor.set(0.5, 0.75); // モデルのアンカー
+      } else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
+        // タブレット
+        currentModel.scale.set(1.1); // モデルの大きさ
+        currentModel.anchor.set(0.5, 0.75); // モデルのアンカー
+      } else {
+        // desktop
+        currentModel.scale.set(0.85); // モデルの大きさ
+        currentModel.anchor.set(0.5, 0.75); // モデルのアンカー
+      }
 
       currentModel.interactive = true;
 
@@ -63,22 +63,24 @@ const Kanbatu = ({ quizHidden2, flag }) => {
       function handleResize() {
         var parent = live2dwrapRef.current;
         var canvas = live2dRef.current;
-        var ratio = window.devicePixelRatio;
-        canvas.width = parent.clientWidth * ratio;
-        canvas.height = parent.clientHeight * ratio;
-        canvas.style.width = parent.clientWidth + "px";
-        canvas.style.height = parent.clientHeight + "px";
+        if (parent && canvas) {
+          var ratio = window.devicePixelRatio;
+          canvas.width = parent.clientWidth * ratio;
+          canvas.height = parent.clientHeight * ratio;
+          canvas.style.width = parent.clientWidth + "px";
+          canvas.style.height = parent.clientHeight + "px";
 
-        currentModel.position.set(app.view.width / 2, app.view.height / 2); //モデルの位置★
+          currentModel.position.set(app.view.width / 2, app.view.height / 2); // モデルの位置★
 
-        // PixiJSのrendererにcanvasのサイズを更新する
-        app.renderer.resize(canvas.width, canvas.height);
+          // PixiJSのrendererにcanvasのサイズを更新する
+          app.renderer.resize(canvas.width, canvas.height);
+        }
       }
 
       window.addEventListener("resize", handleResize);
       handleResize();
     })();
-  }, [live2dRef]);
+  }, [live2dRef, live2dwrapRef]);
 
   const eyewave = () => {
     app.stage.children[0].internalModel.motionManager.startMotion(
@@ -97,10 +99,19 @@ const Kanbatu = ({ quizHidden2, flag }) => {
 
   return (
     <>
-     <div className={`live2d-canvas-wrap ${shakeAnimation ? 'live2d-shake' : ''}`} ref={live2dwrapRef}>
+      <div
+        className={`live2d-canvas-wrap ${shakeAnimation ? "live2d-shake" : ""}`}
+        ref={live2dwrapRef}
+      >
         <canvas className="my-live2d" ref={live2dRef}></canvas>
       </div>
-      <Mozi2 motion={eyewave} motion2={rushcharge}  moziHidden2={quizHidden2} flagprop={flag} setShakeAnimation={setShakeAnimation}/>
+      <Mozi2
+        motion={eyewave}
+        motion2={rushcharge}
+        moziHidden2={quizHidden2}
+        flagprop={flag}
+        setShakeAnimation={setShakeAnimation}
+      />
     </>
   );
 };
