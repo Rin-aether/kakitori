@@ -104,13 +104,13 @@
   }
   //ipad
   @media (min-width: 768px) and (max-width: 991px) {
-  width: 38%;
-  h2 {
-    font-size: 2.1rem;
-  }
-  img {
-    width: 33%;
-  }
+    width: 38%;
+    h2 {
+      font-size: 2.1rem;
+    }
+    img {
+      width: 33%;
+    }
   }
 }
 
@@ -141,8 +141,8 @@
   &:active {
     @include variables.push;
   }
-   //ipad
-   @media (min-width: 768px) and (max-width: 991px) {
+  //ipad
+  @media (min-width: 768px) and (max-width: 991px) {
     width: 38%;
     h2 {
       font-size: 2.1rem;
@@ -150,7 +150,7 @@
     img {
       width: 37%;
     }
-    }
+  }
 }
 
 .start-wrap {
@@ -163,9 +163,9 @@
 }
 .quiz-start,
 .story-start,
-.kanbatu-start{
+.kanbatu-start {
   width: 85%;
-  height: 25%;
+  height: 28%;
   margin: 15px auto;
   border: 3px solid #555577;
   border-radius: 10px;
@@ -178,7 +178,7 @@
   h2 {
     font-size: 1.6rem;
     color: #444466;
-    
+
     //ipad
     @media (min-width: 768px) and (max-width: 991px) {
       font-size: 2.4rem;
@@ -194,15 +194,24 @@
     -webkit-text-stroke: 0.2px #5538fc;
     filter: drop-shadow(0px 0px 8px rgb(254, 255, 240));
     letter-spacing: 0.1rem;
-    @media screen and (min-width:992px) {
+    @media screen and (min-width: 992px) {
       font-size: 2.1rem;
       -webkit-text-stroke: 0.5px #5538fc;
     }
-      //ipad
-      @media (min-width: 768px) and (max-width: 991px) {
-        font-size: 2.4rem;
-        -webkit-text-stroke: 1px #5538fc;
-      }
+    //ipad
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 2.4rem;
+      -webkit-text-stroke: 1px #5538fc;
+    }
+  }
+  h4 {
+    color: #444466;
+    font-family: "Line-bold";
+    font-size: 1rem;
+    //ipad
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 1.5rem;
+    }
   }
   img {
     width: 7%;
@@ -214,18 +223,20 @@
   }
 }
 
-.back-eng-practice,.back-eng-test{
-position: absolute;
-color: transparent;
-font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
--webkit-text-stroke: 0.8px rgba(68, 68, 102, 0.1);
-letter-spacing: 0.04em;
-font-size: 4rem;
-z-index: 0;
-@media screen and (min-width:992px) {
-  font-size: 5rem;
-  -webkit-text-stroke: 1px rgba(68, 68, 102, 0.1);
-}
+.back-eng-practice,
+.back-eng-test {
+  position: absolute;
+  color: transparent;
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  -webkit-text-stroke: 0.8px rgba(68, 68, 102, 0.1);
+  letter-spacing: 0.04em;
+  font-size: 4rem;
+  z-index: 0;
+  @media screen and (min-width: 992px) {
+    font-size: 5rem;
+    -webkit-text-stroke: 1px rgba(68, 68, 102, 0.1);
+  }
   //ipad
   @media (min-width: 768px) and (max-width: 991px) {
     font-size: 7.5rem;
@@ -233,8 +244,8 @@ z-index: 0;
   }
 }
 
-.back-eng-test{
--webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+.back-eng-test {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
 }
 
 .story-start {
@@ -245,13 +256,17 @@ z-index: 0;
     padding-bottom: 0%;
   }
 }
-.kanbatu-start{
-  background: linear-gradient(to top, rgba(31, 40, 238, 1), rgba(100, 49, 140, 1));
+.kanbatu-start {
+  background: linear-gradient(
+    to top,
+    rgba(31, 40, 238, 1),
+    rgba(100, 49, 140, 1)
+  );
   @include variables.btn-Inline($inColor: #7ab0fb90);
-  h2{
+  h2,
+  h4 {
     color: #fff;
   }
-  
 }
 
 @keyframes toright {
@@ -292,25 +307,25 @@ z-index: 0;
     color: #444466;
     padding-top: 5%;
   }
-  @media screen and (min-width:992px) {
+  @media screen and (min-width: 992px) {
     height: 25%;
     h3 {
       font-size: 1.8rem;
       padding-top: 8%;
     }
   }
-    //ipad
+  //ipad
   @media (min-width: 768px) and (max-width: 991px) {
     width: 65%;
     height: 30%;
-      h2 {
-        font-size: 2rem;
-        border-radius: 10px 10px 0 0;
-      }
-      h3 {
-        font-size: 1.8rem;
-      }
+    h2 {
+      font-size: 2rem;
+      border-radius: 10px 10px 0 0;
     }
+    h3 {
+      font-size: 1.8rem;
+    }
+  }
 }
 
 .modal {
@@ -357,7 +372,7 @@ z-index: 0;
   &:active {
     @include variables.push;
   }
-  @media screen and (min-width:992px) {
+  @media screen and (min-width: 992px) {
     width: 30%;
     box-shadow: 0 1.5px #555577, inset 0 0 0 4px #e1e1e1;
   }

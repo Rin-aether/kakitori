@@ -68,7 +68,7 @@ function App() {
             />
           ) : null}
 
-     {/* 漢伐↓ */}
+          {/* 漢伐↓ */}
           {quizVisible2 ? (
             <Kanbatu
               quizHidden2={() => {
@@ -135,7 +135,10 @@ function App() {
                 <h1 className="back-eng-practice">PRACTICE</h1>
                 <img className="kaki-img" src="/images/pen.png" alt="" />
                 <h2 className="item">━ 練習字合 ━</h2>
-              
+                <h4 className="stage-ex">
+                  生徒と一緒に練習をおこなうモードです
+                </h4>
+
                 {/* <h3 style={displayStyle}>CLEAR!</h3> */}
               </div>
               {/* 漢伐↓ */}
@@ -146,6 +149,9 @@ function App() {
                 <h1 className="back-eng-test">TEST</h1>
                 <img className="kaki-img" src="/images/penwhite.png" alt="" />
                 <h2 className="item">━ 答伐 ━</h2>
+                <h4 className="stage-ex">
+                  体力と時間の制限付きで敵と戦うモードです
+                </h4>
                 <h3 style={displayStyle}>CLEAR!</h3>
               </div>
               {/* ストーリー↓ */}
@@ -155,6 +161,9 @@ function App() {
               >
                 <img src="/images/note.png" alt="" />
                 <h2 className="item">━ まだ何もない世界で ━</h2>
+                <h4 className="stage-ex">
+                  キャラクターの物語を読むことができます
+                </h4>
               </div>
             </div>
 
